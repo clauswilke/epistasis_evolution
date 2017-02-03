@@ -4,6 +4,8 @@
 #include "boost/random.hpp"
 #include "boost/generator_iterator.hpp"
 
+namespace Random {
+
 typedef boost::mt19937 RNGType;
 
 
@@ -28,5 +30,9 @@ public:
 	
     double runif() {return m_runif();}
 };
+
+extern Random rng;
+
+}
 
 #endif

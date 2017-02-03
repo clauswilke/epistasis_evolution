@@ -23,15 +23,13 @@ int main2()
 
 int main()
 {
-	Random r(5);
     for ( int i = 0; i < 5; i++ ) {
-		cout << r.runif() << endl;
+		cout << Random::rng.runif() << endl;
     }
-    //return 0;
     
-    r.set_seed(5);
+    Random::rng.set_seed(5);
     for ( int i = 0; i < 5; i++ ) {
-		cout << r.runif() << endl;
+		cout << Random::rng.runif() << endl;
     }
     return 0;
 
