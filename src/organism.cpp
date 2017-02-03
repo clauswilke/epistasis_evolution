@@ -3,12 +3,14 @@
 #include <iostream>
 
 Organism::Organism(int L, double s) :
-	m_L(L), m_genome(L, 0), m_s(s) {
+	m_L(L), m_genome(L, 0), m_s(s)
+{
 	calc_fitness();
 }
 
 Organism::Organism(const Organism& o) :
-	m_L(o.m_L), m_genome(o.m_genome), m_s(o.m_s) {
+	m_L(o.m_L), m_genome(o.m_genome), m_s(o.m_s)
+{
 	calc_fitness();
 }
 
