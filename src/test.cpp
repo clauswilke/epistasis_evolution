@@ -1,5 +1,9 @@
 #include <iostream>
-#include <set>
+
+
+#include <vector>
+#include <algorithm>
+#include <utility>
 
 #include "organism.h"
 #include "population.h"
@@ -63,13 +67,65 @@ void test_population()
 	cout << "Mean fitness: " << pop.get_mean_fitness() << endl;
 }
 
-    
+void test_sampling()
+{
+	vector<double> w = {.1, .1, .2, .1, .4, .05, .04, .01};
+	int n = w.size();
+	
+	// create vector of weight--index pairs
+	typedef pair<double, int> wipair;
+	vector<wipair> wi;
+	
+	int i=0;
+	for (auto it=w.begin(); it!=w.end(); it++)
+	{
+		wi.emplace_back(*it, i);
+		i++;
+	}
+
+    for (auto it=wi.begin(); it!=wi.end(); it++)
+	{
+		cout << (*it).first << " " << (*it).second << endl;
+	}
+		
+	// sort weight--index pairs by weight
+	std::sort(wi.begin(), wi.end(),
+          [] (wipair const& a, wipair const& b) { return a.first > b.first; });
+          
+    cout << endl;
+    for (auto it=wi.begin(); it!=wi.end(); it++)
+	{
+		cout << (*it).first << " " << (*it).second << endl;
+	}
+		
+	cout << endl;
+	int count7 = 0;
+	int count4 = 0;
+	for (int k=0; k<1000; k++)
+	{
+		double sum = wi.begin()->first;
+		double cut = Random::rng.runif();
+		auto it = wi.begin();
+		while (cut > sum)
+		{
+			it++;
+			sum += (*it).first;
+		}
+		//cout << (*it).second << endl;
+		int i = (*it).second;
+		if (i==4) count4 += 1;
+		if (i==7) count7 += 1;
+	} 
+	cout << count4/1000. << " " << count7/1000. << endl;
+}
 
 int main()
 {
-	test_random();
-	test_organism();
-	test_population();
+	//test_random();
+	//test_organism();
+	//test_population();
+	
+	test_sampling();
 	
 	return 0;
 }
