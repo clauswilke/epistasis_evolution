@@ -11,12 +11,41 @@ private:
 	Population(const Population &);
 	
 	int m_N; // population size
-	std::vector<Organism> m_pop; // actual population
+	double m_mu; // mutation rate
+	
+	typedef std::vector<Organism> IndividualsVect;
+	typedef std::vector<IndividualsVect> PopulationsVect;
+	PopulationsVect m_pop; // actual population, 2 copies
+	PopulationsVect::iterator m_current_pop; // pointer to current population
+
+	// get an iterator to the alternative population
+	PopulationsVect::iterator get_next_pop()
+	{
+		PopulationsVect::iterator it = m_current_pop;
+		it++;
+		if (it == m_pop.end()) it = m_pop.begin();
+		return it;
+	}
 
 public:
-	Population(int N, Organism o);
+	Population(int N, double mu, Organism o);
+	
+	void place(Organism o)
+	{
+		*(m_current_pop->begin()) = o;
+	}
 
-	double get_mean_fitness();
+	void do_Wright_Fisher_step();
+
+	const double get_mean_fitness();
+	
+	const void print(std::ostream &out)
+	{
+		for (auto it=m_current_pop->begin();
+				  it!=m_current_pop->end(); it++)
+						it->print(out);
+	}
+
 };
 
 #endif

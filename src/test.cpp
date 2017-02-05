@@ -41,7 +41,7 @@ void test_organism()
 {
 	cout << "\nTest Organism class" << endl;
 
-	Organism o(10, .1);
+	Organism o(10, 10, .1);
 	o.print(cout);
 	o.mutate(5);
 	o.print(cout);
@@ -56,76 +56,44 @@ void test_organism()
 void test_population()
 {
 	cout << "\nTest Population class" << endl;
-
+	Random::rng.set_seed(2);
+    
 	int L = 10;
 	int N = 100;
-	double s = 0.01;
+	double mu = 0;
+	double s = 0.08;
 	
-	Organism o(L, s);
-	Population pop(N, o);
-	
-	cout << "Mean fitness: " << pop.get_mean_fitness() << endl;
-}
+	//cout << "time mean_fitness" << endl;
+	int count = 0;
+	for (int rep=0; rep<100; rep++)
+	{	
+		Organism o(L, L, s);
+		double w1 = o.get_fitness();
+		Population pop(N, mu, o);	
+		o.set_num_mutations(L-1);
+		double w2 = o.get_fitness();
+		pop.place(o);
 
-void test_sampling()
-{
-	vector<double> w = {.1, .1, .2, .1, .4, .05, .04, .01};
-	int n = w.size();
-	
-	// create vector of weight--index pairs
-	typedef pair<double, int> wipair;
-	vector<wipair> wi;
-	
-	int i=0;
-	for (auto it=w.begin(); it!=w.end(); it++)
-	{
-		wi.emplace_back(*it, i);
-		i++;
-	}
-
-    for (auto it=wi.begin(); it!=wi.end(); it++)
-	{
-		cout << (*it).first << " " << (*it).second << endl;
-	}
-		
-	// sort weight--index pairs by weight
-	std::sort(wi.begin(), wi.end(),
-          [] (wipair const& a, wipair const& b) { return a.first > b.first; });
-          
-    cout << endl;
-    for (auto it=wi.begin(); it!=wi.end(); it++)
-	{
-		cout << (*it).first << " " << (*it).second << endl;
-	}
-		
-	cout << endl;
-	int count7 = 0;
-	int count4 = 0;
-	for (int k=0; k<1000; k++)
-	{
-		double sum = wi.begin()->first;
-		double cut = Random::rng.runif();
-		auto it = wi.begin();
-		while (cut > sum)
+		for (int t=0; t<=1000; t++)
 		{
-			it++;
-			sum += (*it).first;
+			//pop.print(cout);
+			//cout << t << " " << pop.get_mean_fitness() << endl;
+			pop.do_Wright_Fisher_step();
 		}
-		//cout << (*it).second << endl;
-		int i = (*it).second;
-		if (i==4) count4 += 1;
-		if (i==7) count7 += 1;
-	} 
-	cout << count4/1000. << " " << count7/1000. << endl;
+		if (pop.get_mean_fitness() > .5*(w1+w2))
+			count += 1;
+		//cout << rep << " " << pop.get_mean_fitness() << endl;
+	}
+	cout << "Expected prob: " << 2*s << endl;
+	cout << "Observed prob: " << count/100. << endl;
 }
+
 
 int main()
 {
-	//test_random();
-	//test_organism();
-	//test_population();
-	
-	test_sampling();
+	test_random();
+	test_organism();
+	test_population();
 	
 	return 0;
 }

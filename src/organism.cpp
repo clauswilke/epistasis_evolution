@@ -4,16 +4,10 @@
 #include <iostream>
 #include <set>
 
-Organism::Organism(int L, double s) :
+Organism::Organism(int L, int k, double s) :
 	m_L(L), m_genome(L, 0), m_s(s)
 {
-	calc_fitness();
-}
-
-Organism::Organism(const Organism& o) :
-	m_L(o.m_L), m_genome(o.m_genome), m_s(o.m_s)
-{
-	calc_fitness();
+	set_num_mutations(k);
 }
 
 void Organism::calc_fitness()
@@ -29,23 +23,23 @@ void Organism::calc_fitness()
 	m_fitness = fitness;
 }
 
-void Organism::mutate(double mu)
+void Organism::mutate_k_sites(int k)
 {
-	int k = Random::rng.rpoisson(mu); // number of mutations
+	if (k == 0) return; // no mutations, nothing to be done
 	
 	// cannot mutate more than every single site
 	if (k>m_L) k = m_L;
 	
-	std::cout << "# of mutations: " << k << std::endl;
+	//std::cout << "# of mutations: " << k << std::endl;
 	std::set<int> sites_mutated;  
 		
 	for (int i=0; i<k; i++)
 	{
 		int site = Random::rng.rint(m_L);
-		std::cout << "mutating site " << site << std::endl;
+		//std::cout << "mutating site " << site << std::endl;
 		if (sites_mutated.find(site) != sites_mutated.end())
 		{
-			std::cout << "site " << site << " already mutated" << std::endl;
+			//std::cout << "site " << site << " already mutated" << std::endl;
 			i--; // decrement counter to uncount this mutation
 			continue;
 		}
@@ -57,4 +51,16 @@ void Organism::mutate(double mu)
 		}
 	}
 	calc_fitness();
+}
+
+
+
+void Organism::set_num_mutations(int k)
+{
+	for (auto it=m_genome.begin(); it!=m_genome.end(); it++)
+	{
+		*it = 1;
+	}
+
+	mutate_k_sites(k);
 }
