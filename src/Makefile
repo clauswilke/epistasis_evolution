@@ -3,9 +3,14 @@ INC=-I/usr/local/include/
 
 CXXFLAGS=-std=c++11 $(LIB) $(INC)
 
+all: mean_fitness fitness_trajectory
 
-test : test.cpp population.cpp organism.cpp random.cpp
+test: test.cpp population.cpp organism.cpp random.cpp
+
+mean_fitness: mean_fitness.cpp population.cpp organism.cpp random.cpp
+
+fitness_trajectory: fitness_trajectory.cpp population.cpp organism.cpp random.cpp
 
 
 clean:
-	rm test
+	rm -f test mean_fitness fitness_trajectory

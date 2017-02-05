@@ -1,10 +1,5 @@
 #include <iostream>
 
-
-#include <vector>
-#include <algorithm>
-#include <utility>
-
 #include "organism.h"
 #include "population.h"
 #include "random.h"
@@ -41,18 +36,19 @@ void test_organism()
 {
 	cout << "\nTest Organism class" << endl;
 
-	Organism o(10, 10, .1);
+	Organism o(10, 1, 1);
 	o.print(cout);
-	o.mutate(5);
+	o.mutate(1, .1);
 	o.print(cout);
-	o.mutate(5);
+	o.mutate(1, .1);
 	o.print(cout);
-	o.mutate(5);
+	o.mutate(1, 1);
 	o.print(cout);
-	o.mutate(5);
+	o.mutate(1, 1);
 	o.print(cout);
 }
 
+/*
 void test_population()
 {
 	cout << "\nTest Population class" << endl;
@@ -67,12 +63,9 @@ void test_population()
 	int count = 0;
 	for (int rep=0; rep<100; rep++)
 	{	
-		Organism o(L, L, s);
-		double w1 = o.get_fitness();
+		Organism o(L, s, q);
+//		double w1 = o.get_fitness();
 		Population pop(N, mu, o);	
-		o.set_num_mutations(L-1);
-		double w2 = o.get_fitness();
-		pop.place(o);
 
 		for (int t=0; t<=1000; t++)
 		{
@@ -87,45 +80,13 @@ void test_population()
 	cout << "Expected prob: " << 2*s << endl;
 	cout << "Observed prob: " << count/100. << endl;
 }
-
+*/
 
 int main()
 {
-	test_random();
+	//test_random();
 	test_organism();
-	test_population();
+	//test_population();
 	
 	return 0;
 }
-
-
-/* Store for later reference on how to read parameters from command line, from https://shihho.wordpress.com/2013/01/02/random-variates-with-boost/
-#include <iostream>
-  using std::cout;
-  using std::endl;
-#include <iomanip>
-  using std::setprecision;
-#include <cstdlib>
-  using std::atoi;
-  using std::atof;
-#include <ctime>
-  using std::time;
-#include <boost/random/mersenne_twister.hpp>
-  using boost::mt19937;
-#include <boost/random/poisson_distribution.hpp>
-  using boost::poisson_distribution;
-#include <boost/random/variate_generator.hpp>
-  using boost::variate_generator;
- 
-int main(int argc, char * argv[]) {
-  int Nsim=atoi(argv[1]);
-  double exp=atof(argv[2]);
-  mt19937 gen;
-  gen.seed(time(NULL));
-  poisson_distribution<int> pdist(exp);
-  variate_generator< mt19937, poisson_distribution<int> > rvt(gen, pdist);
-  for(int i=0; i<Nsim; i++) cout << rvt() << endl;
-  return 0;
-}
-
-*/
