@@ -29,7 +29,7 @@ public:
 		m_genome(o.m_genome), m_genome_mutation(o.m_L, 0.),
 		m_fitness(o.m_fitness) {}
 
-	void mutate(double mu, double r=0.1);
+	void mutate(double mu, double r=0.01);
 		
 	double get_fitness() const {return m_fitness;}
 	Genome get_genome() const {return m_genome;}
