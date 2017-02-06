@@ -12,6 +12,7 @@ private:
 	
 	int m_N; // population size
 	double m_mu; // mutation rate
+	double m_r; // mutation step size
 	
 	typedef std::vector<Organism> IndividualsVect;
 	typedef std::vector<IndividualsVect> PopulationsVect;
@@ -28,7 +29,7 @@ private:
 	}
 
 public:
-	Population(int N, double mu, Organism o);
+	Population(int N, double mu, double r, Organism o);
 	
 	void place(Organism o)
 	{
@@ -38,6 +39,8 @@ public:
 	void do_Wright_Fisher_step();
 
 	double get_mean_fitness() const;
+	
+	double get_max_fitness() const;
 	
 	void print(std::ostream &out) const
 	{

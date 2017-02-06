@@ -30,6 +30,8 @@ public:
 		m_fitness(o.m_fitness) {}
 
 	void mutate(double mu, double r=0.01);
+	
+	void set_genome_from_fitness(double fitness);
 		
 	double get_fitness() const {return m_fitness;}
 	Genome get_genome() const {return m_genome;}

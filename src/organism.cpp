@@ -11,6 +11,20 @@ Organism::Organism(int L, double s, double q) :
 	calc_fitness();
 }
 
+void Organism::set_genome_from_fitness(double fitness)
+{
+	double x = pow(-log(fitness)/m_s, 1/m_q);
+	
+	for (auto it=m_genome.begin(); it!=m_genome.end(); it++)
+	{
+		(*it) = 0;
+	}
+	*(m_genome.begin()) = x;
+	
+	calc_fitness();
+}
+
+
 void Organism::calc_fitness()
 {
 	double x = 0; 

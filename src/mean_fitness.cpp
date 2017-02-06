@@ -1,15 +1,21 @@
 #include <iostream>
 #include <cstdlib>
+#include <cmath>
+#include <utility>
 
 #include "organism.h"
 #include "population.h"
 
 using namespace std;
 
-double evolve_trajectory(int L, int N, double s, double q, double mu, int burn_in, int measure_time)
+pair<double, double> evolve_trajectory(int L, int N, double s, double q, double mu, double r, int burn_in, int measure_time)
 {
-	Organism o(L, 0, s, q);
-	Population pop(N, mu, o);	
+	// start from predicted equilibrium frequency
+	double f_pred = pow(1.-1./(2*N-1.), L/q);
+
+	Organism o(L, s, q);
+	o.set_genome_from_fitness(f_pred);
+	Population pop(N, mu, r, o);
 	
 	for (int t=0; t<burn_in; t++)
 	{
@@ -17,36 +23,30 @@ double evolve_trajectory(int L, int N, double s, double q, double mu, int burn_i
 	}
 
 	double mean = 0;
+	double max = 0;
 	for (int t=0; t<measure_time; t++)
 	{
 		mean += pop.get_mean_fitness();
+		max += pop.get_max_fitness();
 		pop.do_Wright_Fisher_step();
 	}
 	mean /= measure_time;
+	max /= measure_time;
 
-	return mean;
+	return pair<double, double>(mean, max);
 }
 
 
 
-void equil_mean_fitness(int L, int N, double s, double q, double mu, int burn_in, int measure_time, int reps)
-{
-	double m1 = 0;
-	double m2 = 0;
-	
-	cout << "#";
+void equil_mean_fitness(int L, int N, double s, double q, double mu, double r, int burn_in, int measure_time, int reps)
+{	
 	for (int rep=0; rep<reps; rep++)
 	{	
-		double mean = evolve_trajectory(L, N, s, q, mu, burn_in, measure_time);
-		cout << "[" << rep+1 << "/" << reps << "] "; 
-		m1 += mean;
-		m2 += mean*mean;
+		pair<double, double> p = evolve_trajectory(L, N, s, q, mu, r, burn_in, measure_time);
+
+		cout << L << "\t" << N << "\t" << s << "\t" << q << "\t" << mu << "\t" << r << "\t" << p.first << "\t" << p.second << endl;
+	
 	}
-	
-	m1 /= reps;
-	m2 /= reps;
-	
-	cout << endl << m1 << " " << m2-m1*m1 << endl;
 }
 
 
@@ -57,7 +57,7 @@ int main(int argc, char * argv[])
 	if (argc != 6)
 	{
 		cout << "Usage:" << endl;
-		cout << "  " << argv[0] << " <L> <N> <s> <q> <mu>" << endl;
+		cout << "  " << argv[0] << " <L> <N> <s> <q> <r>" << endl;
 		cout << "\nwith:\n  <L>: genome length\n  <N>: population size\n  <s>: selection coefficient\n  <q>: epistasis coefficient\n  <mu>: per-genome mutation rate" << endl;
 		return 0;
 	}
@@ -66,13 +66,19 @@ int main(int argc, char * argv[])
 	int N = atoi(argv[2]);
 	double s = atof(argv[3]);
 	double q = atof(argv[4]);
-	double mu = atof(argv[5]);
+	double r = atof(argv[5]);
 
-	int burn_in = 1000;
-	int measure_time =  1000;
-	int reps = 20;
+	int burn_in = 50000;
+	int measure_time =  20000;
+	int reps = 5;
 
-	equil_mean_fitness(L, N, s, q, mu, burn_in, measure_time, reps);
+	cout << "L\tN\ts\tq\tmu\tr\t<mean>\tmax" << endl;
+
+	equil_mean_fitness(L, N, s, q, .1/N, r, burn_in, measure_time, reps);
+	equil_mean_fitness(L, N, s, q, .33/N, r, burn_in, measure_time, reps);
+	equil_mean_fitness(L, N, s, q, 1./N, r, burn_in, measure_time, reps);
+	equil_mean_fitness(L, N, s, q, 3.3/N, r, burn_in, measure_time, reps);
+	equil_mean_fitness(L, N, s, q, 10./N, r, burn_in, measure_time, reps);
 	
 	return 0;
 }

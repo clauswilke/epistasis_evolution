@@ -7,9 +7,10 @@
 
 using namespace std;
 
-Population::Population(int N, double mu, Organism o){
+Population::Population(int N, double mu, double r, Organism o){
 	m_N = N;
 	m_mu = mu;
+	m_r = r;
 	
 	vector<Organism> pop, pop2;
 	// create initial population
@@ -85,7 +86,7 @@ void Population::do_Wright_Fisher_step()
 		}
 		new_pop->push_back( *(it->second) ); // copy organism over
 		//cout << "before: "; new_pop->back().print(cout);
-		new_pop->back().mutate(m_mu); // mutate the organism
+		new_pop->back().mutate(m_mu, m_r); // mutate the organism
 		//cout << "after:  "; new_pop->back().print(cout);
 	} 
 
@@ -106,5 +107,16 @@ double Population::get_mean_fitness() const
 	
 	return mean;
 }
+
+double Population::get_max_fitness() const
+{
+	double max = 0.;
+	for (auto it=m_current_pop->begin(); it!=m_current_pop->end(); it++){
+		double w = (*it).get_fitness();
+		if (w > max) max=w;
+	}
+	return max;
+}
+
 
 
