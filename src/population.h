@@ -37,9 +37,9 @@ public:
 
 	void do_Wright_Fisher_step();
 
-	const double get_mean_fitness();
+	double get_mean_fitness() const;
 	
-	const void print(std::ostream &out)
+	void print(std::ostream &out) const
 	{
 		for (auto it=m_current_pop->begin();
 				  it!=m_current_pop->end(); it++)

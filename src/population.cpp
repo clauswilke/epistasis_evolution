@@ -96,7 +96,7 @@ void Population::do_Wright_Fisher_step()
 
 
 
-const double Population::get_mean_fitness()
+double Population::get_mean_fitness() const
 {
 	double mean = 0.;
 	for (auto it=m_current_pop->begin(); it!=m_current_pop->end(); it++){

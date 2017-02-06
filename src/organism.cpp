@@ -30,7 +30,7 @@ void Organism::mutate(double mu, double r)
 	double x = 0;
 	for (auto it=m_genome_mutation.begin(); it!=m_genome_mutation.end(); it++)
 	{
-		double delta = Random::rng.runif();
+		double delta = Random::rng.runif()-.5;
 		*it = delta;
 		x += delta*delta;
 	}

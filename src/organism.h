@@ -31,9 +31,9 @@ public:
 
 	void mutate(double mu, double r=0.1);
 		
-	const double get_fitness() {return m_fitness;}
-	const Genome get_genome() {return m_genome;}
-	const void print(std::ostream &out)
+	double get_fitness() const {return m_fitness;}
+	Genome get_genome() const {return m_genome;}
+	void print(std::ostream &out) const
 	{
 		out << "c(";
 		for (auto it=m_genome.begin(); it!=m_genome.end(); it++) out << *it << ", ";
