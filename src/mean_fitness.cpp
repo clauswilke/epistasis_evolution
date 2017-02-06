@@ -44,7 +44,7 @@ void equil_mean_fitness(int L, int N, double s, double q, double mu, double r, i
 	{	
 		pair<double, double> p = evolve_trajectory(L, N, s, q, mu, r, burn_in, measure_time);
 
-		cout << L << "\t" << N << "\t" << s << "\t" << q << "\t" << mu << "\t" << r << "\t" << p.first << "\t" << p.second << endl;
+		cout << L << "\t" << N << "\t" << s << "\t" << q << "\t" << mu << "\t" << r << "\t" << rep << "\t" << p.first << "\t" << p.second << endl;
 	
 	}
 }
@@ -72,13 +72,15 @@ int main(int argc, char * argv[])
 	int measure_time =  20000;
 	int reps = 5;
 
-	cout << "L\tN\ts\tq\tmu\tr\t<mean>\tmax" << endl;
+	cout << "L\tN\ts\tq\tmu\tr\trep\t<mean>\tmax" << endl;
 
-	equil_mean_fitness(L, N, s, q, .1/N, r, burn_in, measure_time, reps);
-	equil_mean_fitness(L, N, s, q, .33/N, r, burn_in, measure_time, reps);
-	equil_mean_fitness(L, N, s, q, 1./N, r, burn_in, measure_time, reps);
-	equil_mean_fitness(L, N, s, q, 3.3/N, r, burn_in, measure_time, reps);
-	equil_mean_fitness(L, N, s, q, 10./N, r, burn_in, measure_time, reps);
+	equil_mean_fitness(L, N, s, q, 1., r, burn_in, measure_time, reps);
+	equil_mean_fitness(L, N, s, q, .33, r, burn_in, measure_time, reps);
+	equil_mean_fitness(L, N, s, q, .1, r, burn_in, measure_time, reps);
+	equil_mean_fitness(L, N, s, q, .033, r, burn_in, measure_time, reps);
+	equil_mean_fitness(L, N, s, q, .01, r, burn_in, measure_time, reps);
+	equil_mean_fitness(L, N, s, q, .0033, r, burn_in, measure_time, reps);
+	equil_mean_fitness(L, N, s, q, .001, r, burn_in, measure_time, reps);
 	
 	return 0;
 }
