@@ -72,7 +72,7 @@ int main(int argc, char * argv[])
 	int measure_time =  20000;
 	int reps = 5;
 
-	cout << "L\tN\ts\tq\tmu\tr\trep\t<mean>\tmax" << endl;
+	cout << "L\tN\ts\tq\tmu\tr\trep\tmean\tmax" << endl;
 
 	equil_mean_fitness(L, N, s, q, 1., r, burn_in, measure_time, reps);
 	equil_mean_fitness(L, N, s, q, .33, r, burn_in, measure_time, reps);
