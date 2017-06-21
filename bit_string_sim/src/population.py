@@ -1,4 +1,5 @@
 import numpy as np
+import argparse
 
 class population:
 
@@ -12,6 +13,7 @@ class population:
 		self.initialize(0)
 			
 	def replicate(self):
+		self.f = np.exp(-self.s*self.k_class) #calculate an array that contains fitness values for each mutation class k
 		prob_repl = self.f*self.n_k/np.sum(self.f*self.n_k) #probability of being replicated based on the number of individuals within a mutation class and the fitness of the mutation class
 		self.n_k = np.random.multinomial(self.N, prob_repl) #draws offspring based on the probability of replication for each mutation class
 		
@@ -46,19 +48,16 @@ class population:
 				self.n_k[k-1] = self.n_k[k-1]+down
 				self.n_k[k] = self.n_k[k]-(up+down)
 				self.n_k[k+1] = self.n_k[k+1]+up
-				
+
 	def mean_fitness(self):
-		return np.mean(self.f)
+		return np.sum(self.f*self.n_k)/self.N
 		
 	def evolve(self, t):
+		print("time\tmean_fitness")
 		for t_i in range(t):
-			print("---------------")
-			print("time step: ", t_i)
-			print("n_k: ", self.n_k)
 			self.replicate()
-			print("n_k after replication: ", self.n_k)
 			self.mutate()
-			print("n_k after mutation: ", self.n_k)
+			print(str(t_i)+'\t'+str(self.mean_fitness()))
 	
 	def initialize(self, k_start):
 		#intialize an array of mutation classes, k=1,2,3,...,L
@@ -66,24 +65,40 @@ class population:
 		
 		#initialize a zero array to hold n_k for each mutation class k
 		self.n_k =  np.zeros(self.L + 1)
-		
-		#calculate an array that contains fitness values for each mutation class k
-		self.f = np.exp(-self.s*self.k_class)
-		
+				
 		#set the entire population to mutation class k=0.
 		self.n_k[k_start] = self.N
 		
-		
+
 def main():
+	'''
+	simulate bitstring population
+	'''
+	#creating a parser
+	parser = argparse.ArgumentParser(description='Reformat sequence IDs in FASTA files.')
+	#adding arguments
+	parser.add_argument('-s', metavar='<selection coefficient>', type=float, help='selection coefficient')
+	parser.add_argument('-m', metavar='<probability of mutation>', type=float, help='mu')
+	parser.add_argument('-o', metavar='<mean_fitness.txt>', type=str, help='output file with mean fitness values')
+
+	args = parser.parse_args()
+
+	#set up output file name if none is given
+	if args.o is None:
+		outfile = 'mean_fitness.txt'
+	else:
+		outfile = args.o
 	
 	L = 10 ##number of classes of mutations
 	N = 100 ##total population size 
-	s = 0.1 ##selection coefficient
+	s = args.s ##selection coefficient
 	q = 1 ##
-	mu = 0.1 ##probability of mutating
-	t = 10 ##number of time steps or number of generations
+	mu = args.m ##probability of mutating
+	t = 50 ##number of time steps or number of generations
 	
 	pop = population(L, N, s, q, mu)
 	pop.evolve(t)
 
-main()
+if __name__ == "__main__":
+    main()
+
