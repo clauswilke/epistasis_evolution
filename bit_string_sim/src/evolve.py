@@ -13,7 +13,7 @@ def evolve(L, N, s, q, mu, t, delta_t_out, k_start, out):
 		#	out.write('%d\t%.10f\t%.10f\t%.10f\t%d\t%d\t%d\t%d\t%f\n' %(t_i, 1-q, s, mu, N, L, k_start, i+1, pop.mean_fitness()))
 		#	out.flush()
 		if (t_i == t-1):
-			out.write('%d\t%.10f\t%.10f\t%.10f\t%d\t%d\t%d\t%d\t%f\n' %(t_i, 1-q, s, mu, N, L, k_start, i+1, pop.mean_fitness()))
+			out.write('%d\t%.10f\t%.10f\t%.10f\t%d\t%d\t%d\t%f\n' %(t_i, 1-q, s, mu, N, L, k_start, pop.mean_fitness()))
 
 def main():
 	'''
@@ -67,7 +67,7 @@ def main():
 	delta_t_out = 1000 # at which time steps should output be printed?
 				
 	out = open(outfile,'w')
-	out.write('time\tepistasis_coef\tsel_coef\tmu_prob\tNe\tL\tk_start\trepl_num\tmean_fitness\n')
+	out.write('time\tepistasis_coef\tsel_coef\tmu_prob\tNe\tL\tk_start\tmean_fitness\n')
 
 	evolve(L, N, s, q, mu, t, delta_t_out, 0, out)
 	
