@@ -8,11 +8,13 @@ num_class=100
 k_start=0
 eps=0
 
+rm src/run_simulation.sh 
+
 for sel_coef in ${sel_coef_arr[*]}
 do 	
 	for mut_prob in ${mut_prob_arr[*]} 	 
 	do
-		out_file=sim_results/s${sel_coef}_m${mut_prob}_n${eff_pop}_kstart${k_start}.txt
+		out_file=sim_results/s${sel_coef}_m${mut_prob}_n${eff_pop}.txt
 		echo python src/evolve.py -s $sel_coef -m $mut_prob -N $eff_pop -L $num_class -k_start $k_start -eps $eps -o $out_file >> src/run_simulation.sh 
 	done
 done
