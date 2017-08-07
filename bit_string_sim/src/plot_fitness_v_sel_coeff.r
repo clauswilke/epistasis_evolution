@@ -14,7 +14,7 @@ predict_mean_fitness <- function(Ne, L, s, eps)
   sum(f*p_k)
 }
 
-file_lst <- list.files("sim_results",pattern="n\\d+.\\d+.txt",full.names=T)
+file_lst <- list.files("sim_results",pattern="n100.txt",full.names=T)
 
 for (file in file_lst) {
     t <- read_delim(file,delim="\t")
@@ -26,12 +26,13 @@ for (file in file_lst) {
     Ne <- t$Ne[1]
     L <- t$L[1]
     s <- t$sel_coef[1]
+    m <- t$mu_prob[1]
     
     an_mf <- predict_mean_fitness(Ne, L, s, eps)
     
     p <- ggplot()+
-      geom_line(data=t_0, aes(x=time,y=mean_fitness,group=repl_num)) +
-      geom_line(data=t_100, aes(x=time,y=mean_fitness,group=repl_num)) +
+      geom_line(data=t_0, aes(x=time,y=mean_fitness)) +
+      geom_line(data=t_100, aes(x=time,y=mean_fitness)) +
       geom_hline(yintercept = an_mf,color="red")+
       xlab('Time') +
       ylab('Mean fitness') +
@@ -42,7 +43,7 @@ for (file in file_lst) {
             legend.text = element_text(size = 11),
             legend.title = element_text(size = 12))
     
-  save_plot(paste0("plots/mean_fit_v_time_s",s,"_m",s,"_n",Ne,".pdf"), p)
+  save_plot(paste0("plots/mean_fit_v_time_s",s,"_m",m,"_n",Ne,".pdf"), p)
   
 }
 

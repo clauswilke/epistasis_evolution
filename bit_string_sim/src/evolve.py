@@ -9,9 +9,11 @@ def evolve(L, N, s, q, mu, t, delta_t_out, k_start, out):
 	for t_i in range(t):
 		pop.replicate()
 		pop.mutate()
-		if (t_i % delta_t_out == 0):
+		#if (t_i % delta_t_out == 0):
+		#	out.write('%d\t%.10f\t%.10f\t%.10f\t%d\t%d\t%d\t%d\t%f\n' %(t_i, 1-q, s, mu, N, L, k_start, i+1, pop.mean_fitness()))
+		#	out.flush()
+		if (t_i == t-1):
 			out.write('%d\t%.10f\t%.10f\t%.10f\t%d\t%d\t%d\t%d\t%f\n' %(t_i, 1-q, s, mu, N, L, k_start, i+1, pop.mean_fitness()))
-			out.flush()
 
 def main():
 	'''
@@ -54,15 +56,21 @@ def main():
 	L = args.L ##number of classes of mutations
 	eps = args.eps ##epistasis
 	q = 1-eps ##q=1-epsilon. if q is large ~ fitness is low and vice versa.
-	t = 1500000 ##number of time steps or number of generations
+	
+	if N*mu >= 1:
+		t = 500000 ##number of time steps or number of generations
+	elif N*mu == 0.1:
+		t = 1000000
+	else:
+		t = 2000000
+		
 	delta_t_out = 1000 # at which time steps should output be printed?
 				
 	out = open(outfile,'w')
 	out.write('time\tepistasis_coef\tsel_coef\tmu_prob\tNe\tL\tk_start\trepl_num\tmean_fitness\n')
 
 	evolve(L, N, s, q, mu, t, delta_t_out, 0, out)
-	evolve(L, N, s, q, mu, t, delta_t_out, L, out)
-
+	
 	out.close()
 		
 if __name__ == "__main__":

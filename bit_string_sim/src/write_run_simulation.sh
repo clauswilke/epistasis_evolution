@@ -1,20 +1,29 @@
 #!/bin/bash
-repl_num=1
+repl_num=10
 sel_coef_arr=(0.001 0.0001)  ##s*N < 1
 mut_prob_arr=(0.0001 0.001 0.01 0.1) ##pick mutation prob such that N*mu<<1
 ##Claus has simulated N*mu of 0.1, 1, 10
 eff_pop=100
 num_class=100
 k_start=0
-eps=0
+eps_arr=(-0.5 0 1)
 
-rm src/run_simulation.sh 
 
-for sel_coef in ${sel_coef_arr[*]}
-do 	
-	for mut_prob in ${mut_prob_arr[*]} 	 
-	do
-		out_file=sim_results/s${sel_coef}_m${mut_prob}_n${eff_pop}.txt
-		echo python src/evolve.py -s $sel_coef -m $mut_prob -N $eff_pop -L $num_class -k_start $k_start -eps $eps -o $out_file >> src/run_simulation.sh 
+if [ -f src/run_simulation.sh ]; then
+	rm src/run_simulation.sh 
+fi
+
+for eps in ${eps_arr[*]}
+do
+	for sel_coef in ${sel_coef_arr[*]}
+	do 	
+		for mut_prob in ${mut_prob_arr[*]} 	 
+		do
+			for i in $(seq 1 $repl_num) 
+			do
+				out_file=sim_results/eps${eps}_s${sel_coef}_m${mut_prob}_rep${i}.txt
+				echo python src/evolve.py -s $sel_coef -m $mut_prob -N $eff_pop -L $num_class -k_start $k_start -eps $eps -o $out_file >> src/run_simulation.sh 
+			done
+		done
 	done
 done
