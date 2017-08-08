@@ -1,14 +1,11 @@
 #!/bin/bash
 repl_num=10
-#sel_coef_arr=(0.001 0.0001)  ##s*N < 1
-sel_coef_arr=(0.1 0.01)
-mut_prob_arr=(0.0001 0.001 0.01 0.1) ##pick mutation prob such that N*mu<<1
-##Claus has simulated N*mu of 0.1, 1, 10
+sel_coef_arr=(0.1 0.01 0.001 0.0001)  ##s*N < 1
+mut_prob_arr=(0.0001 0.001 0.01 0.1) ##pick mutation prob such that N*mu = 0.1, 1, 10
 eff_pop=100
 num_class=100
 k_start=0
 eps_arr=(-1 0 0.5)
-
 
 if [ -f src/run_simulation.sh ]; then
 	rm src/run_simulation.sh 
