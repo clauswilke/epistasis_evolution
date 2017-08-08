@@ -1,6 +1,7 @@
 #!/bin/bash
 repl_num=10
-sel_coef_arr=(0.001 0.0001)  ##s*N < 1
+#sel_coef_arr=(0.001 0.0001)  ##s*N < 1
+sel_coef_arr=(0.1 0.01)
 mut_prob_arr=(0.0001 0.001 0.01 0.1) ##pick mutation prob such that N*mu<<1
 ##Claus has simulated N*mu of 0.1, 1, 10
 eff_pop=100
