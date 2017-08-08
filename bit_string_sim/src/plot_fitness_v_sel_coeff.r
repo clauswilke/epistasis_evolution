@@ -30,8 +30,8 @@ for (s in c(0.1, 0.01, 0.001, 0.0001)){
                  geom = "pointrange",
                  size=0.4)+
     geom_line(aes(y = an_mean_fitness,group=factor(epistasis_coef),color=factor(q)))+
-    xlab('Ne*mu') +
-    ylab('Mean fitness') +
+    xlab('Ne*mu')+
+    ylab('Mean fitness')+
     scale_x_log10()+
     #scale_y_continuous(breaks=seq(0.99,1,0.005))+
     guides(col = guide_legend(title="Q",reverse = TRUE))+
