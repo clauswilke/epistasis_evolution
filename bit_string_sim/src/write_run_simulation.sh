@@ -19,7 +19,7 @@ do
 		do
 			for i in $(seq 1 $repl_num) 
 			do
-				out_file=complexity_evolution/bit_string_sim/sim_results/eps${eps}_s${sel_coef}_m${mut_prob}_rep${i}.txt
+				out_file=complexity_evolution/bit_string_sim/varying_eps_sim/eps${eps}_s${sel_coef}_m${mut_prob}_rep${i}.txt
 				echo python complexity_evolution/bit_string_sim/src/evolve.py -s $sel_coef -m $mut_prob -N $eff_pop -L $num_class -k_start $k_start -eps $eps -o $out_file >> src/run_simulation.sh 
 			done
 		done
