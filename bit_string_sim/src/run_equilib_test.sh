@@ -1,160 +1,160 @@
-python complexity_evolution/bit_string_sim/src/evolve.py -s 0.1 -m 0.0001 -N 100 -L 100 -k_start -eps 1 -o complexity_evolution/bit_string_sim/equilib_test/eps1_s0.1_m0.0001_k_start0.txt
-python complexity_evolution/bit_string_sim/src/evolve.py -s 0.1 -m 0.0001 -N 100 -L 100 -k_start -eps 1 -o complexity_evolution/bit_string_sim/equilib_test/eps1_s0.1_m0.0001_k_start100.txt
-python complexity_evolution/bit_string_sim/src/evolve.py -s 0.1 -m 0.001 -N 100 -L 100 -k_start -eps 1 -o complexity_evolution/bit_string_sim/equilib_test/eps1_s0.1_m0.001_k_start0.txt
-python complexity_evolution/bit_string_sim/src/evolve.py -s 0.1 -m 0.001 -N 100 -L 100 -k_start -eps 1 -o complexity_evolution/bit_string_sim/equilib_test/eps1_s0.1_m0.001_k_start100.txt
-python complexity_evolution/bit_string_sim/src/evolve.py -s 0.1 -m 0.01 -N 100 -L 100 -k_start -eps 1 -o complexity_evolution/bit_string_sim/equilib_test/eps1_s0.1_m0.01_k_start0.txt
-python complexity_evolution/bit_string_sim/src/evolve.py -s 0.1 -m 0.01 -N 100 -L 100 -k_start -eps 1 -o complexity_evolution/bit_string_sim/equilib_test/eps1_s0.1_m0.01_k_start100.txt
-python complexity_evolution/bit_string_sim/src/evolve.py -s 0.1 -m 0.1 -N 100 -L 100 -k_start -eps 1 -o complexity_evolution/bit_string_sim/equilib_test/eps1_s0.1_m0.1_k_start0.txt
-python complexity_evolution/bit_string_sim/src/evolve.py -s 0.1 -m 0.1 -N 100 -L 100 -k_start -eps 1 -o complexity_evolution/bit_string_sim/equilib_test/eps1_s0.1_m0.1_k_start100.txt
-python complexity_evolution/bit_string_sim/src/evolve.py -s 0.01 -m 0.0001 -N 100 -L 100 -k_start -eps 1 -o complexity_evolution/bit_string_sim/equilib_test/eps1_s0.01_m0.0001_k_start0.txt
-python complexity_evolution/bit_string_sim/src/evolve.py -s 0.01 -m 0.0001 -N 100 -L 100 -k_start -eps 1 -o complexity_evolution/bit_string_sim/equilib_test/eps1_s0.01_m0.0001_k_start100.txt
-python complexity_evolution/bit_string_sim/src/evolve.py -s 0.01 -m 0.001 -N 100 -L 100 -k_start -eps 1 -o complexity_evolution/bit_string_sim/equilib_test/eps1_s0.01_m0.001_k_start0.txt
-python complexity_evolution/bit_string_sim/src/evolve.py -s 0.01 -m 0.001 -N 100 -L 100 -k_start -eps 1 -o complexity_evolution/bit_string_sim/equilib_test/eps1_s0.01_m0.001_k_start100.txt
-python complexity_evolution/bit_string_sim/src/evolve.py -s 0.01 -m 0.01 -N 100 -L 100 -k_start -eps 1 -o complexity_evolution/bit_string_sim/equilib_test/eps1_s0.01_m0.01_k_start0.txt
-python complexity_evolution/bit_string_sim/src/evolve.py -s 0.01 -m 0.01 -N 100 -L 100 -k_start -eps 1 -o complexity_evolution/bit_string_sim/equilib_test/eps1_s0.01_m0.01_k_start100.txt
-python complexity_evolution/bit_string_sim/src/evolve.py -s 0.01 -m 0.1 -N 100 -L 100 -k_start -eps 1 -o complexity_evolution/bit_string_sim/equilib_test/eps1_s0.01_m0.1_k_start0.txt
-python complexity_evolution/bit_string_sim/src/evolve.py -s 0.01 -m 0.1 -N 100 -L 100 -k_start -eps 1 -o complexity_evolution/bit_string_sim/equilib_test/eps1_s0.01_m0.1_k_start100.txt
-python complexity_evolution/bit_string_sim/src/evolve.py -s 0.001 -m 0.0001 -N 100 -L 100 -k_start -eps 1 -o complexity_evolution/bit_string_sim/equilib_test/eps1_s0.001_m0.0001_k_start0.txt
-python complexity_evolution/bit_string_sim/src/evolve.py -s 0.001 -m 0.0001 -N 100 -L 100 -k_start -eps 1 -o complexity_evolution/bit_string_sim/equilib_test/eps1_s0.001_m0.0001_k_start100.txt
-python complexity_evolution/bit_string_sim/src/evolve.py -s 0.001 -m 0.001 -N 100 -L 100 -k_start -eps 1 -o complexity_evolution/bit_string_sim/equilib_test/eps1_s0.001_m0.001_k_start0.txt
-python complexity_evolution/bit_string_sim/src/evolve.py -s 0.001 -m 0.001 -N 100 -L 100 -k_start -eps 1 -o complexity_evolution/bit_string_sim/equilib_test/eps1_s0.001_m0.001_k_start100.txt
-python complexity_evolution/bit_string_sim/src/evolve.py -s 0.001 -m 0.01 -N 100 -L 100 -k_start -eps 1 -o complexity_evolution/bit_string_sim/equilib_test/eps1_s0.001_m0.01_k_start0.txt
-python complexity_evolution/bit_string_sim/src/evolve.py -s 0.001 -m 0.01 -N 100 -L 100 -k_start -eps 1 -o complexity_evolution/bit_string_sim/equilib_test/eps1_s0.001_m0.01_k_start100.txt
-python complexity_evolution/bit_string_sim/src/evolve.py -s 0.001 -m 0.1 -N 100 -L 100 -k_start -eps 1 -o complexity_evolution/bit_string_sim/equilib_test/eps1_s0.001_m0.1_k_start0.txt
-python complexity_evolution/bit_string_sim/src/evolve.py -s 0.001 -m 0.1 -N 100 -L 100 -k_start -eps 1 -o complexity_evolution/bit_string_sim/equilib_test/eps1_s0.001_m0.1_k_start100.txt
-python complexity_evolution/bit_string_sim/src/evolve.py -s 0.0001 -m 0.0001 -N 100 -L 100 -k_start -eps 1 -o complexity_evolution/bit_string_sim/equilib_test/eps1_s0.0001_m0.0001_k_start0.txt
-python complexity_evolution/bit_string_sim/src/evolve.py -s 0.0001 -m 0.0001 -N 100 -L 100 -k_start -eps 1 -o complexity_evolution/bit_string_sim/equilib_test/eps1_s0.0001_m0.0001_k_start100.txt
-python complexity_evolution/bit_string_sim/src/evolve.py -s 0.0001 -m 0.001 -N 100 -L 100 -k_start -eps 1 -o complexity_evolution/bit_string_sim/equilib_test/eps1_s0.0001_m0.001_k_start0.txt
-python complexity_evolution/bit_string_sim/src/evolve.py -s 0.0001 -m 0.001 -N 100 -L 100 -k_start -eps 1 -o complexity_evolution/bit_string_sim/equilib_test/eps1_s0.0001_m0.001_k_start100.txt
-python complexity_evolution/bit_string_sim/src/evolve.py -s 0.0001 -m 0.01 -N 100 -L 100 -k_start -eps 1 -o complexity_evolution/bit_string_sim/equilib_test/eps1_s0.0001_m0.01_k_start0.txt
-python complexity_evolution/bit_string_sim/src/evolve.py -s 0.0001 -m 0.01 -N 100 -L 100 -k_start -eps 1 -o complexity_evolution/bit_string_sim/equilib_test/eps1_s0.0001_m0.01_k_start100.txt
-python complexity_evolution/bit_string_sim/src/evolve.py -s 0.0001 -m 0.1 -N 100 -L 100 -k_start -eps 1 -o complexity_evolution/bit_string_sim/equilib_test/eps1_s0.0001_m0.1_k_start0.txt
-python complexity_evolution/bit_string_sim/src/evolve.py -s 0.0001 -m 0.1 -N 100 -L 100 -k_start -eps 1 -o complexity_evolution/bit_string_sim/equilib_test/eps1_s0.0001_m0.1_k_start100.txt
-python complexity_evolution/bit_string_sim/src/evolve.py -s 0.1 -m 0.0001 -N 100 -L 100 -k_start -eps 0.5 -o complexity_evolution/bit_string_sim/equilib_test/eps0.5_s0.1_m0.0001_k_start0.txt
-python complexity_evolution/bit_string_sim/src/evolve.py -s 0.1 -m 0.0001 -N 100 -L 100 -k_start -eps 0.5 -o complexity_evolution/bit_string_sim/equilib_test/eps0.5_s0.1_m0.0001_k_start100.txt
-python complexity_evolution/bit_string_sim/src/evolve.py -s 0.1 -m 0.001 -N 100 -L 100 -k_start -eps 0.5 -o complexity_evolution/bit_string_sim/equilib_test/eps0.5_s0.1_m0.001_k_start0.txt
-python complexity_evolution/bit_string_sim/src/evolve.py -s 0.1 -m 0.001 -N 100 -L 100 -k_start -eps 0.5 -o complexity_evolution/bit_string_sim/equilib_test/eps0.5_s0.1_m0.001_k_start100.txt
-python complexity_evolution/bit_string_sim/src/evolve.py -s 0.1 -m 0.01 -N 100 -L 100 -k_start -eps 0.5 -o complexity_evolution/bit_string_sim/equilib_test/eps0.5_s0.1_m0.01_k_start0.txt
-python complexity_evolution/bit_string_sim/src/evolve.py -s 0.1 -m 0.01 -N 100 -L 100 -k_start -eps 0.5 -o complexity_evolution/bit_string_sim/equilib_test/eps0.5_s0.1_m0.01_k_start100.txt
-python complexity_evolution/bit_string_sim/src/evolve.py -s 0.1 -m 0.1 -N 100 -L 100 -k_start -eps 0.5 -o complexity_evolution/bit_string_sim/equilib_test/eps0.5_s0.1_m0.1_k_start0.txt
-python complexity_evolution/bit_string_sim/src/evolve.py -s 0.1 -m 0.1 -N 100 -L 100 -k_start -eps 0.5 -o complexity_evolution/bit_string_sim/equilib_test/eps0.5_s0.1_m0.1_k_start100.txt
-python complexity_evolution/bit_string_sim/src/evolve.py -s 0.01 -m 0.0001 -N 100 -L 100 -k_start -eps 0.5 -o complexity_evolution/bit_string_sim/equilib_test/eps0.5_s0.01_m0.0001_k_start0.txt
-python complexity_evolution/bit_string_sim/src/evolve.py -s 0.01 -m 0.0001 -N 100 -L 100 -k_start -eps 0.5 -o complexity_evolution/bit_string_sim/equilib_test/eps0.5_s0.01_m0.0001_k_start100.txt
-python complexity_evolution/bit_string_sim/src/evolve.py -s 0.01 -m 0.001 -N 100 -L 100 -k_start -eps 0.5 -o complexity_evolution/bit_string_sim/equilib_test/eps0.5_s0.01_m0.001_k_start0.txt
-python complexity_evolution/bit_string_sim/src/evolve.py -s 0.01 -m 0.001 -N 100 -L 100 -k_start -eps 0.5 -o complexity_evolution/bit_string_sim/equilib_test/eps0.5_s0.01_m0.001_k_start100.txt
-python complexity_evolution/bit_string_sim/src/evolve.py -s 0.01 -m 0.01 -N 100 -L 100 -k_start -eps 0.5 -o complexity_evolution/bit_string_sim/equilib_test/eps0.5_s0.01_m0.01_k_start0.txt
-python complexity_evolution/bit_string_sim/src/evolve.py -s 0.01 -m 0.01 -N 100 -L 100 -k_start -eps 0.5 -o complexity_evolution/bit_string_sim/equilib_test/eps0.5_s0.01_m0.01_k_start100.txt
-python complexity_evolution/bit_string_sim/src/evolve.py -s 0.01 -m 0.1 -N 100 -L 100 -k_start -eps 0.5 -o complexity_evolution/bit_string_sim/equilib_test/eps0.5_s0.01_m0.1_k_start0.txt
-python complexity_evolution/bit_string_sim/src/evolve.py -s 0.01 -m 0.1 -N 100 -L 100 -k_start -eps 0.5 -o complexity_evolution/bit_string_sim/equilib_test/eps0.5_s0.01_m0.1_k_start100.txt
-python complexity_evolution/bit_string_sim/src/evolve.py -s 0.001 -m 0.0001 -N 100 -L 100 -k_start -eps 0.5 -o complexity_evolution/bit_string_sim/equilib_test/eps0.5_s0.001_m0.0001_k_start0.txt
-python complexity_evolution/bit_string_sim/src/evolve.py -s 0.001 -m 0.0001 -N 100 -L 100 -k_start -eps 0.5 -o complexity_evolution/bit_string_sim/equilib_test/eps0.5_s0.001_m0.0001_k_start100.txt
-python complexity_evolution/bit_string_sim/src/evolve.py -s 0.001 -m 0.001 -N 100 -L 100 -k_start -eps 0.5 -o complexity_evolution/bit_string_sim/equilib_test/eps0.5_s0.001_m0.001_k_start0.txt
-python complexity_evolution/bit_string_sim/src/evolve.py -s 0.001 -m 0.001 -N 100 -L 100 -k_start -eps 0.5 -o complexity_evolution/bit_string_sim/equilib_test/eps0.5_s0.001_m0.001_k_start100.txt
-python complexity_evolution/bit_string_sim/src/evolve.py -s 0.001 -m 0.01 -N 100 -L 100 -k_start -eps 0.5 -o complexity_evolution/bit_string_sim/equilib_test/eps0.5_s0.001_m0.01_k_start0.txt
-python complexity_evolution/bit_string_sim/src/evolve.py -s 0.001 -m 0.01 -N 100 -L 100 -k_start -eps 0.5 -o complexity_evolution/bit_string_sim/equilib_test/eps0.5_s0.001_m0.01_k_start100.txt
-python complexity_evolution/bit_string_sim/src/evolve.py -s 0.001 -m 0.1 -N 100 -L 100 -k_start -eps 0.5 -o complexity_evolution/bit_string_sim/equilib_test/eps0.5_s0.001_m0.1_k_start0.txt
-python complexity_evolution/bit_string_sim/src/evolve.py -s 0.001 -m 0.1 -N 100 -L 100 -k_start -eps 0.5 -o complexity_evolution/bit_string_sim/equilib_test/eps0.5_s0.001_m0.1_k_start100.txt
-python complexity_evolution/bit_string_sim/src/evolve.py -s 0.0001 -m 0.0001 -N 100 -L 100 -k_start -eps 0.5 -o complexity_evolution/bit_string_sim/equilib_test/eps0.5_s0.0001_m0.0001_k_start0.txt
-python complexity_evolution/bit_string_sim/src/evolve.py -s 0.0001 -m 0.0001 -N 100 -L 100 -k_start -eps 0.5 -o complexity_evolution/bit_string_sim/equilib_test/eps0.5_s0.0001_m0.0001_k_start100.txt
-python complexity_evolution/bit_string_sim/src/evolve.py -s 0.0001 -m 0.001 -N 100 -L 100 -k_start -eps 0.5 -o complexity_evolution/bit_string_sim/equilib_test/eps0.5_s0.0001_m0.001_k_start0.txt
-python complexity_evolution/bit_string_sim/src/evolve.py -s 0.0001 -m 0.001 -N 100 -L 100 -k_start -eps 0.5 -o complexity_evolution/bit_string_sim/equilib_test/eps0.5_s0.0001_m0.001_k_start100.txt
-python complexity_evolution/bit_string_sim/src/evolve.py -s 0.0001 -m 0.01 -N 100 -L 100 -k_start -eps 0.5 -o complexity_evolution/bit_string_sim/equilib_test/eps0.5_s0.0001_m0.01_k_start0.txt
-python complexity_evolution/bit_string_sim/src/evolve.py -s 0.0001 -m 0.01 -N 100 -L 100 -k_start -eps 0.5 -o complexity_evolution/bit_string_sim/equilib_test/eps0.5_s0.0001_m0.01_k_start100.txt
-python complexity_evolution/bit_string_sim/src/evolve.py -s 0.0001 -m 0.1 -N 100 -L 100 -k_start -eps 0.5 -o complexity_evolution/bit_string_sim/equilib_test/eps0.5_s0.0001_m0.1_k_start0.txt
-python complexity_evolution/bit_string_sim/src/evolve.py -s 0.0001 -m 0.1 -N 100 -L 100 -k_start -eps 0.5 -o complexity_evolution/bit_string_sim/equilib_test/eps0.5_s0.0001_m0.1_k_start100.txt
-python complexity_evolution/bit_string_sim/src/evolve.py -s 0.1 -m 0.0001 -N 100 -L 100 -k_start -eps 0 -o complexity_evolution/bit_string_sim/equilib_test/eps0_s0.1_m0.0001_k_start0.txt
-python complexity_evolution/bit_string_sim/src/evolve.py -s 0.1 -m 0.0001 -N 100 -L 100 -k_start -eps 0 -o complexity_evolution/bit_string_sim/equilib_test/eps0_s0.1_m0.0001_k_start100.txt
-python complexity_evolution/bit_string_sim/src/evolve.py -s 0.1 -m 0.001 -N 100 -L 100 -k_start -eps 0 -o complexity_evolution/bit_string_sim/equilib_test/eps0_s0.1_m0.001_k_start0.txt
-python complexity_evolution/bit_string_sim/src/evolve.py -s 0.1 -m 0.001 -N 100 -L 100 -k_start -eps 0 -o complexity_evolution/bit_string_sim/equilib_test/eps0_s0.1_m0.001_k_start100.txt
-python complexity_evolution/bit_string_sim/src/evolve.py -s 0.1 -m 0.01 -N 100 -L 100 -k_start -eps 0 -o complexity_evolution/bit_string_sim/equilib_test/eps0_s0.1_m0.01_k_start0.txt
-python complexity_evolution/bit_string_sim/src/evolve.py -s 0.1 -m 0.01 -N 100 -L 100 -k_start -eps 0 -o complexity_evolution/bit_string_sim/equilib_test/eps0_s0.1_m0.01_k_start100.txt
-python complexity_evolution/bit_string_sim/src/evolve.py -s 0.1 -m 0.1 -N 100 -L 100 -k_start -eps 0 -o complexity_evolution/bit_string_sim/equilib_test/eps0_s0.1_m0.1_k_start0.txt
-python complexity_evolution/bit_string_sim/src/evolve.py -s 0.1 -m 0.1 -N 100 -L 100 -k_start -eps 0 -o complexity_evolution/bit_string_sim/equilib_test/eps0_s0.1_m0.1_k_start100.txt
-python complexity_evolution/bit_string_sim/src/evolve.py -s 0.01 -m 0.0001 -N 100 -L 100 -k_start -eps 0 -o complexity_evolution/bit_string_sim/equilib_test/eps0_s0.01_m0.0001_k_start0.txt
-python complexity_evolution/bit_string_sim/src/evolve.py -s 0.01 -m 0.0001 -N 100 -L 100 -k_start -eps 0 -o complexity_evolution/bit_string_sim/equilib_test/eps0_s0.01_m0.0001_k_start100.txt
-python complexity_evolution/bit_string_sim/src/evolve.py -s 0.01 -m 0.001 -N 100 -L 100 -k_start -eps 0 -o complexity_evolution/bit_string_sim/equilib_test/eps0_s0.01_m0.001_k_start0.txt
-python complexity_evolution/bit_string_sim/src/evolve.py -s 0.01 -m 0.001 -N 100 -L 100 -k_start -eps 0 -o complexity_evolution/bit_string_sim/equilib_test/eps0_s0.01_m0.001_k_start100.txt
-python complexity_evolution/bit_string_sim/src/evolve.py -s 0.01 -m 0.01 -N 100 -L 100 -k_start -eps 0 -o complexity_evolution/bit_string_sim/equilib_test/eps0_s0.01_m0.01_k_start0.txt
-python complexity_evolution/bit_string_sim/src/evolve.py -s 0.01 -m 0.01 -N 100 -L 100 -k_start -eps 0 -o complexity_evolution/bit_string_sim/equilib_test/eps0_s0.01_m0.01_k_start100.txt
-python complexity_evolution/bit_string_sim/src/evolve.py -s 0.01 -m 0.1 -N 100 -L 100 -k_start -eps 0 -o complexity_evolution/bit_string_sim/equilib_test/eps0_s0.01_m0.1_k_start0.txt
-python complexity_evolution/bit_string_sim/src/evolve.py -s 0.01 -m 0.1 -N 100 -L 100 -k_start -eps 0 -o complexity_evolution/bit_string_sim/equilib_test/eps0_s0.01_m0.1_k_start100.txt
-python complexity_evolution/bit_string_sim/src/evolve.py -s 0.001 -m 0.0001 -N 100 -L 100 -k_start -eps 0 -o complexity_evolution/bit_string_sim/equilib_test/eps0_s0.001_m0.0001_k_start0.txt
-python complexity_evolution/bit_string_sim/src/evolve.py -s 0.001 -m 0.0001 -N 100 -L 100 -k_start -eps 0 -o complexity_evolution/bit_string_sim/equilib_test/eps0_s0.001_m0.0001_k_start100.txt
-python complexity_evolution/bit_string_sim/src/evolve.py -s 0.001 -m 0.001 -N 100 -L 100 -k_start -eps 0 -o complexity_evolution/bit_string_sim/equilib_test/eps0_s0.001_m0.001_k_start0.txt
-python complexity_evolution/bit_string_sim/src/evolve.py -s 0.001 -m 0.001 -N 100 -L 100 -k_start -eps 0 -o complexity_evolution/bit_string_sim/equilib_test/eps0_s0.001_m0.001_k_start100.txt
-python complexity_evolution/bit_string_sim/src/evolve.py -s 0.001 -m 0.01 -N 100 -L 100 -k_start -eps 0 -o complexity_evolution/bit_string_sim/equilib_test/eps0_s0.001_m0.01_k_start0.txt
-python complexity_evolution/bit_string_sim/src/evolve.py -s 0.001 -m 0.01 -N 100 -L 100 -k_start -eps 0 -o complexity_evolution/bit_string_sim/equilib_test/eps0_s0.001_m0.01_k_start100.txt
-python complexity_evolution/bit_string_sim/src/evolve.py -s 0.001 -m 0.1 -N 100 -L 100 -k_start -eps 0 -o complexity_evolution/bit_string_sim/equilib_test/eps0_s0.001_m0.1_k_start0.txt
-python complexity_evolution/bit_string_sim/src/evolve.py -s 0.001 -m 0.1 -N 100 -L 100 -k_start -eps 0 -o complexity_evolution/bit_string_sim/equilib_test/eps0_s0.001_m0.1_k_start100.txt
-python complexity_evolution/bit_string_sim/src/evolve.py -s 0.0001 -m 0.0001 -N 100 -L 100 -k_start -eps 0 -o complexity_evolution/bit_string_sim/equilib_test/eps0_s0.0001_m0.0001_k_start0.txt
-python complexity_evolution/bit_string_sim/src/evolve.py -s 0.0001 -m 0.0001 -N 100 -L 100 -k_start -eps 0 -o complexity_evolution/bit_string_sim/equilib_test/eps0_s0.0001_m0.0001_k_start100.txt
-python complexity_evolution/bit_string_sim/src/evolve.py -s 0.0001 -m 0.001 -N 100 -L 100 -k_start -eps 0 -o complexity_evolution/bit_string_sim/equilib_test/eps0_s0.0001_m0.001_k_start0.txt
-python complexity_evolution/bit_string_sim/src/evolve.py -s 0.0001 -m 0.001 -N 100 -L 100 -k_start -eps 0 -o complexity_evolution/bit_string_sim/equilib_test/eps0_s0.0001_m0.001_k_start100.txt
-python complexity_evolution/bit_string_sim/src/evolve.py -s 0.0001 -m 0.01 -N 100 -L 100 -k_start -eps 0 -o complexity_evolution/bit_string_sim/equilib_test/eps0_s0.0001_m0.01_k_start0.txt
-python complexity_evolution/bit_string_sim/src/evolve.py -s 0.0001 -m 0.01 -N 100 -L 100 -k_start -eps 0 -o complexity_evolution/bit_string_sim/equilib_test/eps0_s0.0001_m0.01_k_start100.txt
-python complexity_evolution/bit_string_sim/src/evolve.py -s 0.0001 -m 0.1 -N 100 -L 100 -k_start -eps 0 -o complexity_evolution/bit_string_sim/equilib_test/eps0_s0.0001_m0.1_k_start0.txt
-python complexity_evolution/bit_string_sim/src/evolve.py -s 0.0001 -m 0.1 -N 100 -L 100 -k_start -eps 0 -o complexity_evolution/bit_string_sim/equilib_test/eps0_s0.0001_m0.1_k_start100.txt
-python complexity_evolution/bit_string_sim/src/evolve.py -s 0.1 -m 0.0001 -N 100 -L 100 -k_start -eps -0.5 -o complexity_evolution/bit_string_sim/equilib_test/eps-0.5_s0.1_m0.0001_k_start0.txt
-python complexity_evolution/bit_string_sim/src/evolve.py -s 0.1 -m 0.0001 -N 100 -L 100 -k_start -eps -0.5 -o complexity_evolution/bit_string_sim/equilib_test/eps-0.5_s0.1_m0.0001_k_start100.txt
-python complexity_evolution/bit_string_sim/src/evolve.py -s 0.1 -m 0.001 -N 100 -L 100 -k_start -eps -0.5 -o complexity_evolution/bit_string_sim/equilib_test/eps-0.5_s0.1_m0.001_k_start0.txt
-python complexity_evolution/bit_string_sim/src/evolve.py -s 0.1 -m 0.001 -N 100 -L 100 -k_start -eps -0.5 -o complexity_evolution/bit_string_sim/equilib_test/eps-0.5_s0.1_m0.001_k_start100.txt
-python complexity_evolution/bit_string_sim/src/evolve.py -s 0.1 -m 0.01 -N 100 -L 100 -k_start -eps -0.5 -o complexity_evolution/bit_string_sim/equilib_test/eps-0.5_s0.1_m0.01_k_start0.txt
-python complexity_evolution/bit_string_sim/src/evolve.py -s 0.1 -m 0.01 -N 100 -L 100 -k_start -eps -0.5 -o complexity_evolution/bit_string_sim/equilib_test/eps-0.5_s0.1_m0.01_k_start100.txt
-python complexity_evolution/bit_string_sim/src/evolve.py -s 0.1 -m 0.1 -N 100 -L 100 -k_start -eps -0.5 -o complexity_evolution/bit_string_sim/equilib_test/eps-0.5_s0.1_m0.1_k_start0.txt
-python complexity_evolution/bit_string_sim/src/evolve.py -s 0.1 -m 0.1 -N 100 -L 100 -k_start -eps -0.5 -o complexity_evolution/bit_string_sim/equilib_test/eps-0.5_s0.1_m0.1_k_start100.txt
-python complexity_evolution/bit_string_sim/src/evolve.py -s 0.01 -m 0.0001 -N 100 -L 100 -k_start -eps -0.5 -o complexity_evolution/bit_string_sim/equilib_test/eps-0.5_s0.01_m0.0001_k_start0.txt
-python complexity_evolution/bit_string_sim/src/evolve.py -s 0.01 -m 0.0001 -N 100 -L 100 -k_start -eps -0.5 -o complexity_evolution/bit_string_sim/equilib_test/eps-0.5_s0.01_m0.0001_k_start100.txt
-python complexity_evolution/bit_string_sim/src/evolve.py -s 0.01 -m 0.001 -N 100 -L 100 -k_start -eps -0.5 -o complexity_evolution/bit_string_sim/equilib_test/eps-0.5_s0.01_m0.001_k_start0.txt
-python complexity_evolution/bit_string_sim/src/evolve.py -s 0.01 -m 0.001 -N 100 -L 100 -k_start -eps -0.5 -o complexity_evolution/bit_string_sim/equilib_test/eps-0.5_s0.01_m0.001_k_start100.txt
-python complexity_evolution/bit_string_sim/src/evolve.py -s 0.01 -m 0.01 -N 100 -L 100 -k_start -eps -0.5 -o complexity_evolution/bit_string_sim/equilib_test/eps-0.5_s0.01_m0.01_k_start0.txt
-python complexity_evolution/bit_string_sim/src/evolve.py -s 0.01 -m 0.01 -N 100 -L 100 -k_start -eps -0.5 -o complexity_evolution/bit_string_sim/equilib_test/eps-0.5_s0.01_m0.01_k_start100.txt
-python complexity_evolution/bit_string_sim/src/evolve.py -s 0.01 -m 0.1 -N 100 -L 100 -k_start -eps -0.5 -o complexity_evolution/bit_string_sim/equilib_test/eps-0.5_s0.01_m0.1_k_start0.txt
-python complexity_evolution/bit_string_sim/src/evolve.py -s 0.01 -m 0.1 -N 100 -L 100 -k_start -eps -0.5 -o complexity_evolution/bit_string_sim/equilib_test/eps-0.5_s0.01_m0.1_k_start100.txt
-python complexity_evolution/bit_string_sim/src/evolve.py -s 0.001 -m 0.0001 -N 100 -L 100 -k_start -eps -0.5 -o complexity_evolution/bit_string_sim/equilib_test/eps-0.5_s0.001_m0.0001_k_start0.txt
-python complexity_evolution/bit_string_sim/src/evolve.py -s 0.001 -m 0.0001 -N 100 -L 100 -k_start -eps -0.5 -o complexity_evolution/bit_string_sim/equilib_test/eps-0.5_s0.001_m0.0001_k_start100.txt
-python complexity_evolution/bit_string_sim/src/evolve.py -s 0.001 -m 0.001 -N 100 -L 100 -k_start -eps -0.5 -o complexity_evolution/bit_string_sim/equilib_test/eps-0.5_s0.001_m0.001_k_start0.txt
-python complexity_evolution/bit_string_sim/src/evolve.py -s 0.001 -m 0.001 -N 100 -L 100 -k_start -eps -0.5 -o complexity_evolution/bit_string_sim/equilib_test/eps-0.5_s0.001_m0.001_k_start100.txt
-python complexity_evolution/bit_string_sim/src/evolve.py -s 0.001 -m 0.01 -N 100 -L 100 -k_start -eps -0.5 -o complexity_evolution/bit_string_sim/equilib_test/eps-0.5_s0.001_m0.01_k_start0.txt
-python complexity_evolution/bit_string_sim/src/evolve.py -s 0.001 -m 0.01 -N 100 -L 100 -k_start -eps -0.5 -o complexity_evolution/bit_string_sim/equilib_test/eps-0.5_s0.001_m0.01_k_start100.txt
-python complexity_evolution/bit_string_sim/src/evolve.py -s 0.001 -m 0.1 -N 100 -L 100 -k_start -eps -0.5 -o complexity_evolution/bit_string_sim/equilib_test/eps-0.5_s0.001_m0.1_k_start0.txt
-python complexity_evolution/bit_string_sim/src/evolve.py -s 0.001 -m 0.1 -N 100 -L 100 -k_start -eps -0.5 -o complexity_evolution/bit_string_sim/equilib_test/eps-0.5_s0.001_m0.1_k_start100.txt
-python complexity_evolution/bit_string_sim/src/evolve.py -s 0.0001 -m 0.0001 -N 100 -L 100 -k_start -eps -0.5 -o complexity_evolution/bit_string_sim/equilib_test/eps-0.5_s0.0001_m0.0001_k_start0.txt
-python complexity_evolution/bit_string_sim/src/evolve.py -s 0.0001 -m 0.0001 -N 100 -L 100 -k_start -eps -0.5 -o complexity_evolution/bit_string_sim/equilib_test/eps-0.5_s0.0001_m0.0001_k_start100.txt
-python complexity_evolution/bit_string_sim/src/evolve.py -s 0.0001 -m 0.001 -N 100 -L 100 -k_start -eps -0.5 -o complexity_evolution/bit_string_sim/equilib_test/eps-0.5_s0.0001_m0.001_k_start0.txt
-python complexity_evolution/bit_string_sim/src/evolve.py -s 0.0001 -m 0.001 -N 100 -L 100 -k_start -eps -0.5 -o complexity_evolution/bit_string_sim/equilib_test/eps-0.5_s0.0001_m0.001_k_start100.txt
-python complexity_evolution/bit_string_sim/src/evolve.py -s 0.0001 -m 0.01 -N 100 -L 100 -k_start -eps -0.5 -o complexity_evolution/bit_string_sim/equilib_test/eps-0.5_s0.0001_m0.01_k_start0.txt
-python complexity_evolution/bit_string_sim/src/evolve.py -s 0.0001 -m 0.01 -N 100 -L 100 -k_start -eps -0.5 -o complexity_evolution/bit_string_sim/equilib_test/eps-0.5_s0.0001_m0.01_k_start100.txt
-python complexity_evolution/bit_string_sim/src/evolve.py -s 0.0001 -m 0.1 -N 100 -L 100 -k_start -eps -0.5 -o complexity_evolution/bit_string_sim/equilib_test/eps-0.5_s0.0001_m0.1_k_start0.txt
-python complexity_evolution/bit_string_sim/src/evolve.py -s 0.0001 -m 0.1 -N 100 -L 100 -k_start -eps -0.5 -o complexity_evolution/bit_string_sim/equilib_test/eps-0.5_s0.0001_m0.1_k_start100.txt
-python complexity_evolution/bit_string_sim/src/evolve.py -s 0.1 -m 0.0001 -N 100 -L 100 -k_start -eps -1 -o complexity_evolution/bit_string_sim/equilib_test/eps-1_s0.1_m0.0001_k_start0.txt
-python complexity_evolution/bit_string_sim/src/evolve.py -s 0.1 -m 0.0001 -N 100 -L 100 -k_start -eps -1 -o complexity_evolution/bit_string_sim/equilib_test/eps-1_s0.1_m0.0001_k_start100.txt
-python complexity_evolution/bit_string_sim/src/evolve.py -s 0.1 -m 0.001 -N 100 -L 100 -k_start -eps -1 -o complexity_evolution/bit_string_sim/equilib_test/eps-1_s0.1_m0.001_k_start0.txt
-python complexity_evolution/bit_string_sim/src/evolve.py -s 0.1 -m 0.001 -N 100 -L 100 -k_start -eps -1 -o complexity_evolution/bit_string_sim/equilib_test/eps-1_s0.1_m0.001_k_start100.txt
-python complexity_evolution/bit_string_sim/src/evolve.py -s 0.1 -m 0.01 -N 100 -L 100 -k_start -eps -1 -o complexity_evolution/bit_string_sim/equilib_test/eps-1_s0.1_m0.01_k_start0.txt
-python complexity_evolution/bit_string_sim/src/evolve.py -s 0.1 -m 0.01 -N 100 -L 100 -k_start -eps -1 -o complexity_evolution/bit_string_sim/equilib_test/eps-1_s0.1_m0.01_k_start100.txt
-python complexity_evolution/bit_string_sim/src/evolve.py -s 0.1 -m 0.1 -N 100 -L 100 -k_start -eps -1 -o complexity_evolution/bit_string_sim/equilib_test/eps-1_s0.1_m0.1_k_start0.txt
-python complexity_evolution/bit_string_sim/src/evolve.py -s 0.1 -m 0.1 -N 100 -L 100 -k_start -eps -1 -o complexity_evolution/bit_string_sim/equilib_test/eps-1_s0.1_m0.1_k_start100.txt
-python complexity_evolution/bit_string_sim/src/evolve.py -s 0.01 -m 0.0001 -N 100 -L 100 -k_start -eps -1 -o complexity_evolution/bit_string_sim/equilib_test/eps-1_s0.01_m0.0001_k_start0.txt
-python complexity_evolution/bit_string_sim/src/evolve.py -s 0.01 -m 0.0001 -N 100 -L 100 -k_start -eps -1 -o complexity_evolution/bit_string_sim/equilib_test/eps-1_s0.01_m0.0001_k_start100.txt
-python complexity_evolution/bit_string_sim/src/evolve.py -s 0.01 -m 0.001 -N 100 -L 100 -k_start -eps -1 -o complexity_evolution/bit_string_sim/equilib_test/eps-1_s0.01_m0.001_k_start0.txt
-python complexity_evolution/bit_string_sim/src/evolve.py -s 0.01 -m 0.001 -N 100 -L 100 -k_start -eps -1 -o complexity_evolution/bit_string_sim/equilib_test/eps-1_s0.01_m0.001_k_start100.txt
-python complexity_evolution/bit_string_sim/src/evolve.py -s 0.01 -m 0.01 -N 100 -L 100 -k_start -eps -1 -o complexity_evolution/bit_string_sim/equilib_test/eps-1_s0.01_m0.01_k_start0.txt
-python complexity_evolution/bit_string_sim/src/evolve.py -s 0.01 -m 0.01 -N 100 -L 100 -k_start -eps -1 -o complexity_evolution/bit_string_sim/equilib_test/eps-1_s0.01_m0.01_k_start100.txt
-python complexity_evolution/bit_string_sim/src/evolve.py -s 0.01 -m 0.1 -N 100 -L 100 -k_start -eps -1 -o complexity_evolution/bit_string_sim/equilib_test/eps-1_s0.01_m0.1_k_start0.txt
-python complexity_evolution/bit_string_sim/src/evolve.py -s 0.01 -m 0.1 -N 100 -L 100 -k_start -eps -1 -o complexity_evolution/bit_string_sim/equilib_test/eps-1_s0.01_m0.1_k_start100.txt
-python complexity_evolution/bit_string_sim/src/evolve.py -s 0.001 -m 0.0001 -N 100 -L 100 -k_start -eps -1 -o complexity_evolution/bit_string_sim/equilib_test/eps-1_s0.001_m0.0001_k_start0.txt
-python complexity_evolution/bit_string_sim/src/evolve.py -s 0.001 -m 0.0001 -N 100 -L 100 -k_start -eps -1 -o complexity_evolution/bit_string_sim/equilib_test/eps-1_s0.001_m0.0001_k_start100.txt
-python complexity_evolution/bit_string_sim/src/evolve.py -s 0.001 -m 0.001 -N 100 -L 100 -k_start -eps -1 -o complexity_evolution/bit_string_sim/equilib_test/eps-1_s0.001_m0.001_k_start0.txt
-python complexity_evolution/bit_string_sim/src/evolve.py -s 0.001 -m 0.001 -N 100 -L 100 -k_start -eps -1 -o complexity_evolution/bit_string_sim/equilib_test/eps-1_s0.001_m0.001_k_start100.txt
-python complexity_evolution/bit_string_sim/src/evolve.py -s 0.001 -m 0.01 -N 100 -L 100 -k_start -eps -1 -o complexity_evolution/bit_string_sim/equilib_test/eps-1_s0.001_m0.01_k_start0.txt
-python complexity_evolution/bit_string_sim/src/evolve.py -s 0.001 -m 0.01 -N 100 -L 100 -k_start -eps -1 -o complexity_evolution/bit_string_sim/equilib_test/eps-1_s0.001_m0.01_k_start100.txt
-python complexity_evolution/bit_string_sim/src/evolve.py -s 0.001 -m 0.1 -N 100 -L 100 -k_start -eps -1 -o complexity_evolution/bit_string_sim/equilib_test/eps-1_s0.001_m0.1_k_start0.txt
-python complexity_evolution/bit_string_sim/src/evolve.py -s 0.001 -m 0.1 -N 100 -L 100 -k_start -eps -1 -o complexity_evolution/bit_string_sim/equilib_test/eps-1_s0.001_m0.1_k_start100.txt
-python complexity_evolution/bit_string_sim/src/evolve.py -s 0.0001 -m 0.0001 -N 100 -L 100 -k_start -eps -1 -o complexity_evolution/bit_string_sim/equilib_test/eps-1_s0.0001_m0.0001_k_start0.txt
-python complexity_evolution/bit_string_sim/src/evolve.py -s 0.0001 -m 0.0001 -N 100 -L 100 -k_start -eps -1 -o complexity_evolution/bit_string_sim/equilib_test/eps-1_s0.0001_m0.0001_k_start100.txt
-python complexity_evolution/bit_string_sim/src/evolve.py -s 0.0001 -m 0.001 -N 100 -L 100 -k_start -eps -1 -o complexity_evolution/bit_string_sim/equilib_test/eps-1_s0.0001_m0.001_k_start0.txt
-python complexity_evolution/bit_string_sim/src/evolve.py -s 0.0001 -m 0.001 -N 100 -L 100 -k_start -eps -1 -o complexity_evolution/bit_string_sim/equilib_test/eps-1_s0.0001_m0.001_k_start100.txt
-python complexity_evolution/bit_string_sim/src/evolve.py -s 0.0001 -m 0.01 -N 100 -L 100 -k_start -eps -1 -o complexity_evolution/bit_string_sim/equilib_test/eps-1_s0.0001_m0.01_k_start0.txt
-python complexity_evolution/bit_string_sim/src/evolve.py -s 0.0001 -m 0.01 -N 100 -L 100 -k_start -eps -1 -o complexity_evolution/bit_string_sim/equilib_test/eps-1_s0.0001_m0.01_k_start100.txt
-python complexity_evolution/bit_string_sim/src/evolve.py -s 0.0001 -m 0.1 -N 100 -L 100 -k_start -eps -1 -o complexity_evolution/bit_string_sim/equilib_test/eps-1_s0.0001_m0.1_k_start0.txt
-python complexity_evolution/bit_string_sim/src/evolve.py -s 0.0001 -m 0.1 -N 100 -L 100 -k_start -eps -1 -o complexity_evolution/bit_string_sim/equilib_test/eps-1_s0.0001_m0.1_k_start100.txt
+python complexity_evolution/bit_string_sim/src/evolve.py -s 0.1 -m 0.0001 -N 100 -L 100 -k_start 0 -eps 1 -o complexity_evolution/bit_string_sim/equilib_test/eps1_s0.1_m0.0001_k_start0.txt
+python complexity_evolution/bit_string_sim/src/evolve.py -s 0.1 -m 0.0001 -N 100 -L 100 -k_start 100 -eps 1 -o complexity_evolution/bit_string_sim/equilib_test/eps1_s0.1_m0.0001_k_start100.txt
+python complexity_evolution/bit_string_sim/src/evolve.py -s 0.1 -m 0.001 -N 100 -L 100 -k_start 0 -eps 1 -o complexity_evolution/bit_string_sim/equilib_test/eps1_s0.1_m0.001_k_start0.txt
+python complexity_evolution/bit_string_sim/src/evolve.py -s 0.1 -m 0.001 -N 100 -L 100 -k_start 100 -eps 1 -o complexity_evolution/bit_string_sim/equilib_test/eps1_s0.1_m0.001_k_start100.txt
+python complexity_evolution/bit_string_sim/src/evolve.py -s 0.1 -m 0.01 -N 100 -L 100 -k_start 0 -eps 1 -o complexity_evolution/bit_string_sim/equilib_test/eps1_s0.1_m0.01_k_start0.txt
+python complexity_evolution/bit_string_sim/src/evolve.py -s 0.1 -m 0.01 -N 100 -L 100 -k_start 100 -eps 1 -o complexity_evolution/bit_string_sim/equilib_test/eps1_s0.1_m0.01_k_start100.txt
+python complexity_evolution/bit_string_sim/src/evolve.py -s 0.1 -m 0.1 -N 100 -L 100 -k_start 0 -eps 1 -o complexity_evolution/bit_string_sim/equilib_test/eps1_s0.1_m0.1_k_start0.txt
+python complexity_evolution/bit_string_sim/src/evolve.py -s 0.1 -m 0.1 -N 100 -L 100 -k_start 100 -eps 1 -o complexity_evolution/bit_string_sim/equilib_test/eps1_s0.1_m0.1_k_start100.txt
+python complexity_evolution/bit_string_sim/src/evolve.py -s 0.01 -m 0.0001 -N 100 -L 100 -k_start 0 -eps 1 -o complexity_evolution/bit_string_sim/equilib_test/eps1_s0.01_m0.0001_k_start0.txt
+python complexity_evolution/bit_string_sim/src/evolve.py -s 0.01 -m 0.0001 -N 100 -L 100 -k_start 100 -eps 1 -o complexity_evolution/bit_string_sim/equilib_test/eps1_s0.01_m0.0001_k_start100.txt
+python complexity_evolution/bit_string_sim/src/evolve.py -s 0.01 -m 0.001 -N 100 -L 100 -k_start 0 -eps 1 -o complexity_evolution/bit_string_sim/equilib_test/eps1_s0.01_m0.001_k_start0.txt
+python complexity_evolution/bit_string_sim/src/evolve.py -s 0.01 -m 0.001 -N 100 -L 100 -k_start 100 -eps 1 -o complexity_evolution/bit_string_sim/equilib_test/eps1_s0.01_m0.001_k_start100.txt
+python complexity_evolution/bit_string_sim/src/evolve.py -s 0.01 -m 0.01 -N 100 -L 100 -k_start 0 -eps 1 -o complexity_evolution/bit_string_sim/equilib_test/eps1_s0.01_m0.01_k_start0.txt
+python complexity_evolution/bit_string_sim/src/evolve.py -s 0.01 -m 0.01 -N 100 -L 100 -k_start 100 -eps 1 -o complexity_evolution/bit_string_sim/equilib_test/eps1_s0.01_m0.01_k_start100.txt
+python complexity_evolution/bit_string_sim/src/evolve.py -s 0.01 -m 0.1 -N 100 -L 100 -k_start 0 -eps 1 -o complexity_evolution/bit_string_sim/equilib_test/eps1_s0.01_m0.1_k_start0.txt
+python complexity_evolution/bit_string_sim/src/evolve.py -s 0.01 -m 0.1 -N 100 -L 100 -k_start 100 -eps 1 -o complexity_evolution/bit_string_sim/equilib_test/eps1_s0.01_m0.1_k_start100.txt
+python complexity_evolution/bit_string_sim/src/evolve.py -s 0.001 -m 0.0001 -N 100 -L 100 -k_start 0 -eps 1 -o complexity_evolution/bit_string_sim/equilib_test/eps1_s0.001_m0.0001_k_start0.txt
+python complexity_evolution/bit_string_sim/src/evolve.py -s 0.001 -m 0.0001 -N 100 -L 100 -k_start 100 -eps 1 -o complexity_evolution/bit_string_sim/equilib_test/eps1_s0.001_m0.0001_k_start100.txt
+python complexity_evolution/bit_string_sim/src/evolve.py -s 0.001 -m 0.001 -N 100 -L 100 -k_start 0 -eps 1 -o complexity_evolution/bit_string_sim/equilib_test/eps1_s0.001_m0.001_k_start0.txt
+python complexity_evolution/bit_string_sim/src/evolve.py -s 0.001 -m 0.001 -N 100 -L 100 -k_start 100 -eps 1 -o complexity_evolution/bit_string_sim/equilib_test/eps1_s0.001_m0.001_k_start100.txt
+python complexity_evolution/bit_string_sim/src/evolve.py -s 0.001 -m 0.01 -N 100 -L 100 -k_start 0 -eps 1 -o complexity_evolution/bit_string_sim/equilib_test/eps1_s0.001_m0.01_k_start0.txt
+python complexity_evolution/bit_string_sim/src/evolve.py -s 0.001 -m 0.01 -N 100 -L 100 -k_start 100 -eps 1 -o complexity_evolution/bit_string_sim/equilib_test/eps1_s0.001_m0.01_k_start100.txt
+python complexity_evolution/bit_string_sim/src/evolve.py -s 0.001 -m 0.1 -N 100 -L 100 -k_start 0 -eps 1 -o complexity_evolution/bit_string_sim/equilib_test/eps1_s0.001_m0.1_k_start0.txt
+python complexity_evolution/bit_string_sim/src/evolve.py -s 0.001 -m 0.1 -N 100 -L 100 -k_start 100 -eps 1 -o complexity_evolution/bit_string_sim/equilib_test/eps1_s0.001_m0.1_k_start100.txt
+python complexity_evolution/bit_string_sim/src/evolve.py -s 0.0001 -m 0.0001 -N 100 -L 100 -k_start 0 -eps 1 -o complexity_evolution/bit_string_sim/equilib_test/eps1_s0.0001_m0.0001_k_start0.txt
+python complexity_evolution/bit_string_sim/src/evolve.py -s 0.0001 -m 0.0001 -N 100 -L 100 -k_start 100 -eps 1 -o complexity_evolution/bit_string_sim/equilib_test/eps1_s0.0001_m0.0001_k_start100.txt
+python complexity_evolution/bit_string_sim/src/evolve.py -s 0.0001 -m 0.001 -N 100 -L 100 -k_start 0 -eps 1 -o complexity_evolution/bit_string_sim/equilib_test/eps1_s0.0001_m0.001_k_start0.txt
+python complexity_evolution/bit_string_sim/src/evolve.py -s 0.0001 -m 0.001 -N 100 -L 100 -k_start 100 -eps 1 -o complexity_evolution/bit_string_sim/equilib_test/eps1_s0.0001_m0.001_k_start100.txt
+python complexity_evolution/bit_string_sim/src/evolve.py -s 0.0001 -m 0.01 -N 100 -L 100 -k_start 0 -eps 1 -o complexity_evolution/bit_string_sim/equilib_test/eps1_s0.0001_m0.01_k_start0.txt
+python complexity_evolution/bit_string_sim/src/evolve.py -s 0.0001 -m 0.01 -N 100 -L 100 -k_start 100 -eps 1 -o complexity_evolution/bit_string_sim/equilib_test/eps1_s0.0001_m0.01_k_start100.txt
+python complexity_evolution/bit_string_sim/src/evolve.py -s 0.0001 -m 0.1 -N 100 -L 100 -k_start 0 -eps 1 -o complexity_evolution/bit_string_sim/equilib_test/eps1_s0.0001_m0.1_k_start0.txt
+python complexity_evolution/bit_string_sim/src/evolve.py -s 0.0001 -m 0.1 -N 100 -L 100 -k_start 100 -eps 1 -o complexity_evolution/bit_string_sim/equilib_test/eps1_s0.0001_m0.1_k_start100.txt
+python complexity_evolution/bit_string_sim/src/evolve.py -s 0.1 -m 0.0001 -N 100 -L 100 -k_start 0 -eps 0.5 -o complexity_evolution/bit_string_sim/equilib_test/eps0.5_s0.1_m0.0001_k_start0.txt
+python complexity_evolution/bit_string_sim/src/evolve.py -s 0.1 -m 0.0001 -N 100 -L 100 -k_start 100 -eps 0.5 -o complexity_evolution/bit_string_sim/equilib_test/eps0.5_s0.1_m0.0001_k_start100.txt
+python complexity_evolution/bit_string_sim/src/evolve.py -s 0.1 -m 0.001 -N 100 -L 100 -k_start 0 -eps 0.5 -o complexity_evolution/bit_string_sim/equilib_test/eps0.5_s0.1_m0.001_k_start0.txt
+python complexity_evolution/bit_string_sim/src/evolve.py -s 0.1 -m 0.001 -N 100 -L 100 -k_start 100 -eps 0.5 -o complexity_evolution/bit_string_sim/equilib_test/eps0.5_s0.1_m0.001_k_start100.txt
+python complexity_evolution/bit_string_sim/src/evolve.py -s 0.1 -m 0.01 -N 100 -L 100 -k_start 0 -eps 0.5 -o complexity_evolution/bit_string_sim/equilib_test/eps0.5_s0.1_m0.01_k_start0.txt
+python complexity_evolution/bit_string_sim/src/evolve.py -s 0.1 -m 0.01 -N 100 -L 100 -k_start 100 -eps 0.5 -o complexity_evolution/bit_string_sim/equilib_test/eps0.5_s0.1_m0.01_k_start100.txt
+python complexity_evolution/bit_string_sim/src/evolve.py -s 0.1 -m 0.1 -N 100 -L 100 -k_start 0 -eps 0.5 -o complexity_evolution/bit_string_sim/equilib_test/eps0.5_s0.1_m0.1_k_start0.txt
+python complexity_evolution/bit_string_sim/src/evolve.py -s 0.1 -m 0.1 -N 100 -L 100 -k_start 100 -eps 0.5 -o complexity_evolution/bit_string_sim/equilib_test/eps0.5_s0.1_m0.1_k_start100.txt
+python complexity_evolution/bit_string_sim/src/evolve.py -s 0.01 -m 0.0001 -N 100 -L 100 -k_start 0 -eps 0.5 -o complexity_evolution/bit_string_sim/equilib_test/eps0.5_s0.01_m0.0001_k_start0.txt
+python complexity_evolution/bit_string_sim/src/evolve.py -s 0.01 -m 0.0001 -N 100 -L 100 -k_start 100 -eps 0.5 -o complexity_evolution/bit_string_sim/equilib_test/eps0.5_s0.01_m0.0001_k_start100.txt
+python complexity_evolution/bit_string_sim/src/evolve.py -s 0.01 -m 0.001 -N 100 -L 100 -k_start 0 -eps 0.5 -o complexity_evolution/bit_string_sim/equilib_test/eps0.5_s0.01_m0.001_k_start0.txt
+python complexity_evolution/bit_string_sim/src/evolve.py -s 0.01 -m 0.001 -N 100 -L 100 -k_start 100 -eps 0.5 -o complexity_evolution/bit_string_sim/equilib_test/eps0.5_s0.01_m0.001_k_start100.txt
+python complexity_evolution/bit_string_sim/src/evolve.py -s 0.01 -m 0.01 -N 100 -L 100 -k_start 0 -eps 0.5 -o complexity_evolution/bit_string_sim/equilib_test/eps0.5_s0.01_m0.01_k_start0.txt
+python complexity_evolution/bit_string_sim/src/evolve.py -s 0.01 -m 0.01 -N 100 -L 100 -k_start 100 -eps 0.5 -o complexity_evolution/bit_string_sim/equilib_test/eps0.5_s0.01_m0.01_k_start100.txt
+python complexity_evolution/bit_string_sim/src/evolve.py -s 0.01 -m 0.1 -N 100 -L 100 -k_start 0 -eps 0.5 -o complexity_evolution/bit_string_sim/equilib_test/eps0.5_s0.01_m0.1_k_start0.txt
+python complexity_evolution/bit_string_sim/src/evolve.py -s 0.01 -m 0.1 -N 100 -L 100 -k_start 100 -eps 0.5 -o complexity_evolution/bit_string_sim/equilib_test/eps0.5_s0.01_m0.1_k_start100.txt
+python complexity_evolution/bit_string_sim/src/evolve.py -s 0.001 -m 0.0001 -N 100 -L 100 -k_start 0 -eps 0.5 -o complexity_evolution/bit_string_sim/equilib_test/eps0.5_s0.001_m0.0001_k_start0.txt
+python complexity_evolution/bit_string_sim/src/evolve.py -s 0.001 -m 0.0001 -N 100 -L 100 -k_start 100 -eps 0.5 -o complexity_evolution/bit_string_sim/equilib_test/eps0.5_s0.001_m0.0001_k_start100.txt
+python complexity_evolution/bit_string_sim/src/evolve.py -s 0.001 -m 0.001 -N 100 -L 100 -k_start 0 -eps 0.5 -o complexity_evolution/bit_string_sim/equilib_test/eps0.5_s0.001_m0.001_k_start0.txt
+python complexity_evolution/bit_string_sim/src/evolve.py -s 0.001 -m 0.001 -N 100 -L 100 -k_start 100 -eps 0.5 -o complexity_evolution/bit_string_sim/equilib_test/eps0.5_s0.001_m0.001_k_start100.txt
+python complexity_evolution/bit_string_sim/src/evolve.py -s 0.001 -m 0.01 -N 100 -L 100 -k_start 0 -eps 0.5 -o complexity_evolution/bit_string_sim/equilib_test/eps0.5_s0.001_m0.01_k_start0.txt
+python complexity_evolution/bit_string_sim/src/evolve.py -s 0.001 -m 0.01 -N 100 -L 100 -k_start 100 -eps 0.5 -o complexity_evolution/bit_string_sim/equilib_test/eps0.5_s0.001_m0.01_k_start100.txt
+python complexity_evolution/bit_string_sim/src/evolve.py -s 0.001 -m 0.1 -N 100 -L 100 -k_start 0 -eps 0.5 -o complexity_evolution/bit_string_sim/equilib_test/eps0.5_s0.001_m0.1_k_start0.txt
+python complexity_evolution/bit_string_sim/src/evolve.py -s 0.001 -m 0.1 -N 100 -L 100 -k_start 100 -eps 0.5 -o complexity_evolution/bit_string_sim/equilib_test/eps0.5_s0.001_m0.1_k_start100.txt
+python complexity_evolution/bit_string_sim/src/evolve.py -s 0.0001 -m 0.0001 -N 100 -L 100 -k_start 0 -eps 0.5 -o complexity_evolution/bit_string_sim/equilib_test/eps0.5_s0.0001_m0.0001_k_start0.txt
+python complexity_evolution/bit_string_sim/src/evolve.py -s 0.0001 -m 0.0001 -N 100 -L 100 -k_start 100 -eps 0.5 -o complexity_evolution/bit_string_sim/equilib_test/eps0.5_s0.0001_m0.0001_k_start100.txt
+python complexity_evolution/bit_string_sim/src/evolve.py -s 0.0001 -m 0.001 -N 100 -L 100 -k_start 0 -eps 0.5 -o complexity_evolution/bit_string_sim/equilib_test/eps0.5_s0.0001_m0.001_k_start0.txt
+python complexity_evolution/bit_string_sim/src/evolve.py -s 0.0001 -m 0.001 -N 100 -L 100 -k_start 100 -eps 0.5 -o complexity_evolution/bit_string_sim/equilib_test/eps0.5_s0.0001_m0.001_k_start100.txt
+python complexity_evolution/bit_string_sim/src/evolve.py -s 0.0001 -m 0.01 -N 100 -L 100 -k_start 0 -eps 0.5 -o complexity_evolution/bit_string_sim/equilib_test/eps0.5_s0.0001_m0.01_k_start0.txt
+python complexity_evolution/bit_string_sim/src/evolve.py -s 0.0001 -m 0.01 -N 100 -L 100 -k_start 100 -eps 0.5 -o complexity_evolution/bit_string_sim/equilib_test/eps0.5_s0.0001_m0.01_k_start100.txt
+python complexity_evolution/bit_string_sim/src/evolve.py -s 0.0001 -m 0.1 -N 100 -L 100 -k_start 0 -eps 0.5 -o complexity_evolution/bit_string_sim/equilib_test/eps0.5_s0.0001_m0.1_k_start0.txt
+python complexity_evolution/bit_string_sim/src/evolve.py -s 0.0001 -m 0.1 -N 100 -L 100 -k_start 100 -eps 0.5 -o complexity_evolution/bit_string_sim/equilib_test/eps0.5_s0.0001_m0.1_k_start100.txt
+python complexity_evolution/bit_string_sim/src/evolve.py -s 0.1 -m 0.0001 -N 100 -L 100 -k_start 0 -eps 0 -o complexity_evolution/bit_string_sim/equilib_test/eps0_s0.1_m0.0001_k_start0.txt
+python complexity_evolution/bit_string_sim/src/evolve.py -s 0.1 -m 0.0001 -N 100 -L 100 -k_start 100 -eps 0 -o complexity_evolution/bit_string_sim/equilib_test/eps0_s0.1_m0.0001_k_start100.txt
+python complexity_evolution/bit_string_sim/src/evolve.py -s 0.1 -m 0.001 -N 100 -L 100 -k_start 0 -eps 0 -o complexity_evolution/bit_string_sim/equilib_test/eps0_s0.1_m0.001_k_start0.txt
+python complexity_evolution/bit_string_sim/src/evolve.py -s 0.1 -m 0.001 -N 100 -L 100 -k_start 100 -eps 0 -o complexity_evolution/bit_string_sim/equilib_test/eps0_s0.1_m0.001_k_start100.txt
+python complexity_evolution/bit_string_sim/src/evolve.py -s 0.1 -m 0.01 -N 100 -L 100 -k_start 0 -eps 0 -o complexity_evolution/bit_string_sim/equilib_test/eps0_s0.1_m0.01_k_start0.txt
+python complexity_evolution/bit_string_sim/src/evolve.py -s 0.1 -m 0.01 -N 100 -L 100 -k_start 100 -eps 0 -o complexity_evolution/bit_string_sim/equilib_test/eps0_s0.1_m0.01_k_start100.txt
+python complexity_evolution/bit_string_sim/src/evolve.py -s 0.1 -m 0.1 -N 100 -L 100 -k_start 0 -eps 0 -o complexity_evolution/bit_string_sim/equilib_test/eps0_s0.1_m0.1_k_start0.txt
+python complexity_evolution/bit_string_sim/src/evolve.py -s 0.1 -m 0.1 -N 100 -L 100 -k_start 100 -eps 0 -o complexity_evolution/bit_string_sim/equilib_test/eps0_s0.1_m0.1_k_start100.txt
+python complexity_evolution/bit_string_sim/src/evolve.py -s 0.01 -m 0.0001 -N 100 -L 100 -k_start 0 -eps 0 -o complexity_evolution/bit_string_sim/equilib_test/eps0_s0.01_m0.0001_k_start0.txt
+python complexity_evolution/bit_string_sim/src/evolve.py -s 0.01 -m 0.0001 -N 100 -L 100 -k_start 100 -eps 0 -o complexity_evolution/bit_string_sim/equilib_test/eps0_s0.01_m0.0001_k_start100.txt
+python complexity_evolution/bit_string_sim/src/evolve.py -s 0.01 -m 0.001 -N 100 -L 100 -k_start 0 -eps 0 -o complexity_evolution/bit_string_sim/equilib_test/eps0_s0.01_m0.001_k_start0.txt
+python complexity_evolution/bit_string_sim/src/evolve.py -s 0.01 -m 0.001 -N 100 -L 100 -k_start 100 -eps 0 -o complexity_evolution/bit_string_sim/equilib_test/eps0_s0.01_m0.001_k_start100.txt
+python complexity_evolution/bit_string_sim/src/evolve.py -s 0.01 -m 0.01 -N 100 -L 100 -k_start 0 -eps 0 -o complexity_evolution/bit_string_sim/equilib_test/eps0_s0.01_m0.01_k_start0.txt
+python complexity_evolution/bit_string_sim/src/evolve.py -s 0.01 -m 0.01 -N 100 -L 100 -k_start 100 -eps 0 -o complexity_evolution/bit_string_sim/equilib_test/eps0_s0.01_m0.01_k_start100.txt
+python complexity_evolution/bit_string_sim/src/evolve.py -s 0.01 -m 0.1 -N 100 -L 100 -k_start 0 -eps 0 -o complexity_evolution/bit_string_sim/equilib_test/eps0_s0.01_m0.1_k_start0.txt
+python complexity_evolution/bit_string_sim/src/evolve.py -s 0.01 -m 0.1 -N 100 -L 100 -k_start 100 -eps 0 -o complexity_evolution/bit_string_sim/equilib_test/eps0_s0.01_m0.1_k_start100.txt
+python complexity_evolution/bit_string_sim/src/evolve.py -s 0.001 -m 0.0001 -N 100 -L 100 -k_start 0 -eps 0 -o complexity_evolution/bit_string_sim/equilib_test/eps0_s0.001_m0.0001_k_start0.txt
+python complexity_evolution/bit_string_sim/src/evolve.py -s 0.001 -m 0.0001 -N 100 -L 100 -k_start 100 -eps 0 -o complexity_evolution/bit_string_sim/equilib_test/eps0_s0.001_m0.0001_k_start100.txt
+python complexity_evolution/bit_string_sim/src/evolve.py -s 0.001 -m 0.001 -N 100 -L 100 -k_start 0 -eps 0 -o complexity_evolution/bit_string_sim/equilib_test/eps0_s0.001_m0.001_k_start0.txt
+python complexity_evolution/bit_string_sim/src/evolve.py -s 0.001 -m 0.001 -N 100 -L 100 -k_start 100 -eps 0 -o complexity_evolution/bit_string_sim/equilib_test/eps0_s0.001_m0.001_k_start100.txt
+python complexity_evolution/bit_string_sim/src/evolve.py -s 0.001 -m 0.01 -N 100 -L 100 -k_start 0 -eps 0 -o complexity_evolution/bit_string_sim/equilib_test/eps0_s0.001_m0.01_k_start0.txt
+python complexity_evolution/bit_string_sim/src/evolve.py -s 0.001 -m 0.01 -N 100 -L 100 -k_start 100 -eps 0 -o complexity_evolution/bit_string_sim/equilib_test/eps0_s0.001_m0.01_k_start100.txt
+python complexity_evolution/bit_string_sim/src/evolve.py -s 0.001 -m 0.1 -N 100 -L 100 -k_start 0 -eps 0 -o complexity_evolution/bit_string_sim/equilib_test/eps0_s0.001_m0.1_k_start0.txt
+python complexity_evolution/bit_string_sim/src/evolve.py -s 0.001 -m 0.1 -N 100 -L 100 -k_start 100 -eps 0 -o complexity_evolution/bit_string_sim/equilib_test/eps0_s0.001_m0.1_k_start100.txt
+python complexity_evolution/bit_string_sim/src/evolve.py -s 0.0001 -m 0.0001 -N 100 -L 100 -k_start 0 -eps 0 -o complexity_evolution/bit_string_sim/equilib_test/eps0_s0.0001_m0.0001_k_start0.txt
+python complexity_evolution/bit_string_sim/src/evolve.py -s 0.0001 -m 0.0001 -N 100 -L 100 -k_start 100 -eps 0 -o complexity_evolution/bit_string_sim/equilib_test/eps0_s0.0001_m0.0001_k_start100.txt
+python complexity_evolution/bit_string_sim/src/evolve.py -s 0.0001 -m 0.001 -N 100 -L 100 -k_start 0 -eps 0 -o complexity_evolution/bit_string_sim/equilib_test/eps0_s0.0001_m0.001_k_start0.txt
+python complexity_evolution/bit_string_sim/src/evolve.py -s 0.0001 -m 0.001 -N 100 -L 100 -k_start 100 -eps 0 -o complexity_evolution/bit_string_sim/equilib_test/eps0_s0.0001_m0.001_k_start100.txt
+python complexity_evolution/bit_string_sim/src/evolve.py -s 0.0001 -m 0.01 -N 100 -L 100 -k_start 0 -eps 0 -o complexity_evolution/bit_string_sim/equilib_test/eps0_s0.0001_m0.01_k_start0.txt
+python complexity_evolution/bit_string_sim/src/evolve.py -s 0.0001 -m 0.01 -N 100 -L 100 -k_start 100 -eps 0 -o complexity_evolution/bit_string_sim/equilib_test/eps0_s0.0001_m0.01_k_start100.txt
+python complexity_evolution/bit_string_sim/src/evolve.py -s 0.0001 -m 0.1 -N 100 -L 100 -k_start 0 -eps 0 -o complexity_evolution/bit_string_sim/equilib_test/eps0_s0.0001_m0.1_k_start0.txt
+python complexity_evolution/bit_string_sim/src/evolve.py -s 0.0001 -m 0.1 -N 100 -L 100 -k_start 100 -eps 0 -o complexity_evolution/bit_string_sim/equilib_test/eps0_s0.0001_m0.1_k_start100.txt
+python complexity_evolution/bit_string_sim/src/evolve.py -s 0.1 -m 0.0001 -N 100 -L 100 -k_start 0 -eps -0.5 -o complexity_evolution/bit_string_sim/equilib_test/eps-0.5_s0.1_m0.0001_k_start0.txt
+python complexity_evolution/bit_string_sim/src/evolve.py -s 0.1 -m 0.0001 -N 100 -L 100 -k_start 100 -eps -0.5 -o complexity_evolution/bit_string_sim/equilib_test/eps-0.5_s0.1_m0.0001_k_start100.txt
+python complexity_evolution/bit_string_sim/src/evolve.py -s 0.1 -m 0.001 -N 100 -L 100 -k_start 0 -eps -0.5 -o complexity_evolution/bit_string_sim/equilib_test/eps-0.5_s0.1_m0.001_k_start0.txt
+python complexity_evolution/bit_string_sim/src/evolve.py -s 0.1 -m 0.001 -N 100 -L 100 -k_start 100 -eps -0.5 -o complexity_evolution/bit_string_sim/equilib_test/eps-0.5_s0.1_m0.001_k_start100.txt
+python complexity_evolution/bit_string_sim/src/evolve.py -s 0.1 -m 0.01 -N 100 -L 100 -k_start 0 -eps -0.5 -o complexity_evolution/bit_string_sim/equilib_test/eps-0.5_s0.1_m0.01_k_start0.txt
+python complexity_evolution/bit_string_sim/src/evolve.py -s 0.1 -m 0.01 -N 100 -L 100 -k_start 100 -eps -0.5 -o complexity_evolution/bit_string_sim/equilib_test/eps-0.5_s0.1_m0.01_k_start100.txt
+python complexity_evolution/bit_string_sim/src/evolve.py -s 0.1 -m 0.1 -N 100 -L 100 -k_start 0 -eps -0.5 -o complexity_evolution/bit_string_sim/equilib_test/eps-0.5_s0.1_m0.1_k_start0.txt
+python complexity_evolution/bit_string_sim/src/evolve.py -s 0.1 -m 0.1 -N 100 -L 100 -k_start 100 -eps -0.5 -o complexity_evolution/bit_string_sim/equilib_test/eps-0.5_s0.1_m0.1_k_start100.txt
+python complexity_evolution/bit_string_sim/src/evolve.py -s 0.01 -m 0.0001 -N 100 -L 100 -k_start 0 -eps -0.5 -o complexity_evolution/bit_string_sim/equilib_test/eps-0.5_s0.01_m0.0001_k_start0.txt
+python complexity_evolution/bit_string_sim/src/evolve.py -s 0.01 -m 0.0001 -N 100 -L 100 -k_start 100 -eps -0.5 -o complexity_evolution/bit_string_sim/equilib_test/eps-0.5_s0.01_m0.0001_k_start100.txt
+python complexity_evolution/bit_string_sim/src/evolve.py -s 0.01 -m 0.001 -N 100 -L 100 -k_start 0 -eps -0.5 -o complexity_evolution/bit_string_sim/equilib_test/eps-0.5_s0.01_m0.001_k_start0.txt
+python complexity_evolution/bit_string_sim/src/evolve.py -s 0.01 -m 0.001 -N 100 -L 100 -k_start 100 -eps -0.5 -o complexity_evolution/bit_string_sim/equilib_test/eps-0.5_s0.01_m0.001_k_start100.txt
+python complexity_evolution/bit_string_sim/src/evolve.py -s 0.01 -m 0.01 -N 100 -L 100 -k_start 0 -eps -0.5 -o complexity_evolution/bit_string_sim/equilib_test/eps-0.5_s0.01_m0.01_k_start0.txt
+python complexity_evolution/bit_string_sim/src/evolve.py -s 0.01 -m 0.01 -N 100 -L 100 -k_start 100 -eps -0.5 -o complexity_evolution/bit_string_sim/equilib_test/eps-0.5_s0.01_m0.01_k_start100.txt
+python complexity_evolution/bit_string_sim/src/evolve.py -s 0.01 -m 0.1 -N 100 -L 100 -k_start 0 -eps -0.5 -o complexity_evolution/bit_string_sim/equilib_test/eps-0.5_s0.01_m0.1_k_start0.txt
+python complexity_evolution/bit_string_sim/src/evolve.py -s 0.01 -m 0.1 -N 100 -L 100 -k_start 100 -eps -0.5 -o complexity_evolution/bit_string_sim/equilib_test/eps-0.5_s0.01_m0.1_k_start100.txt
+python complexity_evolution/bit_string_sim/src/evolve.py -s 0.001 -m 0.0001 -N 100 -L 100 -k_start 0 -eps -0.5 -o complexity_evolution/bit_string_sim/equilib_test/eps-0.5_s0.001_m0.0001_k_start0.txt
+python complexity_evolution/bit_string_sim/src/evolve.py -s 0.001 -m 0.0001 -N 100 -L 100 -k_start 100 -eps -0.5 -o complexity_evolution/bit_string_sim/equilib_test/eps-0.5_s0.001_m0.0001_k_start100.txt
+python complexity_evolution/bit_string_sim/src/evolve.py -s 0.001 -m 0.001 -N 100 -L 100 -k_start 0 -eps -0.5 -o complexity_evolution/bit_string_sim/equilib_test/eps-0.5_s0.001_m0.001_k_start0.txt
+python complexity_evolution/bit_string_sim/src/evolve.py -s 0.001 -m 0.001 -N 100 -L 100 -k_start 100 -eps -0.5 -o complexity_evolution/bit_string_sim/equilib_test/eps-0.5_s0.001_m0.001_k_start100.txt
+python complexity_evolution/bit_string_sim/src/evolve.py -s 0.001 -m 0.01 -N 100 -L 100 -k_start 0 -eps -0.5 -o complexity_evolution/bit_string_sim/equilib_test/eps-0.5_s0.001_m0.01_k_start0.txt
+python complexity_evolution/bit_string_sim/src/evolve.py -s 0.001 -m 0.01 -N 100 -L 100 -k_start 100 -eps -0.5 -o complexity_evolution/bit_string_sim/equilib_test/eps-0.5_s0.001_m0.01_k_start100.txt
+python complexity_evolution/bit_string_sim/src/evolve.py -s 0.001 -m 0.1 -N 100 -L 100 -k_start 0 -eps -0.5 -o complexity_evolution/bit_string_sim/equilib_test/eps-0.5_s0.001_m0.1_k_start0.txt
+python complexity_evolution/bit_string_sim/src/evolve.py -s 0.001 -m 0.1 -N 100 -L 100 -k_start 100 -eps -0.5 -o complexity_evolution/bit_string_sim/equilib_test/eps-0.5_s0.001_m0.1_k_start100.txt
+python complexity_evolution/bit_string_sim/src/evolve.py -s 0.0001 -m 0.0001 -N 100 -L 100 -k_start 0 -eps -0.5 -o complexity_evolution/bit_string_sim/equilib_test/eps-0.5_s0.0001_m0.0001_k_start0.txt
+python complexity_evolution/bit_string_sim/src/evolve.py -s 0.0001 -m 0.0001 -N 100 -L 100 -k_start 100 -eps -0.5 -o complexity_evolution/bit_string_sim/equilib_test/eps-0.5_s0.0001_m0.0001_k_start100.txt
+python complexity_evolution/bit_string_sim/src/evolve.py -s 0.0001 -m 0.001 -N 100 -L 100 -k_start 0 -eps -0.5 -o complexity_evolution/bit_string_sim/equilib_test/eps-0.5_s0.0001_m0.001_k_start0.txt
+python complexity_evolution/bit_string_sim/src/evolve.py -s 0.0001 -m 0.001 -N 100 -L 100 -k_start 100 -eps -0.5 -o complexity_evolution/bit_string_sim/equilib_test/eps-0.5_s0.0001_m0.001_k_start100.txt
+python complexity_evolution/bit_string_sim/src/evolve.py -s 0.0001 -m 0.01 -N 100 -L 100 -k_start 0 -eps -0.5 -o complexity_evolution/bit_string_sim/equilib_test/eps-0.5_s0.0001_m0.01_k_start0.txt
+python complexity_evolution/bit_string_sim/src/evolve.py -s 0.0001 -m 0.01 -N 100 -L 100 -k_start 100 -eps -0.5 -o complexity_evolution/bit_string_sim/equilib_test/eps-0.5_s0.0001_m0.01_k_start100.txt
+python complexity_evolution/bit_string_sim/src/evolve.py -s 0.0001 -m 0.1 -N 100 -L 100 -k_start 0 -eps -0.5 -o complexity_evolution/bit_string_sim/equilib_test/eps-0.5_s0.0001_m0.1_k_start0.txt
+python complexity_evolution/bit_string_sim/src/evolve.py -s 0.0001 -m 0.1 -N 100 -L 100 -k_start 100 -eps -0.5 -o complexity_evolution/bit_string_sim/equilib_test/eps-0.5_s0.0001_m0.1_k_start100.txt
+python complexity_evolution/bit_string_sim/src/evolve.py -s 0.1 -m 0.0001 -N 100 -L 100 -k_start 0 -eps -1 -o complexity_evolution/bit_string_sim/equilib_test/eps-1_s0.1_m0.0001_k_start0.txt
+python complexity_evolution/bit_string_sim/src/evolve.py -s 0.1 -m 0.0001 -N 100 -L 100 -k_start 100 -eps -1 -o complexity_evolution/bit_string_sim/equilib_test/eps-1_s0.1_m0.0001_k_start100.txt
+python complexity_evolution/bit_string_sim/src/evolve.py -s 0.1 -m 0.001 -N 100 -L 100 -k_start 0 -eps -1 -o complexity_evolution/bit_string_sim/equilib_test/eps-1_s0.1_m0.001_k_start0.txt
+python complexity_evolution/bit_string_sim/src/evolve.py -s 0.1 -m 0.001 -N 100 -L 100 -k_start 100 -eps -1 -o complexity_evolution/bit_string_sim/equilib_test/eps-1_s0.1_m0.001_k_start100.txt
+python complexity_evolution/bit_string_sim/src/evolve.py -s 0.1 -m 0.01 -N 100 -L 100 -k_start 0 -eps -1 -o complexity_evolution/bit_string_sim/equilib_test/eps-1_s0.1_m0.01_k_start0.txt
+python complexity_evolution/bit_string_sim/src/evolve.py -s 0.1 -m 0.01 -N 100 -L 100 -k_start 100 -eps -1 -o complexity_evolution/bit_string_sim/equilib_test/eps-1_s0.1_m0.01_k_start100.txt
+python complexity_evolution/bit_string_sim/src/evolve.py -s 0.1 -m 0.1 -N 100 -L 100 -k_start 0 -eps -1 -o complexity_evolution/bit_string_sim/equilib_test/eps-1_s0.1_m0.1_k_start0.txt
+python complexity_evolution/bit_string_sim/src/evolve.py -s 0.1 -m 0.1 -N 100 -L 100 -k_start 100 -eps -1 -o complexity_evolution/bit_string_sim/equilib_test/eps-1_s0.1_m0.1_k_start100.txt
+python complexity_evolution/bit_string_sim/src/evolve.py -s 0.01 -m 0.0001 -N 100 -L 100 -k_start 0 -eps -1 -o complexity_evolution/bit_string_sim/equilib_test/eps-1_s0.01_m0.0001_k_start0.txt
+python complexity_evolution/bit_string_sim/src/evolve.py -s 0.01 -m 0.0001 -N 100 -L 100 -k_start 100 -eps -1 -o complexity_evolution/bit_string_sim/equilib_test/eps-1_s0.01_m0.0001_k_start100.txt
+python complexity_evolution/bit_string_sim/src/evolve.py -s 0.01 -m 0.001 -N 100 -L 100 -k_start 0 -eps -1 -o complexity_evolution/bit_string_sim/equilib_test/eps-1_s0.01_m0.001_k_start0.txt
+python complexity_evolution/bit_string_sim/src/evolve.py -s 0.01 -m 0.001 -N 100 -L 100 -k_start 100 -eps -1 -o complexity_evolution/bit_string_sim/equilib_test/eps-1_s0.01_m0.001_k_start100.txt
+python complexity_evolution/bit_string_sim/src/evolve.py -s 0.01 -m 0.01 -N 100 -L 100 -k_start 0 -eps -1 -o complexity_evolution/bit_string_sim/equilib_test/eps-1_s0.01_m0.01_k_start0.txt
+python complexity_evolution/bit_string_sim/src/evolve.py -s 0.01 -m 0.01 -N 100 -L 100 -k_start 100 -eps -1 -o complexity_evolution/bit_string_sim/equilib_test/eps-1_s0.01_m0.01_k_start100.txt
+python complexity_evolution/bit_string_sim/src/evolve.py -s 0.01 -m 0.1 -N 100 -L 100 -k_start 0 -eps -1 -o complexity_evolution/bit_string_sim/equilib_test/eps-1_s0.01_m0.1_k_start0.txt
+python complexity_evolution/bit_string_sim/src/evolve.py -s 0.01 -m 0.1 -N 100 -L 100 -k_start 100 -eps -1 -o complexity_evolution/bit_string_sim/equilib_test/eps-1_s0.01_m0.1_k_start100.txt
+python complexity_evolution/bit_string_sim/src/evolve.py -s 0.001 -m 0.0001 -N 100 -L 100 -k_start 0 -eps -1 -o complexity_evolution/bit_string_sim/equilib_test/eps-1_s0.001_m0.0001_k_start0.txt
+python complexity_evolution/bit_string_sim/src/evolve.py -s 0.001 -m 0.0001 -N 100 -L 100 -k_start 100 -eps -1 -o complexity_evolution/bit_string_sim/equilib_test/eps-1_s0.001_m0.0001_k_start100.txt
+python complexity_evolution/bit_string_sim/src/evolve.py -s 0.001 -m 0.001 -N 100 -L 100 -k_start 0 -eps -1 -o complexity_evolution/bit_string_sim/equilib_test/eps-1_s0.001_m0.001_k_start0.txt
+python complexity_evolution/bit_string_sim/src/evolve.py -s 0.001 -m 0.001 -N 100 -L 100 -k_start 100 -eps -1 -o complexity_evolution/bit_string_sim/equilib_test/eps-1_s0.001_m0.001_k_start100.txt
+python complexity_evolution/bit_string_sim/src/evolve.py -s 0.001 -m 0.01 -N 100 -L 100 -k_start 0 -eps -1 -o complexity_evolution/bit_string_sim/equilib_test/eps-1_s0.001_m0.01_k_start0.txt
+python complexity_evolution/bit_string_sim/src/evolve.py -s 0.001 -m 0.01 -N 100 -L 100 -k_start 100 -eps -1 -o complexity_evolution/bit_string_sim/equilib_test/eps-1_s0.001_m0.01_k_start100.txt
+python complexity_evolution/bit_string_sim/src/evolve.py -s 0.001 -m 0.1 -N 100 -L 100 -k_start 0 -eps -1 -o complexity_evolution/bit_string_sim/equilib_test/eps-1_s0.001_m0.1_k_start0.txt
+python complexity_evolution/bit_string_sim/src/evolve.py -s 0.001 -m 0.1 -N 100 -L 100 -k_start 100 -eps -1 -o complexity_evolution/bit_string_sim/equilib_test/eps-1_s0.001_m0.1_k_start100.txt
+python complexity_evolution/bit_string_sim/src/evolve.py -s 0.0001 -m 0.0001 -N 100 -L 100 -k_start 0 -eps -1 -o complexity_evolution/bit_string_sim/equilib_test/eps-1_s0.0001_m0.0001_k_start0.txt
+python complexity_evolution/bit_string_sim/src/evolve.py -s 0.0001 -m 0.0001 -N 100 -L 100 -k_start 100 -eps -1 -o complexity_evolution/bit_string_sim/equilib_test/eps-1_s0.0001_m0.0001_k_start100.txt
+python complexity_evolution/bit_string_sim/src/evolve.py -s 0.0001 -m 0.001 -N 100 -L 100 -k_start 0 -eps -1 -o complexity_evolution/bit_string_sim/equilib_test/eps-1_s0.0001_m0.001_k_start0.txt
+python complexity_evolution/bit_string_sim/src/evolve.py -s 0.0001 -m 0.001 -N 100 -L 100 -k_start 100 -eps -1 -o complexity_evolution/bit_string_sim/equilib_test/eps-1_s0.0001_m0.001_k_start100.txt
+python complexity_evolution/bit_string_sim/src/evolve.py -s 0.0001 -m 0.01 -N 100 -L 100 -k_start 0 -eps -1 -o complexity_evolution/bit_string_sim/equilib_test/eps-1_s0.0001_m0.01_k_start0.txt
+python complexity_evolution/bit_string_sim/src/evolve.py -s 0.0001 -m 0.01 -N 100 -L 100 -k_start 100 -eps -1 -o complexity_evolution/bit_string_sim/equilib_test/eps-1_s0.0001_m0.01_k_start100.txt
+python complexity_evolution/bit_string_sim/src/evolve.py -s 0.0001 -m 0.1 -N 100 -L 100 -k_start 0 -eps -1 -o complexity_evolution/bit_string_sim/equilib_test/eps-1_s0.0001_m0.1_k_start0.txt
+python complexity_evolution/bit_string_sim/src/evolve.py -s 0.0001 -m 0.1 -N 100 -L 100 -k_start 100 -eps -1 -o complexity_evolution/bit_string_sim/equilib_test/eps-1_s0.0001_m0.1_k_start100.txt

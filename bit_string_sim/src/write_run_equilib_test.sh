@@ -19,7 +19,7 @@ do
 			for k in ${k_start_arr[*]} 
 			do
 				out_file=complexity_evolution/bit_string_sim/equilib_test/eps${eps}_s${sel_coef}_m${mut_prob}_k_start${k}.txt
-				echo python complexity_evolution/bit_string_sim/src/evolve.py -s $sel_coef -m $mut_prob -N $eff_pop -L $num_class -k_start $k_start -eps $eps -o $out_file >> src/run_equilib_test.sh 
+				echo python complexity_evolution/bit_string_sim/src/evolve.py -s $sel_coef -m $mut_prob -N $eff_pop -L $num_class -k_start $k -eps $eps -o $out_file >> src/run_equilib_test.sh 
 			done
 		done
 	done

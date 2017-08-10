@@ -10,7 +10,7 @@ def evolve(L, N, s, q, mu, t, delta_t_out, k_start, out):
 		pop.replicate()
 		pop.mutate()
 		if (t_i % delta_t_out == 0):
-			out.write('%d\t%.10f\t%.10f\t%.10f\t%d\t%d\t%d\t%d\t%f\n' %(t_i, 1-q, s, mu, N, L, k_start, pop.mean_fitness()))
+			out.write('%d\t%.10f\t%.10f\t%.10f\t%d\t%d\t%d\t%f\n' %(t_i, 1-q, s, mu, N, L, k_start, pop.mean_fitness()))
 			out.flush()
 		#if (t_i == t-1):
 		#	out.write('%d\t%.10f\t%.10f\t%.10f\t%d\t%d\t%d\t%f\n' %(t_i, 1-q, s, mu, N, L, k_start, pop.mean_fitness()))
