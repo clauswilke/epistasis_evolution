@@ -1,0 +1,254 @@
+```{r global_options, include=FALSE}
+library(knitr)
+library(ggplot2)
+library(cowplot)
+library(dplyr)
+opts_chunk$set(fig.align="center", fig.height=5, fig.width=11)
+```
+
+#Bitstring model
+### Predicted fitness vs selection coefficient 
+
+```{r}
+## calculate predicted fitness
+predict_mean_fitness <- function(Ne, L, s, eps)
+{
+  k <- c(0:L)
+  f <- exp(-s*k^(1-eps))	
+  p_k <- (f^(2*Ne-2)*choose(L, k))/sum(f^(2*Ne-2)*choose(L, k))
+  sum(f*p_k)
+}
+
+##generate data frames of predicted fitness as the function of selection coefficient, ne, and number of classes
+w_vs_L <- function(Ne, s, eps, Lstart, Lstop, Lstep)
+{
+  L <- seq(Lstart, Lstop, Lstep)
+  w_ave <- vapply(L, function(L){predict_mean_fitness(Ne, L, s, eps)}, 1)
+  data.frame(L, w_ave, Ne, s, eps)
+}
+
+w_vs_s <- function(Ne, L, eps, sstart, sstop, nsteps = 100)
+{
+  slog <- seq(log(sstart), log(sstop), length.out = nsteps)
+  s <- exp(slog)
+  w_ave <- vapply(s, function(s){predict_mean_fitness(Ne, L, s, eps)}, 1)
+  data.frame(s, w_ave, Ne, L, eps)
+}
+
+w_vs_eps <- function(Ne, L, s, epsstart, epsstop, epssteps = 0.01)
+{
+  eps <- seq(epsstart, epsstop, epssteps)  
+  w_ave <- vapply(eps, function(eps){predict_mean_fitness(Ne, L, s, eps)}, 1)
+  data.frame(s, w_ave, Ne, L, eps)
+}
+
+L=100
+eps_lst=c(-1, 0, 0.5)
+plot_lst=list()
+
+for (eps in eps_lst) {
+  ##use w_vs_s(Ne, L, eps, sstart, sstop, sstep)
+  d1 <- w_vs_s(1000, L, eps, .001, .1) 
+  d2 <- w_vs_s(100, L, eps, .001, .1) 
+  d3 <- w_vs_s(10, L, eps, .001, .1) 
+
+  d <- rbind(d1,d2,d3) 
+
+  p <- ggplot(d,aes(x=s,y=w_ave)) +
+    geom_line(aes(color=factor(Ne)),size=1.2)+
+    ggtitle(paste0("L = ",L,", eps = ",eps))+
+    scale_y_continuous(breaks=seq(0,1,0.2))+
+    coord_cartesian(ylim=c(0,1))+    
+    scale_x_log10()+
+    xlab("selection coefficient")+
+    ylab("predicted fitness")+
+    guides(col = guide_legend(title="Ne",reverse = TRUE))
+  
+  legend <- get_legend(p + theme(legend.position="bottom"))
+  
+  plot_lst[[length(plot_lst)+1]] <- p+theme(legend.position="none")
+  
+}
+
+prow_bias <- plot_grid(plotlist=plot_lst,
+                       align = 'vh',
+                       hjust = -1,
+                       nrow=1)
+p_final <- plot_grid( prow_bias, legend, ncol=1, rel_heights = c(1, .2))
+p_final
+
+```
+
+
+### Predicted fitness vs number of phenotypic dimensions 
+
+```{r}
+##use w_vs_L(Ne, s, eps, Lstart, Lstop, Lstep)
+s=0.01
+eps_lst=c(-1, 0, 0.5)
+plot_lst=list()
+
+for (eps in eps_lst) {
+  d1 <- w_vs_L(1000, s, eps, 1, 100, 1) 
+  d2 <- w_vs_L(100, s, eps, 1, 100, 1) 
+  d3 <- w_vs_L(10, s, eps, 1, 100, 1) 
+
+  d <- rbind(d1,d2,d3) 
+
+  p <- ggplot(d,aes(x=L,y=w_ave)) +
+    geom_line(aes(color=factor(Ne)),size=1.2)+
+    ggtitle(paste0("s = ",s,", eps = ",eps))+
+    scale_y_continuous(breaks=seq(0,1,0.2))+
+    coord_cartesian(ylim=c(0,1))+
+    xlab("L")+
+    ylab("predicted fitness")+
+    guides(col = guide_legend(title="Ne",reverse = TRUE))
+  
+  legend <- get_legend(p + theme(legend.position="bottom"))
+  
+  plot_lst[[length(plot_lst)+1]] <- p+theme(legend.position="none")
+  
+}
+
+prow_bias <- plot_grid(plotlist=plot_lst,
+                       align = 'vh',
+                       hjust = -1,
+                       nrow=1)
+p1_final <- plot_grid( prow_bias, legend, ncol=1, rel_heights = c(1, .2))
+
+s_lst=c(0.001,0.01,0.1)
+eps=0
+plot_lst=list()
+
+for (s in s_lst) {
+  d1 <- w_vs_L(1000, s, eps, 1, 100, 1) 
+  d2 <- w_vs_L(100, s, eps, 1, 100, 1) 
+  d3 <- w_vs_L(10, s, eps, 1, 100, 1) 
+
+  d <- rbind(d1,d2,d3) 
+
+  p <- ggplot(d,aes(x=L,y=w_ave)) +
+    geom_line(aes(color=factor(Ne)),size=1.2)+
+    ggtitle(paste0("s = ",s,", eps = ",eps))+
+    scale_y_continuous(breaks=seq(0,1,0.2))+
+    coord_cartesian(ylim=c(0,1))+
+    xlab("L")+
+    ylab("predicted fitness")+
+    guides(col = guide_legend(title="Ne",reverse = TRUE))
+  
+  legend <- get_legend(p + theme(legend.position="bottom"))
+  
+  plot_lst[[length(plot_lst)+1]] <- p+theme(legend.position="none")
+  
+}
+
+prow_bias <- plot_grid(plotlist=plot_lst,
+                       align = 'vh',
+                       hjust = -1,
+                       nrow=1)
+p2_final <- plot_grid( prow_bias, legend, ncol=1, rel_heights = c(1, .2))
+
+p1_final
+p2_final
+```
+
+### Predicted fitness vs epistatic coefficient
+
+```{r}
+s_lst=c(0.001,0.01,0.1)
+L=100
+plot_lst=list()
+
+for (s in s_lst) {
+  d1 <- w_vs_eps(1000, L, s, -1, 1, 0.01) 
+  d2 <- w_vs_eps(100, L, s, -1, 1, 0.01)
+  d3 <- w_vs_eps(10, L, s, -1, 1, 0.01) 
+
+  d <- rbind(d1,d2,d3) 
+
+  p <- ggplot(d,aes(x=1-eps,y=w_ave)) +
+    geom_line(aes(color=factor(Ne)),size=1.2)+
+    ggtitle(paste0("s = ",s,", L = ",L))+
+    scale_y_continuous(breaks=seq(0,1,0.2))+
+    coord_cartesian(ylim=c(0,1))+
+    xlab("Q")+
+    ylab("predicted fitness")+
+    guides(col = guide_legend(title="Ne",reverse = TRUE))
+  
+  legend <- get_legend(p + theme(legend.position="bottom"))
+  
+  plot_lst[[length(plot_lst)+1]] <- p+theme(legend.position="none")
+  
+}
+
+prow_bias <- plot_grid(plotlist=plot_lst,
+                       align = 'vh',
+                       hjust = -1,
+                       nrow=1)
+p_final <- plot_grid( prow_bias, legend, ncol=1, rel_heights = c(1, .2))
+p_final
+```
+
+#Fisher's geometric model
+
+### Predicted fitness vs number of phenotypic dimensions 
+```{r, fig.align="center", fig.height=5, fig.width=7}
+##use w_vs_ne(Ne, eps, nestart, nestop, nestep = 1)
+eps=0
+
+tenaillon_mean_fitness <- function(ne, Ne, eps)
+{
+  q <- 1-eps
+  f <- (1-(2*Ne-1)^(-1))^(ne/q)
+  f
+}
+
+w_vs_ne <- function(Ne, eps, nestart, nestop, nestep = 1)
+{
+  ne <- seq(nestart, nestop, nestep)
+  w_ave <- vapply(ne, function(ne){tenaillon_mean_fitness(ne, Ne, eps)}, 1)
+  data.frame(ne, w_ave, Ne, eps)
+}
+
+w_vs_eps <- function(Ne, ne, epsstart, epsstop, epsstep = 0.01)
+{
+  eps <- seq(epsstart, epsstop, epsstep)
+  w_ave <- vapply(eps, function(eps){tenaillon_mean_fitness(ne, Ne, eps)}, 1)
+  data.frame(ne, w_ave, Ne, eps)
+}
+
+d1 <- w_vs_ne(1000, eps, 1, 100,1)
+d2 <- w_vs_ne(100, eps, 1, 100,1)
+d3 <- w_vs_ne(10, eps,1, 100,1)
+
+d <- rbind(d1,d2,d3) 
+
+p <- ggplot(d,aes(x=ne,y=w_ave)) +
+    geom_line(aes(color=factor(Ne)),size=1.2)+
+    ggtitle(paste0("eps = ",eps))+
+    scale_y_continuous(breaks=seq(0,1,0.2))+
+    coord_cartesian(ylim=c(0,1))+
+    xlab("phenotypic dimensions")+
+    ylab("predicted fitness")+
+    guides(col = guide_legend(title="Ne",reverse = TRUE))
+p
+
+ne = 100
+d1 <- w_vs_eps(1000, ne, -1, 1, 0.01)
+d2 <- w_vs_eps(100, ne, -1, 1, 0.01)
+d3 <- w_vs_eps(10, ne, -1, 1, 0.01)
+
+d <- rbind(d1,d2,d3) 
+
+p <- ggplot(d,aes(x=1-eps,y=w_ave)) +
+    geom_line(aes(color=factor(Ne)),size=1.2)+
+    ggtitle(paste0("ne = ", ne))+
+    scale_y_continuous(breaks=seq(0,1,0.2))+
+    coord_cartesian(ylim=c(0,1))+
+    xlab("Q")+
+    ylab("predicted fitness")+
+    guides(col = guide_legend(title="Ne",reverse = TRUE))
+p
+```
+
+
