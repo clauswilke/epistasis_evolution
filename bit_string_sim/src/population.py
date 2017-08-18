@@ -1,4 +1,5 @@
 import numpy as np
+import sys 
 
 class population:
 
@@ -49,6 +50,7 @@ class population:
 				self.n_k[k+1] = self.n_k[k+1]+up
 			
 		if np.sum(self.n_k)!=self.N:
+			print(self.n_k) 
 			print('The total number of individuals does not add up to Ne')
 			sys.exit()
 

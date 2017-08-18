@@ -3,8 +3,10 @@ library(readr)
 
 setwd("complexity_evolution/bit_string_sim/")
 
-#f_lst <- list.files("sim_results",full.names=T)
-f_lst <- list.files("varying_eps_sim",full.names=T)
+in_dir <- "equilib_test"
+outfile <- "processed_results/equilib_test.csv"
+
+f_lst <- list.files(in_dir,full.names=T)
 d <- data.frame()
 
 for (f in f_lst) {
@@ -15,4 +17,4 @@ for (f in f_lst) {
     } else d <- rbind(d,r)
 }
 
-write_csv(d,"processed_results/varying_eps.csv")
+write_csv(d,outfile)
