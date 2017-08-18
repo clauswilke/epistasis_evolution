@@ -16,7 +16,7 @@ Z3 <- function(L, s, N, q, kmax){sum(p_num(L, s, N, q, 0:kmax))}
 fave3 <- function(L, s, N, q, kmax){sum(f(L, s, q, 0:kmax)*p_num(L, s, N, q, 0:kmax))/Z3(L, s, N, q, kmax)}
 
 # predicted q with minimum f_ave
-qmin <- function(s, N){log(L*log(2)/(2*s*N))/log(L/2)}
+qmin <- function(s, N, L){log(L*log(2)/(2*s*N))/log(L/2)}
 
 make_fig <- function(L, s, N) {
   q <- seq(0, 3, .01)
@@ -28,8 +28,8 @@ make_fig <- function(L, s, N) {
   ) %>% gather(formula, f_ave, -q)
 
   ggplot(df, aes(q, f_ave, color = formula)) +
-    geom_line() + geom_vline(xintercept = qmin(s, N), linetype = 2) +
-    draw_text(x = qmin(s, N) + .02, y = fave(L, s, N, qmin(s, N)), hjust = 0, vjust = 1, text = "predicted q*", size = 12) +
+    geom_line() + geom_vline(xintercept = qmin(s, N, L), linetype = 2) +
+    draw_text(x = qmin(s, N, L) + .02, y = fave(L, s, N, qmin(s, N, L)), hjust = 0, vjust = 1, text = "predicted q*", size = 12) +
     labs(title = paste0("L = ", L, ", s = ", s, ", N = ", N)) +
     theme(plot.title = element_text(hjust = 0))
 }
