@@ -8,7 +8,8 @@ def evolve(L, N, s, q, mu, t, delta_t_out, k_start, out):
 	
 	for t_i in range(t):
 		pop.replicate()
-		pop.mutate()
+		pop.mutate_3step()
+
 		if (t_i % delta_t_out == 0):
 			out.write('%d\t%.10f\t%.10f\t%.10f\t%d\t%d\t%d\t%f\n' %(t_i, 1-q, s, mu, N, L, k_start, pop.mean_fitness()))
 			out.flush()
