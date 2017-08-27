@@ -62,20 +62,26 @@ class population:
 		for k in self.k_class:
 			pr_minus3=(1/6)*k*(k-1)*(k-2)*u**3
 			pr_minus2=(1/2)*k*(k-1)*u**2*(1-(self.L-2)*u)
-			pr_minus1=k*u*(1-(self.L+1)*u+(1/2)*self.L*(self.L+1)*u**2)+(1/2)*k*(k-1)*(self.L-k)*u**3
-			pr_stay=(1-self.L*u+self.L*(self.L-1)*u**2-self.L*(self.L-1)*(self.L-2)*u**3)+k*(self.L-k)*u**2*(1-self.L*u)
-			pr_plus1=(self.L-k)*u*(1-(self.L-1)*u-(self.L-1)*(self.L-2)*u**2)+k*(self.L-k)*(self.L-k-1)*u**3			
+			pr_minus1=k*u*(1-(self.L-1)*u+(1/2)*(self.L-1)*(self.L-2)*u**2)+(1/2)*k*(k-1)*(self.L-k)*u**3
+			pr_stay=(1-self.L*u+(1/2)*self.L*(self.L-1)*u**2-(1/6)*self.L*(self.L-1)*(self.L-2)*u**3)+k*(self.L-k)*u**2*(1-self.L*u)
+			pr_plus1=(self.L-k)*u*(1-(self.L-1)*u-(1/2)*(self.L-1)*(self.L-2)*u**2)+(1/2)*k*(self.L-k)*(self.L-k-1)*u**3			
 			pr_plus2=(1/2)*(self.L-k)*(self.L-k-1)*u**2*(1-(self.L-2)*u)
 			pr_plus3=(1/6)*(self.L-k)*(self.L-k-1)*(self.L-k-2)*u**3
 
 			#an array of probabilities of moving from to k+3, to k+2, to k+1, of staying at k, 
 			#and moving to k-3, to k-2, to k-1.
 			prob_mut = np.array([pr_minus3, pr_minus2, pr_minus1, pr_stay, pr_plus1, pr_plus2, pr_plus3]) 
-			#renormalize the probabilities so they sum up to 1 because they are approximated
-			prob_norm = prob_mut/np.sum(prob_mut)
-			#draw numbers of individuals to move
-			m = np.random.multinomial(self.n_k[k], prob_norm)
 			
+			#check that probability array add up to 1
+			if 1-np.sum(prob_mut)>0.0001:
+				print(prob_mut) 
+				print('class k:',k)
+				print('Probabilities of moving to different mutational classes does not add up to 1')
+				sys.exit()
+
+			#draw numbers of individuals to move
+			m = np.random.multinomial(self.n_k[k], prob_mut)
+
 			#store number of individuals to move to k-1, to keep in k, and to move to k+1 for each k class
 			redistr[k]=m
 
@@ -160,6 +166,10 @@ class population:
 		#initialize a zero array to hold individuals (n_k) for each mutation class (k)
 		self.n_k =  np.zeros(self.L + 1)
 	
+		if self.f[k_start]==0: # check if the fitness at t=0 equals to zero
+			nonzero_f = np.nonzero(np.around(self.f,decimals=2)) #find fitness values > 0.0001
+			k_start = np.argmin(self.f[nonzero_f]) #find the minimum fitness value among fitness > 0.0001   
+			
 		#set the entire population to start at mutation class k_start.
 		self.n_k[k_start] = self.N
 			

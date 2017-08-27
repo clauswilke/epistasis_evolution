@@ -71,7 +71,7 @@ def main():
 				
 	out = open(outfile,'w')
 	out.write('time\tepistasis_coef\tsel_coef\tmu_prob\tNe\tL\tk_start\tmean_fitness\n')
-
+	
 	evolve(L, N, s, q, mu, t, delta_t_out, k_start, out)
 	
 	out.close()
