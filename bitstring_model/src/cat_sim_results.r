@@ -1,7 +1,7 @@
 library(dplyr)
 library(readr)
 
-setwd("complexity_evolution/bit_string_sim/")
+setwd("complexity_evolution/bitstring_model/")
 
 in_dir <- "equilib_test"
 outfile <- "processed_results/equilib_test.csv"
