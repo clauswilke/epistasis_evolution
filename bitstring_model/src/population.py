@@ -101,19 +101,17 @@ class population:
 		#move n_k into different mutation classes
 		for k in self.k_class:
 			max_step=int((len(redistr_arr[k])-1)/2)
-			print("redistr arr:",redistr_arr[k])
+
 			for i in range(k-max_step,k+max_step+1): #set the range of steps an individual can go.
 				
 				if i<0 or i>self.L: #check if the range is out of bounds
 					continue
 								
 				if k==i:
-					continue
+					continue 
 				else:
 					self.n_k[i]=self.n_k[i]+redistr_arr[k,i-k+max_step] #add individuals into a new class
 					self.n_k[k]=self.n_k[k]-redistr_arr[k,i-k+max_step] #subtract individuals moved in previous step from class k
-
-			print("n_k:",self.n_k)
 			
 		if np.sum(self.n_k)!=self.N:
 			print(self.n_k) 

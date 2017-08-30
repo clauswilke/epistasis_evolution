@@ -66,7 +66,7 @@ def main():
 	#else:
 	#	t = 2000000
 	
-	t=5000000	
+	t=5000000
 	delta_t_out = 10000 # at which time steps should output be printed?
 				
 	out = open(outfile,'w')
