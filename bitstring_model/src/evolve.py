@@ -21,7 +21,7 @@ def main():
 	simulate bitstring population
 	'''
 	#creating a parser
-	parser = argparse.ArgumentParser(description='Simulations of the evolution in asexual population')
+	parser = argparse.ArgumentParser(description='Bitstring simulations of the population fitness')
 	#adding arguments
 
 	##simulation input parameters

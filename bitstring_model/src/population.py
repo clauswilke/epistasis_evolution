@@ -1,4 +1,5 @@
 import numpy as np
+from pathlib import Path
 import sys
 
 class population:
@@ -12,12 +13,12 @@ class population:
 		self.k_start = k_start
 
 		self.initialize(k_start)
-			
+	
 	def replicate(self):
 		prob_repl = self.f*self.n_k/np.sum(self.f*self.n_k) #probability of being replicated based on the number of individuals within a mutation class and the fitness of the mutation class
 		self.n_k = np.random.multinomial(self.N, prob_repl) #draws offspring based on the probability of replication for each mutation class
-		
-	def mutate(self):
+	
+	def mutate_1step(self):
 		redistr = np.empty([self.L+1, 3]) #set up an empty array to keep track of individuals to move
 		
 		#calculate the number of individuals to move for each mutation class
@@ -30,31 +31,9 @@ class population:
 			#store number of individuals to move to k-1, to keep in k, and to move to k+1 for each k class
 			redistr[k]=m
 
-		#move n_k into different mutation classes
-		for k in self.k_class:
-			down = redistr[k,0] #number of ind in class k to move down to class k-1
-			up = redistr[k,2] #number of ind in class k to move up to class k+1
-
-			#redistribute n_k for different mutational classes
-			if k==0:
-				self.n_k[k] = self.n_k[k]-up
-				self.n_k[k+1] = self.n_k[k+1]+up
-			
-			if k==self.L:
-				self.n_k[k-1] = self.n_k[k-1]+down
-				self.n_k[k] = self.n_k[k]-down
-			
-			if k>0 and k<self.L:
-				self.n_k[k-1] = self.n_k[k-1]+down
-				self.n_k[k] = self.n_k[k]-(up+down)
-				self.n_k[k+1] = self.n_k[k+1]+up
-			
-		if np.sum(self.n_k)!=self.N:
-			print(self.n_k) 
-			print('The total number of individuals does not add up to Ne')
-			sys.exit()
+		self.redistribute_n_k(redistr)
 	
-	def mutate_3step(self):
+	def mutate_3step_v1(self):
 		redistr = np.empty([self.L+1, 7]) #set up an empty array to keep track of individuals to move
 		
 		#calculate the number of individuals to move for each mutation class
@@ -84,74 +63,63 @@ class population:
 
 			#store number of individuals to move to k-1, to keep in k, and to move to k+1 for each k class
 			redistr[k]=m
+		
+		self.redistribute_n_k(redistr)
+	
+	def mutate_3step_v2(self, mut_matrix_file):
+		file = Path(mut_matrix_file) #path to the mutation matrix npy file
+		if file.exists(): #load the file if it exists in the directory provided
+			mut_matrix=np.load(mut_matrix_file)
+		else:
+			print('The mutation matrix file does not exist')
+			sys.exit()
+		
+		redistr = np.empty([self.L+1, 7]) #set up an empty array to keep track of individuals to move
 
+		#calculate the number of individuals to move for each mutation class
+		for k in self.k_class:
+			#index an array of probabilities of moving from to k+3, to k+2, to k+1, of staying at k, 
+			#and moving to k-3, to k-2, to k-1.
+			r = [i for i in range(k-3,k+3+1) if i >= 0 or i<=self.L] #find the proper range of values to index i.e. if k=0, then range is 0,1,2,3 etc.
+			prob_mut=mut_matrix[k,r]
+			
+			if 1-np.sum(prob_mut)>0.0001:
+				print(prob_mut) 
+				print('class k:',k)
+				print('Probabilities of moving to different mutational classes does not add up to 1')
+				sys.exit()
+			
+			#draw numbers of individuals to move
+			m = np.random.multinomial(self.n_k[k], prob_mut)
+			
+			#store number of individuals to move to k-1, to keep in k, and to move to k+1 for each k class
+			redistr[k]=m
+		
+		self.redistribute_n_k(redistr)
+		
+	def redistribute_n_k(self, redistr_arr):
 		#move n_k into different mutation classes
 		for k in self.k_class:
-			down3 = redistr[k,0] #number of ind in class k to move down to class k-3
-			down2 = redistr[k,1] #number of ind in class k to move down to class k-2
-			down1 = redistr[k,2] #number of ind in class k to move down to class k-1
-			up1 = redistr[k,4] #number of ind in class k to move up to class k+1
-			up2 = redistr[k,5] #number of ind in class k to move up to class k+2
-			up3 = redistr[k,6] #number of ind in class k to move up to class k+3
-	
-			#redistribute n_k for different mutational classes
-			if k==0:
-				self.n_k[k] = self.n_k[k]-(up3+up2+up1)
-				self.n_k[k+1] = self.n_k[k+1]+up1
-				self.n_k[k+2] = self.n_k[k+2]+up2	
-				self.n_k[k+3] = self.n_k[k+3]+up3
-			
-			elif k==1:
-				self.n_k[k-1] = self.n_k[k-1]+down1
-				self.n_k[k] = self.n_k[k]-(down1+up3+up2+up1)
-				self.n_k[k+1] = self.n_k[k+1]+up1
-				self.n_k[k+2] = self.n_k[k+2]+up2	
-				self.n_k[k+3] = self.n_k[k+3]+up3
-			
-			elif k==2:
-				self.n_k[k-1] = self.n_k[k-1]+down1
-				self.n_k[k-2] = self.n_k[k-2]+down2
-				self.n_k[k] = self.n_k[k]-(down1+down2+up3+up2+up1)
-				self.n_k[k+1] = self.n_k[k+1]+up1
-				self.n_k[k+2] = self.n_k[k+2]+up2	
-				self.n_k[k+3] = self.n_k[k+3]+up3
-										
-			elif k==self.L:
-				self.n_k[k-1] = self.n_k[k-1]+down1
-				self.n_k[k-2] = self.n_k[k-2]+down2
-				self.n_k[k-3] = self.n_k[k-3]+down3
-				self.n_k[k] = self.n_k[k]-(down1+down2+down3)
+			max_step=int((len(redistr_arr[k])-1)/2)
+			print("redistr arr:",redistr_arr[k])
+			for i in range(k-max_step,k+max_step+1): #set the range of steps an individual can go.
+				
+				if i<0 or i>self.L: #check if the range is out of bounds
+					continue
+								
+				if k==i:
+					continue
+				else:
+					self.n_k[i]=self.n_k[i]+redistr_arr[k,i-k+max_step] #add individuals into a new class
+					self.n_k[k]=self.n_k[k]-redistr_arr[k,i-k+max_step] #subtract individuals moved in previous step from class k
 
-			elif k==self.L-1:
-				self.n_k[k-1] = self.n_k[k-1]+down1
-				self.n_k[k-2] = self.n_k[k-2]+down2
-				self.n_k[k-3] = self.n_k[k-3]+down3
-				self.n_k[k] = self.n_k[k]-(down1+down2+down3+up1)
-				self.n_k[k+1] = self.n_k[k+1]+up1
-
-			elif k==self.L-2:
-				self.n_k[k-1] = self.n_k[k-1]+down1
-				self.n_k[k-2] = self.n_k[k-2]+down2
-				self.n_k[k-3] = self.n_k[k-3]+down3
-				self.n_k[k] = self.n_k[k]-(down1+down2+down3+up1+up2)
-				self.n_k[k+1] = self.n_k[k+1]+up1
-				self.n_k[k+2] = self.n_k[k+2]+up2	
-
-			#if (k+2)>0 and k<(self.L-2):
-			else:
-				self.n_k[k-1] = self.n_k[k-1]+down1
-				self.n_k[k-2] = self.n_k[k-2]+down2
-				self.n_k[k-3] = self.n_k[k-3]+down3
-				self.n_k[k] = self.n_k[k]-(down1+down2+down3+up3+up2+up1)
-				self.n_k[k+1] = self.n_k[k+1]+up1
-				self.n_k[k+2] = self.n_k[k+2]+up2	
-				self.n_k[k+3] = self.n_k[k+3]+up3
+			print("n_k:",self.n_k)
 			
 		if np.sum(self.n_k)!=self.N:
 			print(self.n_k) 
 			print('The total number of individuals does not add up to Ne')
 			sys.exit()
-
+		
 	def mean_fitness(self):
 		mean_fitness = np.average(self.f, weights = self.n_k)
 		return mean_fitness
