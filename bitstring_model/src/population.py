@@ -1,6 +1,6 @@
 import numpy as np
-from pathlib import Path
 import sys
+import os.path
 
 class population:
 
@@ -67,24 +67,22 @@ class population:
 		self.redistribute_n_k(redistr)
 	
 	def mutate_3step_v2(self, mut_matrix_file):
-		file = Path(mut_matrix_file) #path to the mutation matrix npy file
-		if file.exists(): #load the file if it exists in the directory provided
+		if os.path.isfile(mut_matrix_file): #load the file if it exists in the directory provided
 			mut_matrix=np.load(mut_matrix_file)
 		else:
 			print('The mutation matrix file does not exist')
 			sys.exit()
 		
-		redistr = np.empty([self.L+1, 7]) #set up an empty array to keep track of individuals to move
-
+		redistr = [] #set up an empty array to keep track of individuals to move
 		#calculate the number of individuals to move for each mutation class
 		for k in self.k_class:
 			#index an array of probabilities of moving from to k+3, to k+2, to k+1, of staying at k, 
 			#and moving to k-3, to k-2, to k-1.
-			r = [i for i in range(k-3,k+3+1) if i >= 0 or i<=self.L] #find the proper range of values to index i.e. if k=0, then range is 0,1,2,3 etc.
+			r = [i for i in range(k-3,k+3+1) if i >= 0 and i<=self.L] #find the proper range of values to index i.e. if k=0, then range is 0,1,2,3 etc.
 			prob_mut=mut_matrix[k,r]
 			
 			if 1-np.sum(prob_mut)>0.0001:
-				print(prob_mut) 
+				print(1-np.sum(prob_mut)) 
 				print('class k:',k)
 				print('Probabilities of moving to different mutational classes does not add up to 1')
 				sys.exit()
@@ -93,11 +91,11 @@ class population:
 			m = np.random.multinomial(self.n_k[k], prob_mut)
 			
 			#store number of individuals to move to k-1, to keep in k, and to move to k+1 for each k class
-			redistr[k]=m
+			redistr.append(m)
 		
 		self.redistribute_n_k(redistr)
 		
-	def redistribute_n_k(self, redistr_arr):
+	def redistribute_n_k(self, redistr_arr): #function takes both numpy arrays and list of lists
 		#move n_k into different mutation classes
 		for k in self.k_class:
 			max_step=int((len(redistr_arr[k])-1)/2)
@@ -110,8 +108,8 @@ class population:
 				if k==i:
 					continue 
 				else:
-					self.n_k[i]=self.n_k[i]+redistr_arr[k,i-k+max_step] #add individuals into a new class
-					self.n_k[k]=self.n_k[k]-redistr_arr[k,i-k+max_step] #subtract individuals moved in previous step from class k
+					self.n_k[i]=self.n_k[i]+redistr_arr[k][i-k+max_step] #add individuals into a new class
+					self.n_k[k]=self.n_k[k]-redistr_arr[k][i-k+max_step] #subtract individuals moved in previous step from class k
 			
 		if np.sum(self.n_k)!=self.N:
 			print(self.n_k) 
