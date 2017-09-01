@@ -6,14 +6,16 @@ def evolve(L, N, s, q, mu, t, delta_t_out, k_start, out):
 
 	pop = population(L, N, s, q, mu, k_start)
 	
-	mut_file='complexity_evolution/bitstring_model/mutation_matrix/m'+str(mu)+'.npy'
+	mut_file='mutation_matrix/m'+str(mu)+'.npy'
 	for t_i in range(t):
 		pop.replicate()
 		pop.mutate_3step_v2(mut_file)
-
+		#pop.mutate_3step_v1()
+		
 		if (t_i % delta_t_out == 0):
 			out.write('%d\t%.10f\t%.10f\t%.10f\t%d\t%d\t%d\t%f\n' %(t_i, 1-q, s, mu, N, L, k_start, pop.mean_fitness()))
 			out.flush()
+		
 		#if (t_i == t-1):
 		#	out.write('%d\t%.10f\t%.10f\t%.10f\t%d\t%d\t%d\t%f\n' %(t_i, 1-q, s, mu, N, L, k_start, pop.mean_fitness()))
 

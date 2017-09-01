@@ -50,7 +50,7 @@ class population:
 			#an array of probabilities of moving from to k+3, to k+2, to k+1, of staying at k, 
 			#and moving to k-3, to k-2, to k-1.
 			prob_mut = np.array([pr_minus3, pr_minus2, pr_minus1, pr_stay, pr_plus1, pr_plus2, pr_plus3]) 
-			
+
 			#check that probability array add up to 1
 			if 1-np.sum(prob_mut)>0.0001:
 				print(prob_mut) 
@@ -73,7 +73,7 @@ class population:
 			print('The mutation matrix file does not exist')
 			sys.exit()
 		
-		redistr = [] #set up an empty array to keep track of individuals to move
+		redistr = np.empty([self.L+1, 7]) #set up an empty array to keep track of individuals to move
 		#calculate the number of individuals to move for each mutation class
 		for k in self.k_class:
 			#index an array of probabilities of moving from to k+3, to k+2, to k+1, of staying at k, 
@@ -90,12 +90,21 @@ class population:
 			#draw numbers of individuals to move
 			m = np.random.multinomial(self.n_k[k], prob_mut)
 			
-			#store number of individuals to move to k-1, to keep in k, and to move to k+1 for each k class
-			redistr.append(m)
-		
+			#format a zero array to add to m array 
+			if len(m)<7:
+				zero_arr=np.zeros(7-len(m))
+				if k-3<0:
+					full_m=np.append(zero_arr,m)
+				elif k+3>self.L:
+					full_m=np.append(m,zero_arr)
+				redistr[k]=full_m
+			else:
+				redistr[k]=m
+
 		self.redistribute_n_k(redistr)
 		
 	def redistribute_n_k(self, redistr_arr): #function takes both numpy arrays and list of lists
+
 		#move n_k into different mutation classes
 		for k in self.k_class:
 			max_step=int((len(redistr_arr[k])-1)/2)
@@ -110,7 +119,7 @@ class population:
 				else:
 					self.n_k[i]=self.n_k[i]+redistr_arr[k][i-k+max_step] #add individuals into a new class
 					self.n_k[k]=self.n_k[k]-redistr_arr[k][i-k+max_step] #subtract individuals moved in previous step from class k
-			
+										
 		if np.sum(self.n_k)!=self.N:
 			print(self.n_k) 
 			print('The total number of individuals does not add up to Ne')
