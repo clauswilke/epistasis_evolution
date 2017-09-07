@@ -6,7 +6,7 @@ def evolve(L, N, s, q, mu, t, delta_t_out, k_start, out):
 
 	pop = population(L, N, s, q, mu, k_start)
 	
-	mut_file='mutation_matrix/m'+str(mu)+'.npy'
+	mut_file='complexity_evolution/bitstring_model/mutation_matrix/m'+str(mu)+'.npy'
 	for t_i in range(t):
 		pop.replicate()
 		pop.mutate_3step_v2(mut_file)
