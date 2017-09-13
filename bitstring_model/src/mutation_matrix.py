@@ -34,14 +34,13 @@ def main():
 	'''
 	
 	#mu_prob_lst=[0.1,0.01,0.001,0.0001]
-	L=10
+	L=100
 	mu_prob_lst=[0.01]
 	
 	for mu_prob in mu_prob_lst:
 		u=mu_prob/L
 		mut_matrix=calc_mut_matrix(L, u, 3, 4)
-		#outfile="mutation_matrix/m"+str(mu_prob)+".npy"
-		outfile="mutation_matrix/m"+str(mu_prob)+"_test.npy"
+		outfile="mutation_matrix/m"+str(mu_prob)+".npy"
 		np.save(outfile, mut_matrix)
 		
 if __name__ == "__main__":

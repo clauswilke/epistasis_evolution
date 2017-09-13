@@ -9,15 +9,14 @@ def evolve(L, N, s, q, mu, t, delta_t_out, k_start, out):
 	mut_file='complexity_evolution/bitstring_model/mutation_matrix/m'+str(mu)+'.npy'
 	for t_i in range(t):
 		pop.replicate()
-		pop.mutate_3step_v2(mut_file)
-		#pop.mutate_3step_v1()
+		pop.mutate(mut_file)
 		
-		if (t_i % delta_t_out == 0):
+		# if (t_i % delta_t_out == 0):
+# 			out.write('%d\t%.10f\t%.10f\t%.10f\t%d\t%d\t%d\t%f\n' %(t_i, 1-q, s, mu, N, L, k_start, pop.mean_fitness()))
+# 			out.flush()
+	
+		if (t_i == t-1):
 			out.write('%d\t%.10f\t%.10f\t%.10f\t%d\t%d\t%d\t%f\n' %(t_i, 1-q, s, mu, N, L, k_start, pop.mean_fitness()))
-			out.flush()
-		
-		#if (t_i == t-1):
-		#	out.write('%d\t%.10f\t%.10f\t%.10f\t%d\t%d\t%d\t%f\n' %(t_i, 1-q, s, mu, N, L, k_start, pop.mean_fitness()))
 
 def main():
 	'''
@@ -62,16 +61,9 @@ def main():
 	eps = args.eps ##epistasis
 	q = 1-eps ##q=1-epsilon. if q is large ~ fitness is low and vice versa.
 	
-	#if N*mu >= 1:
-	#	t = 500000 ##number of time steps or number of generations
-	#elif N*mu == 0.1:
-	#	t = 1000000
-	#else:
-	#	t = 2000000
-	
-	t=3000000
+	t=1500000
 	delta_t_out = 1000 # at which time steps should output be printed?
-				
+		
 	out = open(outfile,'w')
 	out.write('time\tepistasis_coef\tsel_coef\tmu_prob\tNe\tL\tk_start\tmean_fitness\n')
 	
