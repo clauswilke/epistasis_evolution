@@ -5,7 +5,6 @@ mut_prob_arr=(0.0001 0.001 0.01 0.1) ##pick mutation prob such that N*mu = 0.1, 
 eff_pop=100
 num_class=100
 k_start=0
-#eps_arr=(0.5 0 -1)
 
 if [ -f src/run_simulation.sh ]; then
 	rm src/run_simulation.sh 
