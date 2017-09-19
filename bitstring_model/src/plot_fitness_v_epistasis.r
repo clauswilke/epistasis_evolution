@@ -4,7 +4,6 @@ library(dplyr)
 library(cowplot)
 library(readr)
 
-setwd("complexity_evolution/bit_string_sim/")
 
 predict_mean_fitness <- function(Ne, L, s, eps)
 {
@@ -23,18 +22,20 @@ w_vs_eps <- function(Ne, L, s, epsstart, epsstop, epssteps = 0.01)
 
 t <- read_csv("processed_results/varying_eps.csv")
 
-t %>% mutate(q=1-epistasis_coef) -> t_sum
+t %>% mutate(q=1-epistasis_coef) %>% 
+  group_by(q,sel_coef,mu_prob,k_start,rep) %>%
+  summarise(mean_f_over_time=mean(mean_fitness)) -> t_sum
 
 for (s in c(0.1, 0.01, 0.001)){
   t_sum %>% filter(sel_coef==s) -> f
-  Ne <- f$Ne[1]
-  L <- f$L[1]
+  Ne <- t$Ne[1]
+  L <- t$L[1]
   an_f <- w_vs_eps(Ne, L, s, -1, 1) %>% mutate(q=1-eps)
   
   p <- ggplot()+ 
     stat_summary(data=f,
                  inherit.aes=FALSE,
-                 aes(x=q,y=mean_fitness,color=factor(mu_prob)),
+                 aes(x=q,y=mean_f_over_time,color=factor(mu_prob)),
                  fun.y = mean,
                  fun.ymin = function(x) mean(x) - sd(x)/sqrt(length(x)), 
                  fun.ymax = function(x) mean(x) + sd(x)/sqrt(length(x)), 

@@ -4,8 +4,6 @@ library(dplyr)
 library(cowplot)
 library(readr)
 
-setwd("complexity_evolution/bitstring_model/")
-
 t <- read_csv("processed_results/equilib_test_mut_v2.csv")
 
 for (eps in c(-1,-0.5, 0, 0.5, 1)){
