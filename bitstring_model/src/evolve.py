@@ -4,19 +4,17 @@ from population import population
 
 def evolve(L, N, s, q, mu, t, delta_t_out, k_start, out):
 
-	pop = population(L, N, s, q, mu, k_start)
+	pop = population(L, N, s, q, mu, k_start) #initiate a population with given parameters
 	
-	mut_file='complexity_evolution/bitstring_model/mutation_matrix/m'+str(mu)+'.npy'
-	for t_i in range(t):
+	mut_file='complexity_evolution/bitstring_model/mutation_matrix/m'+str(mu)+'.npy' #file that contains the mutation matrix
+	for t_i in range(t+1): #for each time point replicate and mutate the population
 		pop.replicate()
 		pop.mutate(mut_file)
-		
-		# if (t_i % delta_t_out == 0):
-# 			out.write('%d\t%.10f\t%.10f\t%.10f\t%d\t%d\t%d\t%f\n' %(t_i, 1-q, s, mu, N, L, k_start, pop.mean_fitness()))
-# 			out.flush()
 	
-		if (t_i == t-1):
-			out.write('%d\t%.10f\t%.10f\t%.10f\t%d\t%d\t%d\t%f\n' %(t_i, 1-q, s, mu, N, L, k_start, pop.mean_fitness()))
+		if (t_i >= 1500000 ): #after the population reaches the equilibrium at t=1,500,000 record the fitness at increments of 1000
+			if (t_i % delta_t_out == 0): 
+				out.write('%d\t%.10f\t%.10f\t%.10f\t%d\t%d\t%d\t%f\n' %(t_i, 1-q, s, mu, N, L, k_start, pop.mean_fitness()))
+				out.flush()
 
 def main():
 	'''
@@ -61,7 +59,7 @@ def main():
 	eps = args.eps ##epistasis
 	q = 1-eps ##q=1-epsilon. if q is large ~ fitness is low and vice versa.
 	
-	t=1500000
+	t=2500000
 	delta_t_out = 1000 # at which time steps should output be printed?
 		
 	out = open(outfile,'w')
