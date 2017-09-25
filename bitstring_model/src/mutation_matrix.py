@@ -35,7 +35,7 @@ def main():
 	
 	#mu_prob_lst=[0.1,0.01,0.001,0.0001]
 	L=100
-	mu_prob_lst=[0.01]
+	mu_prob_lst=[0.0001]
 	
 	for mu_prob in mu_prob_lst:
 		u=mu_prob/L
