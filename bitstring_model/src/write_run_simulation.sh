@@ -1,7 +1,7 @@
 #!/bin/bash
 repl_num=10
-sel_coef_arr=(0.1 0.01 0.001 0.0001)  ##s*N < 1
-mut_prob_arr=(0.0001 0.001 0.01) ##pick mutation prob such that N*mu = 0.1, 1, 10
+sel_coef_arr=(0.01 0.001 0.0001)  ##s*N < 1
+mut_prob_arr=(0.0001 0.001 0.01 0.1) ##pick mutation prob such that N*mu = 0.1, 1, 10
 eff_pop=100
 num_class=100
 k_start=0
