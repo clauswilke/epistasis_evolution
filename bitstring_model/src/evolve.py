@@ -85,7 +85,10 @@ def main():
 	q = 1-eps ##q=1-epsilon. if q is large ~ fitness is low and vice versa.
 	max_move = args.max
 	
-	t=3000000
+	#set the time when fitness reaches equilibrium based on equilibrium test plots
+	if (N==100 and max_move==3): #for Ne=100 and max mutation move is 3 the equilibrium is reached at 1.5 million for all other parameter values.
+		t=1500000
+		
 	delta_t_out = 1000 # at which time steps should output be printed?
 	
 	mutfile=args.mutation_matrix
