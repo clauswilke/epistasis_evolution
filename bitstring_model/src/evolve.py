@@ -86,8 +86,11 @@ def main():
 	max_move = args.max
 	
 	#set the time when fitness reaches equilibrium based on equilibrium test plots
-	if (N==100 and max_move==3): #for Ne=100 and max mutation move is 3 the equilibrium is reached at 1.5 million for all other parameter values.
+	if (N==100 and max_move==1 or max_move==3): #for Ne=100 and max mutation move is 1 or 3 the equilibrium is reached at 1.5 million for all other parameter values.
 		t=1500000
+		
+	if (N==10 and max_move==3): #for Ne=10 and max mutation move is 3 the equilibrium is reached at 2 million for all other parameter values.
+		t=2000000
 		
 	delta_t_out = 1000 # at which time steps should output be printed?
 	
