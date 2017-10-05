@@ -11,11 +11,11 @@ def evolve(L, N, s, q, mu, k_start, max_move, t, delta_t_out, outfile, mutfile=N
 	pop = population(L, N, s, q, mu, k_start) #initiate a population with given parameters
 	
 	mut_file='complexity_evolution/bitstring_model/mutation_matrix/m'+str(mu)+'.npy' #file that contains the mutation matrix
-	for t_i in range(t+1): #for each time point replicate and mutate the population
+	for t_i in range(t+1000001): #for each time point replicate and mutate the population
 		pop.replicate()
 		pop.mutate(max_move, mutfile)
 	
-		if (t_i >= t+1000000 ): #after the population reaches the equilibrium at t=1,500,000 record the fitness at increments of 1000
+		if (t_i >= t): #after the population reaches the equilibrium at t=1,500,000 record the fitness at increments of 1000
 			if (t_i % delta_t_out == 0): 
 				out.write('%d\t%.10f\t%.10f\t%.10f\t%d\t%d\t%d\t%f\n' %(t_i, 1-q, s, mu, N, L, k_start, pop.mean_fitness()))
 				out.flush()
