@@ -1,0 +1,1 @@
+time	epistasis_coef	sel_coef	mu_prob	Ne	L	k_start	mean_fitness
