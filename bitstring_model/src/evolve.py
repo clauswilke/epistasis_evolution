@@ -12,9 +12,6 @@ def evolve(L, N, s, q, mu, k_start, max_move, t, delta_t_out, outfile, mutfile=N
 	
 	mut_file='complexity_evolution/bitstring_model/mutation_matrix/m'+str(mu)+'.npy' #file that contains the mutation matrix
 	for t_i in range(t+1000001): #for each time point replicate and mutate the population
-		print("t:", t_i)
-		print(pop.n_k)
-
 		pop.replicate()
 		pop.mutate(max_move, mutfile)
 	
