@@ -4,7 +4,6 @@ library(dplyr)
 library(cowplot)
 library(readr)
 
-setwd("complexity_evolution/bit_string_sim/")
 
 predict_mean_fitness <- function(Ne, L, s, eps)
 {
@@ -15,7 +14,7 @@ predict_mean_fitness <- function(Ne, L, s, eps)
 }
 
 #file_lst <- list.files("sim_results",pattern="n100.txt",full.names=T)
-t <- read_csv("processed_results/all.csv")
+t <- read_csv("../processed_results/all.csv")
 
 t %>% group_by(sel_coef,epistasis_coef,mu_prob) %>%
   mutate(an_mean_fitness=predict_mean_fitness(100,100,sel_coef,epistasis_coef),q=1-epistasis_coef)-> t_sum
@@ -40,7 +39,7 @@ for (s in c(0.1, 0.01, 0.001, 0.0001)){
           legend.text = element_text(size = 11),
           legend.title = element_text(size = 12))
   
-  save_plot(paste0("plots/mean_fit_v_time_s",s,".pdf"), p)
+  save_plot(paste0("../plots/mean_fit_v_time_s",s,".pdf"), p)
 }
 
 

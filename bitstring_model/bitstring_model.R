@@ -19,7 +19,7 @@ fave3 <- function(L, s, N, q, kmax){sum(f(L, s, q, 0:kmax)*p_num(L, s, N, q, 0:k
 qmin <- function(s, N, L){log(L*log(2)/(2*s*N))/log(L/2)}
 
 make_fig <- function(L, s, N) {
-  q <- seq(0, 3, .01)
+  q <- seq(0, 2, .01)
   df <- data.frame(
     q = q,
     full_model = vapply(q, function(x) fave(L, s, N, x), numeric(1)),
@@ -28,14 +28,20 @@ make_fig <- function(L, s, N) {
   ) %>% gather(formula, f_ave, -q)
 
   ggplot(df, aes(q, f_ave, color = formula)) +
-    geom_line() + geom_vline(xintercept = qmin(s, N, L), linetype = 2) +
-    draw_text(x = qmin(s, N, L) + .02, y = fave(L, s, N, qmin(s, N, L)), hjust = 0, vjust = 1, text = "predicted q*", size = 12) +
-    labs(title = paste0("L = ", L, ", s = ", s, ", N = ", N)) +
-    theme(plot.title = element_text(hjust = 0))
+    geom_line(size=1.1) + 
+    #geom_vline(xintercept = qmin(s, N, L), linetype = 2) +
+    #draw_text(x = qmin(s, N, L) + .01, y = fave(L, s, N, qmin(s, N, L)), hjust = 0, vjust = 1, text = "pred. Q*", size = 12) +
+    #labs(title = paste0("L = ", L, ", s = ", s, ", N = ", N)) +
+    #labs(title = paste0("s = ", s, ", N = ", N)) +
+    scale_color_manual(labels = c("Full model", "Limited drift", "No selection"),values=c("black","red","blue")) + 
+    xlab('Q')+
+    ylab('Mean fitness')+
+    theme(plot.title = element_text(hjust = 0), legend.position="none")
+    
 }
 
-p1 <- make_fig(L = 1000, s = 0.0001, N = 1000)
+p1 <- make_fig(L = 1000, s = 0.001, N = 1000)
 p2 <- make_fig(L = 1000, s = 0.01, N = 100)
-p3 <- make_fig(L = 100, s = 0.001, N = 1000)
+p3 <- make_fig(L = 100, s = 0.001, N = 100)
 p4 <- make_fig(L = 100, s = 0.01, N = 100)
 plot_grid(p1, p2, p3, p4)
