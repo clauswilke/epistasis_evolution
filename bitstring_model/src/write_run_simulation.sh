@@ -1,11 +1,13 @@
 #!/bin/bash
 repl_num=10
-sel_coef_arr=(0.01 0.001 0.0001)  ##s*N < 1
-mut_prob_arr=(0.0001 0.001 0.01 0.1) ##pick mutation prob such that N*mu = 0.1, 1, 10
+#sel_coef_arr=(0.01 0.001 0.0001)  ##s*N < 1
+#mut_prob_arr=(0.0001 0.001 0.01 0.1 1) ##pick mutation prob such that N*mu = 0.1, 1, 10
+sel_coef_arr=(0.01)  ##s*N < 1
+mut_prob_arr=(1)
 num_class=100
 k_start=0
-max_move=3
-eff_pop=10
+max_move=4
+eff_pop=100
 runfile=run_simulation_N${eff_pop}_max${max_move}.sh
 
 

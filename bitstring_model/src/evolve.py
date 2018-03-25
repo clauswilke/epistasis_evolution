@@ -12,6 +12,9 @@ def evolve(L, N, s, q, mu, k_start, max_move, t, delta_t_out, outfile, mutfile=N
 	
 	mut_file='complexity_evolution/bitstring_model/mutation_matrix/m'+str(mu)+'.npy' #file that contains the mutation matrix
 	for t_i in range(t+1000001): #for each time point replicate and mutate the population
+		print("t:", t_i)
+		print(pop.n_k)
+
 		pop.replicate()
 		pop.mutate(max_move, mutfile)
 	
@@ -86,7 +89,7 @@ def main():
 	max_move = args.max
 	
 	#set the time when fitness reaches equilibrium based on equilibrium test plots
-	if (N==100 and max_move==1 or max_move==3): #for Ne=100 and max mutation move is 1 or 3 the equilibrium is reached at 1.5 million for all other parameter values.
+	if (N==100 and max_move==1 or max_move==3 or max_move==4): #for Ne=100 and max mutation move is 1 or 3 the equilibrium is reached at 1.5 million for all other parameter values.
 		t=1500000
 		
 	if (N==10 and max_move==3): #for Ne=10 and max mutation move is 3 the equilibrium is reached at 2 million for all other parameter values.
@@ -96,7 +99,7 @@ def main():
 	
 	mutfile=args.mutation_matrix
 	if mutfile is None:
-		if max_move==3:
+		if max_move == 3 or max_move == 4:
 			print('Mutation matrix file is not specified')
 			sys.exit()
 		else:
