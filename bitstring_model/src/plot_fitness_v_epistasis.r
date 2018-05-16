@@ -59,3 +59,5 @@ for (s in c(0.01, 0.001, 0.0001)){
     ylab('Mean fitness')
   save_plot(paste0("../plots/mean_fit_v_Q_s",s,"_N",Ne,"_max1.png"), p)
 }
+
+p3 <- make_fig(L = 100, s = 0.001, N = 100)
