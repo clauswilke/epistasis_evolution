@@ -55,8 +55,7 @@ p_N10_s0.01 <- ggplot()+
                geom = "pointrange",
                size=0.4)+
   geom_line(data = an_f, aes(x = q, y = w_ave))+
-  #geom_vline(xintercept = q_est, linetype = 2)+
-  #draw_text(x = q_est+0.02, y =1, hjust = 0, vjust = 1, text = "predicted q*", size = 12)+
+  draw_text(x = 0, y =0, hjust = 0, vjust = 0, text = "N = 10, s = 0.01", size = 12, fontface = 'bold')+
   scale_y_continuous(breaks=seq(0,1,0.2))+
   coord_cartesian(ylim=c(0,1),xlim=c(0,2))+
   guides(col = guide_legend(title="Mutation\nrate"))+
@@ -64,10 +63,9 @@ p_N10_s0.01 <- ggplot()+
         axis.text = element_text(size = 12),
         legend.text = element_text(size = 11),
         legend.title = element_text(size = 12))+
-        #legend.position = "none")+
-  xlab('Q') +
+  xlab('q') +
   ylab('Mean fitness') +
-  scale_color_manual(values = colorblind_pal()(8)[c(2,4,6,7)])
+  scale_color_manual(labels= c("0.0001", "0.001", "0.01", "0.1"), values = c("#F3DB7E", "#F5BE6C", "#E4945E", "#C05E4F"))
 
 ### Sub-figure N=10, s=0.001
 pop_size = 10
@@ -86,8 +84,7 @@ p_N10_s0.001 <- ggplot()+
                geom = "pointrange",
                size=0.4)+
   geom_line(data = an_f, aes(x = q, y = w_ave))+
-  #geom_vline(xintercept = q_est, linetype = 2)+
-  #draw_text(x = q_est+0.02, y =1, hjust = 0, vjust = 1, text = "predicted q*", size = 12)+
+  draw_text(x = 0, y =0, hjust = 0, vjust = 0, text = "N = 10, s = 0.001", size = 12, fontface = 'bold')+
   scale_y_continuous(breaks=seq(0,1,0.2))+
   coord_cartesian(ylim=c(0,1),xlim=c(0,2))+
   guides(col = guide_legend(title="Mutation\nrate"))+
@@ -95,10 +92,9 @@ p_N10_s0.001 <- ggplot()+
         axis.text = element_text(size = 12),
         legend.text = element_text(size = 11),
         legend.title = element_text(size = 12))+
-  #legend.position = "none")+
-  xlab('Q') +
+  xlab('q') +
   ylab('Mean fitness') +
-  scale_color_manual(values = colorblind_pal()(8)[c(2,4,6,7)])
+  scale_color_manual(labels= c("0.0001", "0.001", "0.01", "0.1"), values = c("#F3DB7E", "#F5BE6C", "#E4945E", "#C05E4F"))
 
 ### Sub-figure N=100, s=0.01
 pop_size = 100
@@ -117,8 +113,7 @@ p_N100_s0.01 <- ggplot()+
                geom = "pointrange",
                size=0.4)+
   geom_line(data = an_f, aes(x = q, y = w_ave))+
-  #geom_vline(xintercept = q_est, linetype = 2)+
-  #draw_text(x = q_est+0.02, y =1, hjust = 0, vjust = 1, text = "predicted q*", size = 12)+
+  draw_text(x = 0, y =0, hjust = 0, vjust = 0, text = "N = 100, s = 0.01", size = 12, fontface = 'bold')+
   scale_y_continuous(breaks=seq(0,1,0.2))+
   coord_cartesian(ylim=c(0,1),xlim=c(0,2))+
   guides(col = guide_legend(title="Mutation\nrate"))+
@@ -126,10 +121,9 @@ p_N100_s0.01 <- ggplot()+
         axis.text = element_text(size = 12),
         legend.text = element_text(size = 11),
         legend.title = element_text(size = 12))+
-  #legend.position = "none")+
-  xlab('Q') +
+  xlab('q') +
   ylab('Mean fitness') +
-  scale_color_manual(values = colorblind_pal()(8)[c(2,4,6,7)])
+  scale_color_manual(labels= c("0.0001", "0.001", "0.01", "0.1"), values = c("#F3DB7E", "#F5BE6C", "#E4945E", "#C05E4F"))
 
 ### Sub-figure N=100, s=0.001
 pop_size = 100
@@ -148,8 +142,7 @@ p_N100_s0.001 <- ggplot()+
                geom = "pointrange",
                size=0.4)+
   geom_line(data = an_f, aes(x = q, y = w_ave))+
-  #geom_vline(xintercept = q_est, linetype = 2)+
-  #draw_text(x = q_est+0.02, y =1, hjust = 0, vjust = 1, text = "predicted q*", size = 12)+
+  draw_text(x = 0, y =0, hjust = 0, vjust = 0, text = "N = 100, s = 0.001", size = 12, fontface = 'bold')+
   scale_y_continuous(breaks=seq(0,1,0.2))+
   coord_cartesian(ylim=c(0,1),xlim=c(0,2))+
   guides(col = guide_legend(title="Mutation\nrate"))+
@@ -157,29 +150,28 @@ p_N100_s0.001 <- ggplot()+
         axis.text = element_text(size = 12),
         legend.text = element_text(size = 11),
         legend.title = element_text(size = 12))+
-  #legend.position = "none")+
-  xlab('Q') +
+  xlab('q') +
   ylab('Mean fitness') +
-  scale_color_manual(values = colorblind_pal()(8)[c(2,5,6,7)])
+  scale_color_manual(labels= c("0.0001", "0.001", "0.01", "0.1"), values = c("#F3DB7E", "#F5BE6C", "#E4945E", "#C05E4F"))
 
 # extract the legend form the first sub-figure
 grobs <- ggplotGrob(p_N10_s0.01)$grobs
 legend <- grobs[[which(sapply(grobs, function(x) x$name) == "guide-box")]]
 
 # arrange subfigures
-prow <- plot_grid(p_N10_s0.01 + labs(title = "N = 10, s = 0.01") + theme(plot.title = element_text(hjust = 0), legend.position="none"),
-                       p_N10_s0.001 + labs(title = "N = 10, s = 0.001") + theme(plot.title = element_text(hjust = 0), legend.position="none", axis.title.y = element_blank()),
-                       p_N100_s0.01 + labs(title = "N = 100, s = 0.01") + theme(plot.title = element_text(hjust = 0), legend.position="none"),
-                       p_N100_s0.001 + labs(title = "N = 100, s = 0.001") + theme(plot.title = element_text(hjust = 0), legend.position="none", axis.title.y = element_blank()),
-                       labels=c("A","B","C","D"),
-                       align = 'vh',
-                       hjust = -1,
-                       ncol=2,
-                       nrow=2)
+prow <- plot_grid(p_N10_s0.001 + theme(legend.position="none"),
+                  p_N10_s0.01 + theme(legend.position="none", axis.title.y = element_blank()),
+                  p_N100_s0.001 + theme(legend.position="none"),
+                  p_N100_s0.01 + theme(legend.position="none", axis.title.y = element_blank()),
+                  labels=c("A","B","C","D"),
+                  align = 'vh',
+                  hjust = -1,
+                  ncol=2,
+                  nrow=2)
 
 p <- plot_grid(prow, legend, rel_widths = c(2, .3))
 
-save_plot("../plots/fitness_vs_epistasis.pdf", p,
+save_plot("../plots/fitness_vs_epistasis.png", p,
           ncol = 2, # we're saving a grid plot of 2 columns
           nrow = 2, # and 2 rows
           # each individual subplot should have an aspect ratio of 1.3
@@ -218,20 +210,23 @@ eval_model <- function(L, s, N) {
 # get a data frame of 3 models evaluated for different Q values
 df <- eval_model(L = 100, s = 0.01, N = 10)
 
-df %>% filter(formula == "full_model") %>% mutate(model_name = "Full model") -> df1
-df %>% filter(formula == "no_selection") %>% mutate(model_name = "No selection") -> df2
-df %>% filter(formula == "limited_drift") %>% mutate(model_name = "Limited drift") -> df3
+df %>% filter(formula == "full_model") -> df1
+df %>% filter(formula == "no_selection") -> df2
+df %>% filter(formula == "limited_drift") -> df3
 
-rbind(df1, df2, df3) -> full_df
+name <- data.frame(x = c(1.8, 1.45, 1), y = c(0.38, 0.8, 0.25) , model = c("Full model", "Selection driven", "Drift driven"))
 
 # Make a plot of the 3 models
-p_models <- ggplot(full_df, aes(q, f_ave, color = model_name)) +
-    geom_line(size = 1.1) + 
-    labs(title = "N = 10, s = 0.01") +
-    xlab('Q') +
-    ylab('Mean fitness') +
-    theme(plot.title = element_text(hjust = 0), legend.title = element_blank()) +
-    scale_color_manual(values = c("#000000", "#0072B2", "#D55E00"))
+p_models <- ggplot() +
+  geom_line(data = df3, aes(q, f_ave, color = formula), size = 1.1) +
+  geom_line(data = df2, aes(q, f_ave, color = formula), size = 1.1) +
+  geom_line(data = df1, aes(q, f_ave, color = formula), size = 1.1) +
+  geom_text(data = name, aes(x, y, label = model)) +
+  xlab('q') +
+  ylab('Mean fitness') +
+  draw_text(x = 0, y =0, hjust = 0, vjust = 0, text = "N = 10, s = 0.01", size = 12, fontface = 'bold') +
+  theme(plot.title = element_text(hjust = 0), legend.position="none") +
+  scale_color_manual(values = c("#000000", "#979797", "#979797"))
 
 # predicted Q minimum (Q*)
 qmin <- function(N, L, s){log(L*log(2)/(2*s*N))/log(L/2)}
@@ -255,30 +250,60 @@ df3 <- qmin_vs_s(1000, 100, 0.0001, 0.1)
 
 df <- rbind(df1, df2, df3)
 
+# a function that calculates Q* (min of Q)
+f <- function(L, s, q, k){exp(-s*k**q)}
+p_num <- function(L, s, N, q, k){choose(L, k)*f(L, s, q, k)**(2*N-1)}
+Z <- function(L, s, N, q){sum(p_num(L, s, N, q, 0:L))}
+fave <- function(L, s, N, q){sum(f(L, s, q, 0:L)*p_num(L, s, N, q, 0:L))/Z(L, s, N, q)}
+
+# numerically find optimal q
+fopt_gen <- function(L, s, N) {
+  function(q) fave(L, s, N, q)
+}
+
+# make a data frame with numerically inferred q minimum
+num_min_q <- data.frame()
+for (i in 1:25) {
+  for (n in c(10, 100, 1000)) {
+    s <- 0.0001*1.2^i
+    qmin <- optimize(fopt_gen(100, s, n), interval = c(0, 10))$minimum
+    row <- data.frame(s, qmin, n)
+    num_min_q <- rbind(num_min_q, row)
+  }
+}
+
 p_qmin <- ggplot(df, aes(x = s, y = qmin, color = factor(Ne))) +
   geom_line(size = 1.1) + 
+  geom_point(data = num_min_q, aes(x = s, y = qmin, color = factor(n))) +
   geom_hline(yintercept = 1) +
   scale_y_continuous(breaks=seq(0,2,0.5)) +
   scale_x_log10(breaks=c(0.0001, 0.001, 0.01, 0.1), labels = c("0.0001", "0.001", "0.01", "0.1")) + 
   coord_cartesian(ylim=c(0,2),xlim=c(0.000099999,0.1)) +
   xlab('s') +
-  ylab('Minimum of Q') +
-  scale_color_colorblind(name = "N")
+  ylab('q*') +
+  scale_color_manual(values = c("#9AC9D6", "#6E7FB3", "#6D0079")) +
+  guides(col = guide_legend(title="N"))
+
+# extract the legend form the first sub-figure
+grobs <- ggplotGrob(p_qmin)$grobs
+legend <- grobs[[which(sapply(grobs, function(x) x$name) == "guide-box")]]
 
 # arrange subfigures
-p <- plot_grid(p_models, p_qmin,
+prow <- plot_grid(p_models, p_qmin + theme(legend.position = "none"),
                   labels=c("A","B"),
                   align = 'vh',
                   hjust = -1,
                   ncol=2,
                   nrow=1)
 
-save_plot("../plots/minimum_q_vs_selection.pdf", p,
+p <- plot_grid(prow, legend, rel_widths = c(2, .3))
+
+save_plot("../plots/minimum_q_vs_selection.png", p,
           ncol = 2, # we're saving a grid plot of 2 columns
           nrow = 1, # and 2 rows
           # each individual subplot should have an aspect ratio of 1.3
           base_height=4,
-          base_width=5.5)
+          base_width=5)
 
 #########################################################################
 ### Figure 3:                                                         ###
@@ -300,6 +325,7 @@ t_sum %>% filter(sel_coef == 0.01) -> f
 
 p_mu <- ggplot() +
   geom_line(data = df, aes(q, f_ave), size = 1.1) + 
+  draw_text(x = 0, y =0, hjust = 0, vjust = 0, text = "N = 100, s = 0.01", size = 12, fontface = 'bold') +
   stat_summary(data = f,
                inherit.aes = FALSE,
                aes(x = q, y = mean_f_over_time, color=factor(mu_prob)),
@@ -308,14 +334,13 @@ p_mu <- ggplot() +
                fun.ymax = function(x) mean(x) + sd(x)/sqrt(length(x)),
                geom = "pointrange",
                size=0.4) +
-  xlab('Q') +
+  xlab('q') +
   ylab('Mean fitness') +
   guides(col = guide_legend(title="Mutation\nrate")) +
   scale_color_manual(labels= c("0.0001", "0.001", "0.01", "0.1", "1"),
-                     values = c("#E69F00", "#56B4E9", "#009E73", "#0072B2", "#D55E00"))
+                     values = c("#F3DB7E", "#F5BE6C", "#E4945E", "#C05E4F", "#8E063B"))
 
-save_plot("../plots/no_selection_model_vs_mu.pdf", p_mu,
+save_plot("../plots/no_selection_model_vs_mu.png", p_mu,
           # each individual subplot should have an aspect ratio of 1.3
           base_height=5,
           base_width=6)
-  
