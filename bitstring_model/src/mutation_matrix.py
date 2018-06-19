@@ -53,9 +53,10 @@ def main():
 	calculate a LxL mutation matrix
 	'''
 	
-	mu_prob_lst = [1, 0.1, 0.01, 0.001, 0.0001] # mutation rates per genome
+	#mu_prob_lst = [1, 0.1, 0.01, 0.001, 0.0001] # mutation rates per genome
+	mu_prob_lst = [10] # mutation rates per genome
 	L = 100 # genome size or maximum number of mutations
-	max_step = 3 # maximum number of k mutations an individual can make
+	max_step = 4 # maximum number of k mutations an individual can make
 	
 	# calculate a mutation matrix for the list above with maximum steps of 3
 	for mu_prob in mu_prob_lst:
