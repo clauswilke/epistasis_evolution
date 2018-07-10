@@ -1,14 +1,14 @@
 library(dplyr)
-library(readr)
 
-in_dir <- "../../evolving_q_sim/test_sim/"
-outfile <- "../../evolving_q_sim/processed_results/test_sim.csv"
+in_dir <- "../test_sim/"
+outfile <- "../processed_results/test_sim.csv"
 
 f_lst <- list.files(in_dir,full.names=T)
 d <- data.frame()
 
 for (f in f_lst) {
-  r <- read_delim(f,"\t")
+  #r <- read_delim(f,"\t")
+  r <- read.csv(f)
   
   if (grepl("rep",f,fixed=TRUE)){
     start <- regexpr("rep",f)[1]
@@ -22,4 +22,4 @@ for (f in f_lst) {
     } else d <- rbind(d,r)
 }
 
-write_csv(d,outfile)
+write.csv(d,outfile)

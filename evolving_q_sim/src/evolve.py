@@ -6,18 +6,17 @@ from population import population
 def evolve(L, N, s, mu, k_start, q_start, q_prob, t, delta_t_out, outfile):
     
     out = open(outfile,'w')
-    out.write('time,sel_coef,mu_prob,Ne,L,k_start,q_start,q_prob,mean_fitness,mean_epistasis\n')
+    out.write('time,sel_coef,mu_prob,Ne,L,k_start,q_prob,mean_fitness,epistasis_coef\n')
     
     pop = population(L, N, s, mu, k_start, q_start, q_prob) #initiate a population with given parameters
     
-    for t_i in range(t+1000001): #for each time point replicate and mutate the population
+    for t_i in range(t): #for each time point replicate and mutate the population
         pop.replicate()
         pop.mutate()
 
-        if (t_i >= t):
-            if (t_i % delta_t_out == 0):
-                out.write('%d,%.10f,%.10f,%d,%d,%d,%.10f,%.10f,%.10f,%.10f\n' %(t_i, s, mu, N, L, k_start, q_start, q_prob, pop.mean_fitness(), pop.mean_epistasis()))
-                out.flush()
+        if (t_i % delta_t_out == 0):
+            out.write('%d,%.5f,%.5f,%d,%d,%d,%.2f,%.8f,%.8f\n' %(t_i, s, mu, N, L, k_start, q_prob, pop.mean_fitness(), pop.mean_epistasis()))
+            out.flush()
     out.close()
 
 def main():
@@ -82,7 +81,7 @@ def main():
     L = args.L ##number of classes of mutations
     
     #set the time when fitness reaches equilibrium based on equilibrium test plots
-    t = 1500000 # testing
+    t = 2500000 # testing
     delta_t_out = 1000 # at which time steps should output be printed?
 
     evolve(L, N, s, mu, k_start, q_start, q_prob, t, delta_t_out, outfile)
