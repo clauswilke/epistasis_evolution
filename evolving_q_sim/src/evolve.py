@@ -15,7 +15,7 @@ def evolve(L, N, s, mu, k_start, q_start, q_prob, t, delta_t_out, outfile):
         pop.mutate()
 
         if (t_i % delta_t_out == 0):
-            out.write('%d,%.5f,%.5f,%d,%d,%d,%.2f,%.8f,%.8f\n' %(t_i, s, mu, N, L, k_start, q_prob, pop.mean_fitness(), pop.mean_epistasis()))
+            out.write('%d,%.5f,%.5f,%d,%d,%d,%.4f,%.8f,%.8f\n' %(t_i, s, mu, N, L, k_start, q_prob, pop.mean_fitness(), pop.mean_epistasis()))
             out.flush()
     out.close()
 
