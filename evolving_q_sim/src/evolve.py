@@ -6,7 +6,7 @@ from population import population
 def evolve(L, N, s, mu, k_start, q_start, q_prob, t, delta_t_out, outfile):
     
     out = open(outfile,'w')
-    out.write('time\tsel_coef\tmu_prob\tNe\tL\tk_start\tq_start\tq_prob\tmean_fitness\tmean_epistasis\n')
+    out.write('time,sel_coef,mu_prob,Ne,L,k_start,q_start,q_prob,mean_fitness,mean_epistasis\n')
     
     pop = population(L, N, s, mu, k_start, q_start, q_prob) #initiate a population with given parameters
     
@@ -16,7 +16,7 @@ def evolve(L, N, s, mu, k_start, q_start, q_prob, t, delta_t_out, outfile):
 
         if (t_i >= t):
             if (t_i % delta_t_out == 0):
-                out.write('%d\t%.10f\t%.10f\t%d\t%d\t%d\t%f\t%f\t%f\t%f\n' %(t_i, s, mu, N, L, k_start, q_start, q_prob, pop.mean_fitness(), pop.mean_epistasis()))
+                out.write('%d,%.10f,%.10f,%d,%d,%d,%.10f,%.10f,%.10f,%.10f\n' %(t_i, s, mu, N, L, k_start, q_start, q_prob, pop.mean_fitness(), pop.mean_epistasis()))
                 out.flush()
     out.close()
 

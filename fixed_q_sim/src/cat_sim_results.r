@@ -1,9 +1,8 @@
 library(dplyr)
 library(readr)
 
-#in_dir <- "../equilib_test/N10_max3"
-in_dir <- "../varying_eps_sim/N100_max4"
-outfile <- "../processed_results/varying_eps_N100_max4.csv"
+in_dir <- "../../evolving_q_sim/test_sim/"
+outfile <- "../../evolving_q_sim/processed_results/test_sim.csv"
 
 f_lst <- list.files(in_dir,full.names=T)
 d <- data.frame()
