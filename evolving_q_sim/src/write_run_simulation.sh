@@ -12,8 +12,8 @@ if [ -f $runfile ]; then
     rm $runfile
 fi
 
-if [ ! -d ../test_sim ]; then
-    mkdir ../test_sim
+if [ ! -d ../raw_results ]; then
+    mkdir ../raw_results
 fi
 
 for q_start in $(seq 0 0.2 2.01)
@@ -22,7 +22,7 @@ do
     do
         for i in $(seq 1 $repl_num) 
         do
-            outfile=complexity_evolution/evolving_q_sim/test_sim/q_start${q_start}_q_prob${q_prob}_rep${i}.txt
+            outfile=complexity_evolution/evolving_q_sim/raw_results/q_start${q_start}_q_prob${q_prob}_rep${i}.txt
             echo python complexity_evolution/evolving_q_sim/src/evolve.py -s $sel_coef -m $mut_prob -N $eff_pop -L 100 -k_start $k_start -q_start $q_start -q_prob $q_prob $outfile >> $runfile 
         done
     done
