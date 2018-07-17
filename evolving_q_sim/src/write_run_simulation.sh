@@ -1,5 +1,5 @@
 #!/bin/bash
-repl_num=3
+repl_num=10
 sel_coef=0.001 ##s*N < 1
 mut_prob=0.0001
 num_class=100
