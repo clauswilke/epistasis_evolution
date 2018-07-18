@@ -1,7 +1,7 @@
 library(dplyr)
 
-in_dir <- "../test_sim"
-outfile <- "../processed_results/test_sim.csv"
+in_dir <- "../raw_results"
+outfile <- "../processed_results/evolved_q.csv"
 
 f_lst <- list.files(in_dir,full.names=T)
 d <- data.frame()
