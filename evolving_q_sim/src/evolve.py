@@ -5,16 +5,21 @@ from population import population
 
 def evolve(L, N, s, mu, k_start, q_start, q_prob, t, delta_t_out, outfile):
     
-    out = open(outfile,'w')
+    # open a file to write simulation output
+    out = open(outfile, 'w')
+    # write a header
     out.write('time,sel_coef,mu_prob,Ne,L,k_start,q_start,q_prob,mean_fitness,epistasis_coef\n')
     
-    pop = population(L, N, s, mu, k_start, q_start, q_prob) #initiate a population with given parameters
+    #initiate a population with given parameters
+    pop = population(L, N, s, mu, k_start, q_start, q_prob)
     
-    for t_i in range(t+1000001): #for each time point replicate and mutate the population
+    # evolve a population for time t+1000001
+    for t_i in range(t+1000001): 
+        #for each time point replicate and mutate the population
         pop.replicate()
         pop.mutate()
 
-        if (t_i >= t): #after the population reaches the equilibrium, record the fitness at increments of 1000
+        if (t_i >= t): #after the population reaches the equilibrium at t, record population fitness and epistasis coefficient at increments of 1000
             if (t_i % delta_t_out == 0):
                 out.write('%d,%.5f,%.5f,%d,%d,%d,%.2f,%.4f,%.8f,%.8f\n' %(t_i, s, mu, N, L, k_start, q_start, q_prob, pop.mean_fitness(), pop.mean_epistasis()))
                 out.flush()

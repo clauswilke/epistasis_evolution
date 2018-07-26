@@ -5,7 +5,8 @@ mut_prob=0.0001
 num_class=100
 k_start=0
 eff_pop=100
-q_prob_arr=(0.1 0.01 0.001)
+#q_prob_arr=(0.1 0.01 0.001)
+q_prob_arr=(0)
 runfile=run_simulation.sh
 
 if [ -f $runfile ]; then

@@ -27,7 +27,7 @@ class population:
     # creates a new generation in a population according to a Wright-Fisher model (assumes generations do not overlap)
     def replicate(self):
         # calculate frequencies of the individuals in a population
-        sample_probabilities = self.individual_f/np.sum(self.individual_f)
+        sample_probabilities = self.individual_fitness()/np.sum(self.individual_fitness())
 
         # points at which the associated cumulative distribution function jump
         cdf_jumps = np.cumsum(sample_probabilities)
@@ -44,9 +44,7 @@ class population:
     # mutate a population
     def mutate(self):
         #calculate the number of individuals to move for each mutation class
-        for i in range(len(self.individual_k)):
-            # individual epistasis
-            q = self.individual_q[i]
+        for i in range(self.N):
             # draw change in epistasis
             prob_q_change = np.array([self.q_prob, 1-self.q_prob])
             draw = np.random.multinomial(1, prob_q_change)
@@ -54,7 +52,7 @@ class population:
             if draw[0] == 1: #if drew a change, draw delta q from a normal distribution
                 mu, sigma = 0, 0.01 # set mean and std dev of distribution
                 q_delta = np.random.normal(mu, sigma, 1)[0] #returns an array, need to index the list to get the value
-                self.individual_q[i] += q*q_delta # make a new q
+                self.individual_q[i] = q+q_delta # make a new q
             else: # if drew no change
                 pass # keep q as is
 
@@ -66,21 +64,26 @@ class population:
 
             # if we drew a beneficial mutation
             if move[0] == 1:
-                k -= 1 # decrease k by 1
+                new_k = k-1 # decrease k by 1
             # if we drew a deleterious mutation 
             elif move[2] == 1:
-                k += 1 # increase k by 1
+                new_k = k+1 # increase k by 1
             # no mutations
             else: 
-                pass # keep k as is
+                new_k = k # keep k as is
             
-            #replace k
-            self.individual_k[i] = k
+            # replace k
+            self.individual_k[i] = new_k
+
+    # calculate fitness of each individual in a population
+    def individual_fitness(self):
+         # create an array of fitness values f for each individuals
+        individual_f = np.exp(-self.s*(self.individual_k**(self.individual_q)))
+        return individual_f
 
     # calculate the mean fitness of a population
     def mean_fitness(self):
-        self.individual_f = np.exp(-self.s*(self.individual_k**(self.individual_q)))
-        mean_fitness = np.average(self.individual_f)
+        mean_fitness = np.average(self.individual_fitness())
         return mean_fitness
 
     # calculate the mean epistasis of a population
@@ -100,5 +103,3 @@ class population:
         self.individual_k.fill(k_start)
         self.individual_q.fill(q_start)
 
-        # create an array of fitness values f for each individuals
-        self.individual_f = np.exp(-self.s*(self.individual_k**(self.individual_q)))
