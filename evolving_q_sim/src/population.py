@@ -48,18 +48,27 @@ class population:
             # draw change in epistasis
             prob_q_change = np.array([self.q_prob, 1-self.q_prob])
             draw = np.random.multinomial(1, prob_q_change)
+            max_q = 6 # set the maximum q
+
             # check if epistasis will change
             if draw[0] == 1: #if drew a change, draw delta q from a normal distribution
                 mu, sigma = 0, 0.01 # set mean and std dev of distribution
                 q_delta = np.random.normal(mu, sigma, 1)[0] #returns an array, need to index the list to get the value
-                self.individual_q[i] = q+q_delta # make a new q
+                new_q = q+q_delta*q # make a new q
+                
+                # replace q if it hasn't exceeded maximum q of 6
+                if new_q > max_q:
+                    self.individual_q[i] = max_q # keep maximum epistasis at 6
+                else:
+                    self.individual_q[i] = new_q # replace q
+            
             else: # if drew no change
                 pass # keep q as is
 
             k = self.individual_k[i]
-            #an array of probabilities of moving to k-1, stay at k, and moving to k+1
+            # an array of probabilities of moving to k-1, stay at k, and moving to k+1
             prob_mut = np.array([self.mu*k/self.L , 1-self.mu, self.mu*(self.L-k)/self.L]) 
-            #draw the move
+            # draw the move
             move = np.random.multinomial(1, prob_mut)
 
             # if we drew a beneficial mutation
@@ -72,8 +81,11 @@ class population:
             else: 
                 new_k = k # keep k as is
             
-            # replace k
-            self.individual_k[i] = new_k
+            # replace k if it hasn't exceeded L
+            if new_k > self.L:
+                self.individual_k[i] = self.L # keep maximum number of mutations as L
+            else:
+                self.individual_k[i] = new_k # replace k
 
     # calculate fitness of each individual in a population
     def individual_fitness(self):
