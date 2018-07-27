@@ -48,6 +48,7 @@ class population:
             # draw change in epistasis
             prob_q_change = np.array([self.q_prob, 1-self.q_prob])
             draw = np.random.multinomial(1, prob_q_change)
+            q = self.individual_q[i]
             max_q = 6 # set the maximum q
 
             # check if epistasis will change
