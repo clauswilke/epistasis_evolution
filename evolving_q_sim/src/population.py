@@ -9,8 +9,6 @@ import numpy as np
 import sys
 import os.path
 
-np.random.seed(123)
-
 class population:
 
     def __init__(self, L, N, s, mu, k_start = 0 , q_start = 1, q_prob = 0):
