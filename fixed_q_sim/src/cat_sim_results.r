@@ -1,9 +1,9 @@
 library(dplyr)
 
 in_dir <- "../raw_results/"
-outfile <- "../processed_results/evolved_q_trajectories_q_prob0.1.csv"
+outfile <- "../processed_results/evolved_q_trajectories.csv"
 
-f_lst <- list.files(path = in_dir, pattern = "_q_prob0.1_", full.names = T)
+f_lst <- list.files(path = in_dir, full.names = T)
 d <- data.frame()
 
 for (f in f_lst) {
