@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 python complexity_evolution/evolving_q_sim/src/evolve.py -s 0.001 -m 0.0001 -N 100 -L 100 -k_start 0 -q_start 0.0 -q_prob 0 complexity_evolution/evolving_q_sim/raw_results/q_start0.0_q_prob0_rep1.txt
 python complexity_evolution/evolving_q_sim/src/evolve.py -s 0.001 -m 0.0001 -N 100 -L 100 -k_start 0 -q_start 0.0 -q_prob 0 complexity_evolution/evolving_q_sim/raw_results/q_start0.0_q_prob0_rep2.txt
 python complexity_evolution/evolving_q_sim/src/evolve.py -s 0.001 -m 0.0001 -N 100 -L 100 -k_start 0 -q_start 0.0 -q_prob 0 complexity_evolution/evolving_q_sim/raw_results/q_start0.0_q_prob0_rep3.txt
@@ -438,3 +439,16 @@ python complexity_evolution/evolving_q_sim/src/evolve.py -s 0.001 -m 0.0001 -N 1
 python complexity_evolution/evolving_q_sim/src/evolve.py -s 0.001 -m 0.0001 -N 100 -L 100 -k_start 0 -q_start 2.0 -q_prob 0.001 complexity_evolution/evolving_q_sim/raw_results/q_start2.0_q_prob0.001_rep8.txt
 python complexity_evolution/evolving_q_sim/src/evolve.py -s 0.001 -m 0.0001 -N 100 -L 100 -k_start 0 -q_start 2.0 -q_prob 0.001 complexity_evolution/evolving_q_sim/raw_results/q_start2.0_q_prob0.001_rep9.txt
 python complexity_evolution/evolving_q_sim/src/evolve.py -s 0.001 -m 0.0001 -N 100 -L 100 -k_start 0 -q_start 2.0 -q_prob 0.001 complexity_evolution/evolving_q_sim/raw_results/q_start2.0_q_prob0.001_rep10.txt
+=======
+python complexity_evolution/evolving_q_sim/src/evolve.py -s 0.001 -m 0.0001 -N 100 -L 100 -k_start 0 -q_start 0 -q_prob 0 complexity_evolution/evolving_q_sim/raw_results/q_start0_q_prob0_rep1.txt
+python complexity_evolution/evolving_q_sim/src/evolve.py -s 0.001 -m 0.0001 -N 100 -L 100 -k_start 0 -q_start 0.2 -q_prob 0 complexity_evolution/evolving_q_sim/raw_results/q_start0.2_q_prob0_rep1.txt
+python complexity_evolution/evolving_q_sim/src/evolve.py -s 0.001 -m 0.0001 -N 100 -L 100 -k_start 0 -q_start 0.4 -q_prob 0 complexity_evolution/evolving_q_sim/raw_results/q_start0.4_q_prob0_rep1.txt
+python complexity_evolution/evolving_q_sim/src/evolve.py -s 0.001 -m 0.0001 -N 100 -L 100 -k_start 0 -q_start 0.6 -q_prob 0 complexity_evolution/evolving_q_sim/raw_results/q_start0.6_q_prob0_rep1.txt
+python complexity_evolution/evolving_q_sim/src/evolve.py -s 0.001 -m 0.0001 -N 100 -L 100 -k_start 0 -q_start 0.8 -q_prob 0 complexity_evolution/evolving_q_sim/raw_results/q_start0.8_q_prob0_rep1.txt
+python complexity_evolution/evolving_q_sim/src/evolve.py -s 0.001 -m 0.0001 -N 100 -L 100 -k_start 0 -q_start 1 -q_prob 0 complexity_evolution/evolving_q_sim/raw_results/q_start1_q_prob0_rep1.txt
+python complexity_evolution/evolving_q_sim/src/evolve.py -s 0.001 -m 0.0001 -N 100 -L 100 -k_start 0 -q_start 1.2 -q_prob 0 complexity_evolution/evolving_q_sim/raw_results/q_start1.2_q_prob0_rep1.txt
+python complexity_evolution/evolving_q_sim/src/evolve.py -s 0.001 -m 0.0001 -N 100 -L 100 -k_start 0 -q_start 1.4 -q_prob 0 complexity_evolution/evolving_q_sim/raw_results/q_start1.4_q_prob0_rep1.txt
+python complexity_evolution/evolving_q_sim/src/evolve.py -s 0.001 -m 0.0001 -N 100 -L 100 -k_start 0 -q_start 1.6 -q_prob 0 complexity_evolution/evolving_q_sim/raw_results/q_start1.6_q_prob0_rep1.txt
+python complexity_evolution/evolving_q_sim/src/evolve.py -s 0.001 -m 0.0001 -N 100 -L 100 -k_start 0 -q_start 1.8 -q_prob 0 complexity_evolution/evolving_q_sim/raw_results/q_start1.8_q_prob0_rep1.txt
+python complexity_evolution/evolving_q_sim/src/evolve.py -s 0.001 -m 0.0001 -N 100 -L 100 -k_start 0 -q_start 2 -q_prob 0 complexity_evolution/evolving_q_sim/raw_results/q_start2_q_prob0_rep1.txt
+>>>>>>> d80523b5a153f468041361eb1da1f1fd6e9c85a5
