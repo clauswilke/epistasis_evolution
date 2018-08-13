@@ -19,10 +19,11 @@ def evolve(L, N, s, mu, k_start, q_start, q_prob, t, delta_t_out, outfile):
         pop.replicate()
         pop.mutate()
 
-        if (t_i >= t): #after the population reaches the equilibrium at t, record population fitness and epistasis coefficient at increments of 1000
-            if (t_i % delta_t_out == 0):
-                out.write('%d,%.5f,%.5f,%d,%d,%d,%.2f,%.4f,%.8f,%.8f\n' %(t_i, s, mu, N, L, k_start, q_start, q_prob, pop.mean_fitness(), pop.mean_epistasis()))
-                out.flush()
+#        if (t_i >= t): #after the population reaches the equilibrium at t, record population fitness and epistasis coefficient at increments of 1000
+        if (t_i % delta_t_out == 0):
+            out.write('%d,%.5f,%.5f,%d,%d,%d,%.2f,%.4f,%.8f,%.8f\n' %(t_i, s, mu, N, L, k_start, q_start, q_prob, pop.mean_fitness(), pop.mean_epistasis()))
+            out.flush()
+
     out.close()
 
 def main():
