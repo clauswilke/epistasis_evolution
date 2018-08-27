@@ -3,12 +3,12 @@ import textwrap
 import numpy as np
 from population import population 
 
-def evolve(N, k_start, L, s, mu, q_start, q_prob, q_prob_start, delta_t_out, t_equilib, outfile, distr_file = None):
+def evolve(N, k_start, L, s, mu, q_start, q_prob, q_prob_start, q_step, delta_t_out, t_equilib, outfile, distr_file = None):
 
     # open a file to write simulation output
     out = open(outfile, 'w')
     # write a header
-    out.write('time,sel_coef,mu_prob,Ne,L,k_start,q_start,q_prob,mean_fitness,mean_q\n')
+    out.write('time,sel_coef,mu_prob,Ne,L,k_start,q_start,q_prob,q_step,mean_fitness,mean_q\n')
 
     # if  argument given, open a file to track distribution of mutations k over time
     if distr_file is None:
@@ -20,7 +20,7 @@ def evolve(N, k_start, L, s, mu, q_start, q_prob, q_prob_start, delta_t_out, t_e
         distr.write('time,k,num\n')
 
     #initiate a population with given parameters
-    pop = population(L, N, s, mu, k_start, q_start, q_prob_start)
+    pop = population(L, N, s, mu, k_start, q_start, q_prob_start,q_step)
     change_q_prob = True # set up a boolean needed to make q evolve
 
     # evolve a population until it reaches equilibrium at t_equilib and for 100,000,000 time steps after that
@@ -36,9 +36,10 @@ def evolve(N, k_start, L, s, mu, q_start, q_prob, q_prob_start, delta_t_out, t_e
             if (t_i > t_equilib and change_q_prob):
                 pop.q_prob = q_prob # set new probability of q mutating
                 change_q_prob = False
-
+            
+            print('pop q', pop.individual_q)
             # write out population's mean fitness and mean epistasis with other parameters
-            out.write('%d,%.5f,%.5f,%d,%d,%d,%.2f,%.4f,%.8f,%.8f\n' %(t_i, pop.s, pop.mu, pop.N, pop.L, pop.k_start, pop.q_start, pop.q_prob, pop.mean_fitness(), pop.mean_epistasis()))
+            out.write('%d,%.5f,%.5f,%d,%d,%d,%.2f,%.4f,%.4f,%.8f,%.8f\n' %(t_i, pop.s, pop.mu, pop.N, pop.L, pop.k_start, pop.q_start, pop.q_prob, pop.q_step, pop.mean_fitness(), pop.mean_epistasis()))
             out.flush()
 
             # if  argument given, write out distribution of mutations (k) to it
@@ -99,6 +100,8 @@ def main():
         help='the probability that epistatic coefficient changes before population reaches equilibrium')
     parser.add_argument('-q_prob', metavar = '<q_prob>', type = float,
         help='the probability that epistatic coefficient changes after population reaches equilibrium')
+    parser.add_argument('-q_step', metavar = '<q_step>', type = float,
+        help='the probability that epistatic coefficient changes after population reaches equilibrium')
 
     ##simulation output files
     parser.add_argument('fitness_file', metavar = '<mean_fitness.txt>', type = str, 
@@ -126,13 +129,14 @@ def main():
     q_start = args.q_start
     q_prob_start = args.q_prob_start
     q_prob = args.q_prob
+    q_step = args.q_step
     L = args.L
 
     #set time parameters
     t_equilib = 200000 # time when the population equilibrates (previously determined)
     delta_t_out = 1000 # at which time steps should output be printed
 
-    evolve(N, k_start, L, s, mu, q_start, q_prob, q_prob_start, delta_t_out, t_equilib, outfile, distr_file)
+    evolve(N, k_start, L, s, mu, q_start, q_prob, q_prob_start, q_step, delta_t_out, t_equilib, outfile, distr_file)
 
 if __name__ == "__main__":
     main()

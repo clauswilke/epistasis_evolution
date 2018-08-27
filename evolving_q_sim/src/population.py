@@ -11,12 +11,13 @@ import os.path
 
 class population:
 
-    def __init__(self, L, N, s, mu, k_start = 0 , q_start = 1, q_prob = 0):
+    def __init__(self, L, N, s, mu, k_start = 0 , q_start = 1, q_prob = 0, q_step = 0.1):
         self.L = L # the number of maximum mutations (or total number of classes)
         self.N = N # population size
         self.s = s # selection coefficient
         self.mu = mu # mutation rate per genome
         self.q_prob = q_prob # probability of epistasis coefficient changing
+        self.q_step = q_step
 
         self.initialize(k_start, q_start) # set up individual based arrays
 
@@ -49,22 +50,19 @@ class population:
             min_q = 0 # set the minumum q
 
             # check if epistasis will change
-            if draw[0] == 1: #if drew a change, draw delta q from a normal distribution
-                #mu, sigma = 0, 0.01 # set mean and std dev of distribution
-                #q_delta = np.random.normal(mu, sigma, 1)[0] #returns an array, need to index the list to get the value
+            if draw[0] == 1: #if drew a change, q will increase or decrease by self.q_step
                 n, p = 1, 0.5 # set number of trials (either 1 or 0) and probability of each trial
-                q_delta = 0.1
                 draw = np.random.binomial(n, p, 1) # draw for q to increase or decrease
                 if draw[0] == 1: #if drew 1, q will increase
-                    new_q = q+q_delta # set a new q
-                else: #else, q will decrease
-                    new_q = q-q_delta # set a new q
+                    new_q = q+self.q_step # set a new q
+                else: #if drew 0, q will decrease
+                    new_q = q-self.q_step # set a new q
 
                 # replace q if it hasn't exceeded it's limits
                 if new_q > max_q:
                     self.individual_q[i] = max_q # keep maximum epistasis at 6
                 elif new_q < min_q:
-                    self.individual_q[i] = max_q # keep minimum epistasis at 0
+                    self.individual_q[i] = min_q # keep minimum epistasis at 0
                 else:
                     self.individual_q[i] = new_q # replace q
             
