@@ -22,7 +22,7 @@ def evolve(N, k_start, L, s, mu, q_start, q_prob, q_prob_start, delta_t_out, t_e
     pop = population(L, N, s, mu, k_start, q_start, q_prob_start)
     change_q_prob = True
 
-    for t_i in range(t_equilib + 300000001): 
+    for t_i in range(t_equilib + 100000001): 
         #for each time point replicate and mutate the population
         pop.replicate()
         pop.mutate()
@@ -89,7 +89,7 @@ def main():
     q_start = 2
     q_prob = 0.0001
     q_prob_start = 0
-    delta_t_out = 10000
+    delta_t_out = 1000
     t_equilib = 200000
 
     evolve(N, k_start, L, s, mu, q_start, q_prob, q_prob_start, delta_t_out, t_equilib)
