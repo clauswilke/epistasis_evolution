@@ -17,7 +17,7 @@ def evolve(N, k_start, L, s, mu, q_start, q_prob, q_prob_start, q_step, delta_t_
         # open  to write 
         distr = open(distr_file, 'w')
         # write a header
-        distr.write('time,k,num\n')
+        distr.write('time,k,num,q_start,q_prob,q_step\n')
 
     #initiate a population with given parameters
     pop = population(L, N, s, mu, k_start, q_start, q_prob_start,q_step)
@@ -42,12 +42,12 @@ def evolve(N, k_start, L, s, mu, q_start, q_prob, q_prob_start, q_step, delta_t_
             out.write('%d,%.5f,%.5f,%d,%d,%d,%.2f,%.4f,%.4f,%.8f,%.8f\n' %(t_i, pop.s, pop.mu, pop.N, pop.L, pop.k_start, pop.q_start, pop.q_prob, pop.q_step, pop.mean_fitness(), pop.mean_epistasis()))
             out.flush()
 
-            # if  argument given, write out distribution of mutations (k) to it
+            # if argument distr_file is given, write out distribution of mutations (k) to it
             try:
                 # get a distribution of k mutations in a population
                 k_distr = np.bincount(pop.individual_k)
                 for k in range(len(k_distr)): # loop over a distribution to write it to a file
-                    distr.write('%d,%d,%d\n' %(t_i,k,k_distr[k])) # write a distribution at each time point
+                    distr.write('%d,%d,%d,%.2f,%.4f,%.4f\n' %(t_i, k, k_distr[k], pop.q_start, pop.q_prob, pop.q_step)) # write a distribution at each time point
                     distr.flush()
             except: # if  not given, pass
                 pass

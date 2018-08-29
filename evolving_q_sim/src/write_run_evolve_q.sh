@@ -10,7 +10,7 @@ k_start=0 # number of mutations a population starts with
 q_start_arr=(2 0.2 0.9)
 q_prob_start=0
 q_prob_arr=(0.0001 0.001 0.01)
-q_step_arr=(0.1 0.01)
+q_step_arr=(0.001 0.0001)
 L=100
 runfile=run_evolve_q.sh # the name of the script that will contain a command line for each run of a simulation
 
