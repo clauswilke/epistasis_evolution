@@ -2,7 +2,7 @@
 
 # set parameters in the simulations
 repl_num=3 # number of replicates
-sel_coef=0.01 # selection coefficient, set such that s*N << 1 (s is selection coefficient, N is effective population size) 
+sel_coef=0.001 # selection coefficient, set such that s*N << 1 (s is selection coefficient, N is effective population size) 
 mut_prob=0.0001 # mutation rate per genome
 num_class=100 # number of maximum mutations (denoted as L)
 eff_pop=100 # effective population size
