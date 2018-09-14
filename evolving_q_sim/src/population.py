@@ -36,8 +36,8 @@ class population:
         descendants = np.searchsorted(cdf_jumps, random_samples)
 
         # replace an old generation with a new one
-        self.individual_k = [self.individual_k[i] for i in descendants]
-        self.individual_q = [self.individual_q[i] for i in descendants]
+        self.individual_k = np.array([self.individual_k[i] for i in descendants])
+        self.individual_q = np.array([self.individual_q[i] for i in descendants])
 
     # mutate a population
     def mutate(self):

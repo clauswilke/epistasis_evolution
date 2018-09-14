@@ -10,17 +10,13 @@ def evolve(N, k_start, L, s, mu, q_start, q_prob, q_prob_start, q_step, delta_t_
     # write a header
     out.write('time,sel_coef,mu_prob,Ne,L,k_start,q_start,q_prob,q_step,mean_fitness,mean_q\n')
 
-    # if  argument given, open a file to track distribution of mutations k over time
-    if distr_file is None:
-        pass
-    else:
-        # open  to write 
-        distr = open(distr_file, 'w')
-        # write a header
-        distr.write('time,k,num,q_start,q_prob,q_step\n')
+    # open a file to write distributions of mutations (k)
+    distr = open(distr_file, 'w')
+    # write a header
+    distr.write('time,k,num,q_start,q_prob,q_step\n')
 
     #initiate a population with given parameters
-    pop = population(L, N, s, mu, k_start, q_start, q_prob_start,q_step)
+    pop = population(L, N, s, mu, k_start, q_start, q_prob_start, q_step)
     change_q_prob = True # set up a boolean needed to make q evolve
 
     # evolve a population until it reaches equilibrium at t_equilib and for 100,000,000 time steps after that
@@ -37,27 +33,20 @@ def evolve(N, k_start, L, s, mu, q_start, q_prob, q_prob_start, q_step, delta_t_
                 pop.q_prob = q_prob # set new probability of q mutating
                 change_q_prob = False
             
-            print('pop q', pop.individual_q)
             # write out population's mean fitness and mean epistasis with other parameters
             out.write('%d,%.5f,%.5f,%d,%d,%d,%.2f,%.4f,%.4f,%.8f,%.8f\n' %(t_i, pop.s, pop.mu, pop.N, pop.L, pop.k_start, pop.q_start, pop.q_prob, pop.q_step, pop.mean_fitness(), pop.mean_epistasis()))
             out.flush()
 
-            # if argument distr_file is given, write out distribution of mutations (k) to it
-            try:
-                # get a distribution of k mutations in a population
-                k_distr = np.bincount(pop.individual_k)
-                for k in range(len(k_distr)): # loop over a distribution to write it to a file
-                    distr.write('%d,%d,%d,%.2f,%.4f,%.4f\n' %(t_i, k, k_distr[k], pop.q_start, pop.q_prob, pop.q_step)) # write a distribution at each time point
-                    distr.flush()
-            except: # if  not given, pass
-                pass
+            # get a distribution of k mutations in a population
+            unique, counts = np.unique(pop.individual_k, return_counts=True)
+            count_dict = dict(zip(unique, counts))
+            for k in count_dict: # loop over a distribution to write it to a file
+                distr.write('%d,%d,%d,%.2f,%.4f,%.4f\n' %(t_i, k, count_dict[k], pop.q_start, pop.q_prob, pop.q_step)) # write a distribution at each time point
+                distr.flush()
 
-    # close the output file
+    # close output files
     out.close()
-    try: # close the output file with distributions if it's given
-        distr.close()
-    except: # if  not given, pass
-        pass
+    distr.close()
 
 def main():
     '''
@@ -134,7 +123,7 @@ def main():
 
     #set time parameters
     t_equilib = 200000 # time when the population equilibrates (previously determined)
-    delta_t_out = 1000 # at which time steps should output be printed
+    delta_t_out = 10000 # at which time steps should output be printed
 
     evolve(N, k_start, L, s, mu, q_start, q_prob, q_prob_start, q_step, delta_t_out, t_equilib, outfile, distr_file)
 
