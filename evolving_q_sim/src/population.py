@@ -37,6 +37,7 @@ class population:
 
         # replace an old generation with a new one
         self.individual_k = [self.individual_k[i] for i in descendants]
+        self.individual_q = [self.individual_q[i] for i in descendants]
 
     # mutate a population
     def mutate(self):
@@ -112,7 +113,7 @@ class population:
         # intialize two arrays for individuals
         # first contains mutations k for an individual i, where k = 0, 1, 2,...,L and i = 1, 2, 3,...,N 
         self.individual_k = np.zeros(self.N) 
-        # second contains epistasis q for an individual i, where 0 < q < 5
+        # second contains epistasis q for an individual i, where 0 < q < 6
         self.individual_q = np.zeros(self.N)
 
         if np.exp(-self.s*(k_start**(q_start))) == 0: # check if the fitness at t=0 equals to zero

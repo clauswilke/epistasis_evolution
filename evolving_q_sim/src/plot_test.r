@@ -16,7 +16,8 @@ library(here)
 
 # set up input file. Output plot files are generated automatically and are stored in /evolving_q_sim/test_plots
 root_dir <- here() # get the directory of the root of the project
-infile <- paste0(root_dir, "/evolving_q_sim/processed_results/evolved_q_mu0.0001.csv") # data frame that contains simulation results for the plot
+base_name <- "mu_prob0.01_s0.01" # set base name to match input and output files
+infile <- paste(root_dir, "/evolving_q_sim/processed_results/evolved_q_", base_name, ".csv", sep = "") # data frame that contains simulation results for the plot
 
 # read in simulation output for evolving q
 t <- read_csv(infile, col_types = cols(
@@ -63,7 +64,7 @@ p_fitness <- t_final %>%
   scale_color_discrete(name = "starting q")
 
 # save the plot
-save_plot(paste0(root_dir, "/evolving_q_sim/test_plots/fitness_v_time_mu_prob0.0001.png"), 
+save_plot(paste0(root_dir, "/evolving_q_sim/test_plots/fitness_v_time_", base_name, ".png", sep = ""), 
           p_fitness,
           # each individual subplot should have an aspect ratio of 1.3
           base_height = 7,
@@ -89,7 +90,7 @@ p_epistasis <- t_final %>%
   scale_color_discrete(name = "starting q")
 
 # save the plot
-save_plot(paste0(root_dir, "/evolving_q_sim/test_plots/epistasis_v_time_mu_prob0.0001.png"), 
+save_plot(paste(root_dir, "/evolving_q_sim/test_plots/epistasis_v_time_", base_name, ".png", sep = ""), 
           p_epistasis,
           # each individual subplot should have an aspect ratio of 1.3
           base_height = 7,

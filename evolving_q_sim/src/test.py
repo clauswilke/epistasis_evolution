@@ -3,26 +3,26 @@ import numpy as np
 import argparse
 import textwrap
 
-def evolve(N, k_start, L, s, mu, q_start, q_prob, q_prob_start, delta_t_out, t_equilib):
+def evolve(N, k_start, L, s, mu, q_start, q_prob, q_prob_start, q_step, delta_t_out, t_equilib):
     # name the output file that will contain evolution trajectory
-    outfile = "../test_run/q_start" + str(q_start) + "_q_prob" + str(q_prob) + "_s" + str(s) + "_m" + str(mu) + "_N" + str(N) + "k_start" + str(k_start) + ".csv"
+    outfile = "../test_run/q_start" + str(q_start) + "_q_prob" + str(q_prob) + "_s" + str(s) + "_m" + str(mu) + "_N" + str(N) + "_k_start" + str(k_start) + ".csv"
     # open a file to write simulation output
     out = open(outfile, 'w')
     # write a header
-    out.write('time,sel_coef,mu_prob,Ne,L,k_start,q_start,q_prob,mean_fitness,mean_q\n')
+    out.write('time,sel_coef,mu_prob,Ne,L,k_start,q_start,q_prob,q_step,mean_fitness,mean_q\n')
 
     # name output file that will keep track of the distribution of mutations
-    distrfile = "../test_run/q_start" + str(q_start) + "_q_prob" + str(q_prob) + "_s" + str(s) + "_m" + str(mu) + "_N" + str(N) + "k_start" + str(k_start) + "_k_distr.csv"
+    distrfile = "../test_run/q_start" + str(q_start) + "_q_prob" + str(q_prob) + "_s" + str(s) + "_m" + str(mu) + "_N" + str(N) + "_k_start" + str(k_start) + "_q_distr.csv"
     # open distrfile to write 
     distr = open(distrfile, 'w')
     # write a header
-    distr.write('time,k,num\n')
+    distr.write('time,q,num\n')
 
     #initiate a population with given parameters
-    pop = population(L, N, s, mu, k_start, q_start, q_prob_start)
+    pop = population(L, N, s, mu, k_start, q_start, q_prob_start,q_step)
     change_q_prob = True
 
-    for t_i in range(t_equilib + 100000001): 
+    for t_i in range(t_equilib + 50000001): 
         #for each time point replicate and mutate the population
         pop.replicate()
         pop.mutate()
@@ -30,18 +30,19 @@ def evolve(N, k_start, L, s, mu, q_start, q_prob, q_prob_start, delta_t_out, t_e
         #record population fitness and epistasis coefficient at increments of delta_t_out
         if (t_i % delta_t_out == 0):
         
-            # set new probability of q mutating when population equilibirates
+            # set new probability of q mutating when population equilibrates
             if (t_i > t_equilib and change_q_prob):
                 pop.q_prob = q_prob # set new probability of q mutating
                 change_q_prob = False
         
-            out.write('%d,%.5f,%.5f,%d,%d,%d,%.2f,%.4f,%.8f,%.8f\n' %(t_i, pop.s, pop.mu, pop.N, pop.L, pop.k_start, pop.q_start, pop.q_prob, pop.mean_fitness(), pop.mean_epistasis()))
+            out.write('%d,%.5f,%.5f,%d,%d,%d,%.2f,%.4f,%.4f,%.8f,%.8f\n' %(t_i, pop.s, pop.mu, pop.N, pop.L, pop.k_start, pop.q_start, pop.q_prob, pop.q_step, pop.mean_fitness(), pop.mean_epistasis()))
             out.flush()
         
-            # get a distribution of k mutations in a population
-            k_distr = np.bincount(pop.individual_k)
-            for k in range(len(k_distr)): # loop over a distribution to write it to a file
-                distr.write('%d,%d,%d\n' %(t_i,k,k_distr[k])) # write a distribution at each time point
+            # get a distribution of q values in a population
+            unique, counts = np.unique(pop.individual_q, return_counts=True)
+            d = dict(zip(unique, counts))
+            for i in d: # loop over a distribution to write it to a file
+                distr.write('%d,%.2f,%d\n' %(t_i,i,d[i])) # write a distribution at each time point
                 distr.flush()
     out.close()
     distr.close()
@@ -86,13 +87,14 @@ def main():
     L = 100
     s = 0.01
     mu = 0.01
-    q_start = 2
-    q_prob = 0.0001
+    q_start = 0.2
+    q_prob = 0.01
     q_prob_start = 0
+    q_step = 0.1
     delta_t_out = 1000
     t_equilib = 200000
 
-    evolve(N, k_start, L, s, mu, q_start, q_prob, q_prob_start, delta_t_out, t_equilib)
+    evolve(N, k_start, L, s, mu, q_start, q_prob, q_prob_start, q_step, delta_t_out, t_equilib)
 
 if __name__ == "__main__":
     main()
