@@ -79,8 +79,8 @@ p_epistasis <- t_final %>%
   ggplot(aes(x = time, y = mean_q_over_rep, group = q_start)) +
   geom_line(aes(color = factor(q_start))) +
   scale_y_continuous(name = "mean epistasis",
-                     limits = c(0, 4),
-                     breaks = seq(0, 4, 1)) +
+                     limits = c(0, 3),
+                     breaks = seq(0, 3, 1)) +
   scale_x_continuous(name = "time (millions)",
                      limits = c(0, 100200000),
                      breaks = seq(0, 100200000, 25000000),
