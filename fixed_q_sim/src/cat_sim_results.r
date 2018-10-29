@@ -15,8 +15,8 @@ library(readr)
 
 # set up input and output directories and name the output file
 root_dir <- here() # get the directory of the root of the project
-in_dir <- paste0(root_dir, "/evolving_q_sim/test_run/mu_prob0.01_s0.01") # set the directory that contains the simulation results to be concatenated
-outfile <- paste0(root_dir, "/evolving_q_sim/processed_results/evolved_q_mu_prob0.01_s0.01.csv") # name the CSV output file
+in_dir <- paste0(root_dir, "/evolving_q_sim/test_run/mu_prob0.01_s0.01/k_distributions") # set the directory that contains the simulation results to be concatenated
+outfile <- paste0(root_dir, "/evolving_q_sim/processed_results/evolved_q_mu_prob0.01_s0.01_k_distr.csv") # name the CSV output file
 pattern <- ".csv" # find files with this pattern in the file names (optional)
 
 # get a list of files to be concatenated from the directory `in_dir`

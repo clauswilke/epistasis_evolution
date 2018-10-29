@@ -38,7 +38,8 @@ t <- read_csv(infile, col_types = cols(
 
 # extract output for less time points to reduce the data frame
 times_wanted <- seq(0, max(t$time), 100000)
-t %>% filter(time %in% times_wanted) -> t_filtered
+t %>% filter(time %in% times_wanted, q_prob == 0.01, q_step == 0.0001 | 
+               q_step == 0.0002 | q_step == 0.0003 | q_step == 0.0006 | q_step == 0.001) -> t_filtered
 
 # calculate mean fitness over replicates and mean epistasis (q) over replicates
 t_filtered %>% group_by(q_prob_label, q_start, q_step, time) %>% 
@@ -67,8 +68,8 @@ p_fitness <- t_final %>%
 save_plot(paste0(root_dir, "/evolving_q_sim/test_plots/fitness_v_time_", base_name, ".png", sep = ""), 
           p_fitness,
           # each individual subplot should have an aspect ratio of 1.3
-          base_height = 7,
-          base_width = 8)
+          base_height = 8,
+          base_width = 5)
 
 ##########################################################################
 # Plotting fitness over time and epistasis coefficient over time         #
@@ -93,5 +94,5 @@ p_epistasis <- t_final %>%
 save_plot(paste(root_dir, "/evolving_q_sim/test_plots/epistasis_v_time_", base_name, ".png", sep = ""), 
           p_epistasis,
           # each individual subplot should have an aspect ratio of 1.3
-          base_height = 7,
-          base_width = 8)
+          base_height = 8,
+          base_width = 5)
