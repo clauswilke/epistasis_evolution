@@ -1,5 +1,5 @@
 ##########################################################################
-# This script plots evolutionary trajectories over time. It will produde #
+# This script plots evolutionary trajectories over time. It will produce #
 # two plots: mean fitness over replicate populations over time, and mean #
 # epistatis over replicate populations over time.                        #
 #                                                                        #  
@@ -103,7 +103,6 @@ p_fitness <- plot_grid(p_fitness1 + theme(legend.position = "none"),
 # save the plot
 save_plot(paste0(root_dir, "/evolving_q_sim/plots/fitness_v_time_", base_name, ".png", sep = ""), 
           p_fitness,
-          # each individual subplot should have an aspect ratio of 1.3
           base_height = 3,
           base_width = 10)
 
@@ -116,7 +115,7 @@ p_epistasis1 <- t_final %>% filter(q_prob == 0.0001) %>%
   ggplot(aes(x = time, y = mean_q, group = interaction(rep, q_start))) +
   geom_line(aes(color = factor(q_start))) +
   scale_y_continuous(name = "mean epistasis",
-                     limits = c(0, 2.7),
+                     limits = c(0, 2.6),
                      breaks = seq(0, 2.5, 0.5)) +
   scale_x_continuous(name = "time (millions)",
                      limits = c(0, 100200000),
@@ -130,7 +129,7 @@ p_epistasis2 <- t_final %>% filter(q_prob == 0.001) %>%
   ggplot(aes(x = time, y = mean_q, group = interaction(rep, q_start))) +
   geom_line(aes(color = factor(q_start))) +
   scale_y_continuous(name = "mean epistasis",
-                     limits = c(0, 2.7),
+                     limits = c(0, 2.6),
                      breaks = seq(0, 2.5, 0.5)) +
   scale_x_continuous(name = "time (millions)",
                      limits = c(0, 100200000),
@@ -144,7 +143,7 @@ p_epistasis3 <- t_final %>% filter(q_prob == 0.01) %>%
   ggplot(aes(x = time, y = mean_q, group = interaction(rep, q_start))) +
   geom_line(aes(color = factor(q_start))) +
   scale_y_continuous(name = "mean epistasis",
-                     limits = c(0, 2.7),
+                     limits = c(0, 2.6),
                      breaks = seq(0, 2.5, 0.5)) +
   scale_x_continuous(name = "time (millions)",
                      limits = c(0, 100200000),
@@ -166,6 +165,5 @@ p_epistasis <- plot_grid(p_epistasis1 + theme(legend.position = "none"),
 # save the plot
 save_plot(paste(root_dir, "/evolving_q_sim/plots/epistasis_v_time_", base_name, ".png", sep = ""), 
           p_epistasis,
-          # each individual subplot should have an aspect ratio of 1.3
-          base_height = 3,
-          base_width = 10)
+          base_height = 4,
+          base_width = 12)
