@@ -40,18 +40,23 @@ t <- read_csv(infile, col_types = cols(
 times_wanted <- seq(0, max(t$time), 100000)
 t %>% filter(time %in% times_wanted) -> t_final
 
-# make `rep` (number of replicates) and `q_start` (starting q) into a factor
-# this allows for grouping on two variables possible later
-t_final$rep <- factor(t_final$rep)
-t_final$q_start <- factor(t_final$q_start)
+# # make `rep` (number of replicates) and `q_start` (starting q) into a factor
+# # this allows for grouping on two variables possible later
+# t_final$rep <- factor(t_final$rep)
+# t_final$q_start <- factor(t_final$q_start)
+
+# calculate mean fitness per replicates
+t_final %>% group_by(q_start, q_prob_label, time) %>% 
+  summarise(mean_rep_fitness = mean(mean_fitness),
+            mean_rep_q = mean(mean_q)) -> t_final
 
 ##########################################################################
 # Plotting fitness over time and epistasis coefficient over time         #
 ##########################################################################
 
 # plot fitness over time for different q mutation rate and delta q
-p_fitness1 <- t_final %>% filter(q_prob == 0.0001) %>%
-  ggplot(aes(x = time, y = mean_fitness, group = interaction(rep, q_start))) +
+p_fitness1 <- t_final %>% filter(q_prob_label == "0.0001") %>%
+  ggplot(aes(x = time, y = mean_rep_fitness, group = q_start)) +
   geom_line(aes(color = factor(q_start))) +
   scale_y_continuous(name = "mean fitness",
                      limits = c(0, 1.00),
@@ -64,8 +69,8 @@ p_fitness1 <- t_final %>% filter(q_prob == 0.0001) %>%
   draw_text(x = 0, y = 0, hjust = 0, vjust = 0, text = "pr(q) = 0.0001, dq = 0.001", size = 12, fontface = 'bold') +
   scale_color_manual(values = c("#FDE333", "#C6E149", "#88D867", "#38C980", "#00B691", "#009F99", "#008599", "#00698F", "#324C7F", "#432D68", "#46024E"))
 
-p_fitness2 <- t_final %>% filter(q_prob == 0.001) %>%
-  ggplot(aes(x = time, y = mean_fitness, group = interaction(rep, q_start))) +
+p_fitness2 <- t_final %>% filter(q_prob_label == "0.001") %>%
+  ggplot(aes(x = time, y = mean_rep_fitness, group = q_start)) +
   geom_line(aes(color = factor(q_start))) +
   scale_y_continuous(name = "mean fitness",
                      limits = c(0, 1.00),
@@ -78,8 +83,8 @@ p_fitness2 <- t_final %>% filter(q_prob == 0.001) %>%
   draw_text(x = 0, y = 0, hjust = 0, vjust = 0, text = "pr(q) = 0.001, dq = 0.001", size = 12, fontface = 'bold') +
   scale_color_manual(values = c("#FDE333", "#C6E149", "#88D867", "#38C980", "#00B691", "#009F99", "#008599", "#00698F", "#324C7F", "#432D68", "#46024E"))
 
-p_fitness3 <- t_final %>% filter(q_prob == 0.01) %>%
-  ggplot(aes(x = time, y = mean_fitness, group = interaction(rep, q_start))) +
+p_fitness3 <- t_final %>% filter(q_prob_label == "0.01") %>%
+  ggplot(aes(x = time, y = mean_rep_fitness, group = q_start)) +
   geom_line(aes(color = factor(q_start))) +
   scale_y_continuous(name = "mean fitness",
                      limits = c(0, 1.00),
@@ -111,8 +116,8 @@ save_plot(paste0(root_dir, "/evolving_q_sim/plots/fitness_v_time_", base_name, "
 ##########################################################################
 
 # plot epistasis over time for different q mutation rate and delta q
-p_epistasis1 <- t_final %>% filter(q_prob == 0.0001) %>%
-  ggplot(aes(x = time, y = mean_q, group = interaction(rep, q_start))) +
+p_epistasis1 <- t_final %>% filter(q_prob_label == "0.0001") %>%
+  ggplot(aes(x = time, y = mean_rep_q, group = q_start)) +
   geom_line(aes(color = factor(q_start))) +
   scale_y_continuous(name = "mean epistasis",
                      limits = c(0, 2.6),
@@ -125,8 +130,8 @@ p_epistasis1 <- t_final %>% filter(q_prob == 0.0001) %>%
   draw_text(x = 0, y = 2.6, hjust = 0, vjust = 0, text = "pr(q) = 0.0001, dq = 0.001", size = 12, fontface = 'bold') +
   scale_color_manual(values = c("#FDE333", "#C6E149", "#88D867", "#38C980", "#00B691", "#009F99", "#008599", "#00698F", "#324C7F", "#432D68", "#46024E"))
 
-p_epistasis2 <- t_final %>% filter(q_prob == 0.001) %>%
-  ggplot(aes(x = time, y = mean_q, group = interaction(rep, q_start))) +
+p_epistasis2 <- t_final %>% filter(q_prob_label == "0.001") %>%
+  ggplot(aes(x = time, y = mean_rep_q, group = q_start)) +
   geom_line(aes(color = factor(q_start))) +
   scale_y_continuous(name = "mean epistasis",
                      limits = c(0, 2.6),
@@ -139,8 +144,8 @@ p_epistasis2 <- t_final %>% filter(q_prob == 0.001) %>%
   draw_text(x = 0, y = 2.6, hjust = 0, vjust = 0, text = "pr(q) = 0.001, dq = 0.001", size = 12, fontface = 'bold') +
   scale_color_manual(values = c("#FDE333", "#C6E149", "#88D867", "#38C980", "#00B691", "#009F99", "#008599", "#00698F", "#324C7F", "#432D68", "#46024E"))
 
-p_epistasis3 <- t_final %>% filter(q_prob == 0.01) %>%
-  ggplot(aes(x = time, y = mean_q, group = interaction(rep, q_start))) +
+p_epistasis3 <- t_final %>% filter(q_prob_label == "0.01") %>%
+  ggplot(aes(x = time, y = mean_rep_q, group = q_start)) +
   geom_line(aes(color = factor(q_start))) +
   scale_y_continuous(name = "mean epistasis",
                      limits = c(0, 2.6),
