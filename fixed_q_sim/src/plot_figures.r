@@ -276,9 +276,9 @@ p_qmin <- ggplot(df, aes(x = s, y = qmin, color = factor(Ne))) +
   geom_line(size = 1.1) + 
   geom_point(data = num_min_q, aes(x = s, y = qmin, color = factor(n))) +
   geom_hline(yintercept = 1) +
-  scale_y_continuous(breaks=seq(0,2,0.5)) +
+  scale_y_continuous(breaks=seq(0,2.5,0.5)) +
   scale_x_log10(breaks=c(0.0001, 0.001, 0.01, 0.1), labels = c("0.0001", "0.001", "0.01", "0.1")) + 
-  coord_cartesian(ylim=c(0,2),xlim=c(0.000099999,0.1)) +
+  coord_cartesian(ylim=c(0,2.6),xlim=c(0.000099999,0.1)) +
   xlab('s') +
   ylab('q*') +
   scale_color_manual(values = c("#9AC9D6", "#6E7FB3", "#6D0079")) +
