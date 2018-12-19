@@ -184,7 +184,7 @@ save_plot("../plots/fitness_vs_epistasis.png", p,
 #########################################################################
 # a function that calculates Q* (min of Q)
 f <- function(L, s, q, k){exp(-s*k**q)}
-p_num <- function(L, s, N, q, k){choose(L, k)*f(L, s, q, k)**(2*N-1)}
+p_num <- function(L, s, N, q, k){choose(L, k)*f(L, s, q, k)**(2*N-2)}
 Z <- function(L, s, N, q){sum(p_num(L, s, N, q, 0:L))}
 fave <- function(L, s, N, q){sum(f(L, s, q, 0:L)*p_num(L, s, N, q, 0:L))/Z(L, s, N, q)}
 
@@ -214,7 +214,7 @@ df %>% filter(formula == "full_model") -> df1
 df %>% filter(formula == "no_selection") -> df2
 df %>% filter(formula == "limited_drift") -> df3
 
-name <- data.frame(x = c(1.8, 1.45, 1), y = c(0.38, 0.8, 0.25) , model = c("Full model", "Selection driven", "Drift driven"))
+name <- data.frame(x = c(1.76, 1.45, 1), y = c(0.34, 0.8, 0.25) , model = c("Full model", "Selection driven", "Drift driven"))
 
 # Make a plot of the 3 models
 p_models <- ggplot() +
@@ -252,7 +252,7 @@ df <- rbind(df1, df2, df3)
 
 # a function that calculates Q* (min of Q)
 f <- function(L, s, q, k){exp(-s*k**q)}
-p_num <- function(L, s, N, q, k){choose(L, k)*f(L, s, q, k)**(2*N-1)}
+p_num <- function(L, s, N, q, k){choose(L, k)*f(L, s, q, k)**(2*N-2)}
 Z <- function(L, s, N, q){sum(p_num(L, s, N, q, 0:L))}
 fave <- function(L, s, N, q){sum(f(L, s, q, 0:L)*p_num(L, s, N, q, 0:L))/Z(L, s, N, q)}
 
