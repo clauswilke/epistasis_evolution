@@ -21,6 +21,7 @@ class population:
 
         self.initialize(k_start)
     
+    # replication occurs according to a Moran process
     def replicate(self):
         prob_repl = self.f*self.n_k/np.sum(self.f*self.n_k) #probability of being replicated based on the number of individuals within a mutation class and the fitness of the mutation class
         self.n_k = np.random.multinomial(self.N, prob_repl) #draws offspring based on the probability of replication for each mutation class
