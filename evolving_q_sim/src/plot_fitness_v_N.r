@@ -37,7 +37,7 @@ eps <- 1-q
 s <- 0.01
 an_f1 <-w_vs_Ne(eps, 100, s, 0, 1000) %>% mutate(q = q)
 
-q <- 2
+q <- 1.5
 eps <- 1-q
 s <- 0.01
 an_f2 <-w_vs_Ne(eps, 100, s, 0, 1000) %>% mutate(q = q)
@@ -56,12 +56,12 @@ p <- ggplot(an_f, aes(x = Ne, y = w_ave, color = factor(q))) +
   xlab('N') +
   ylab('Mean fitness') +
   scale_x_log10(limits = c(1, 1000), breaks = c(1, 10, 100, 1000), labels = c("1", "10", "100", "1000")) +
-  scale_y_continuous(limits = c(0.5, 1)) +
+  scale_y_continuous(limits = c(0, 1)) +
   theme(axis.title = element_text(size = 14),
         axis.text = element_text(size = 12),
         legend.text = element_text(size = 11),
         legend.title = element_text(size = 12))
 
 # save the plot
-save_plot(paste0(root_dir, "/evolving_q_sim/plots/fitness_v_N_s", s, "_B.png"), 
+save_plot(paste0(root_dir, "/evolving_q_sim/plots/fitness_v_N_s", s, "_A.png"), 
           p)
