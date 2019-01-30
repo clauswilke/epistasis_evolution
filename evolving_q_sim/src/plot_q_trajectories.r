@@ -38,7 +38,7 @@ t <- read_csv(infile, col_types = cols(
 
 # extract output for less time points to reduce the data frame
 times_wanted <- seq(0, max(t$time), 100000)
-t %>% filter(time %in% times_wanted) -> t_final
+t %>% filter(time %in% times_wanted) -> t_filtered
 
 # # make `rep` (number of replicates) and `q_start` (starting q) into a factor
 # # this allows for grouping on two variables possible later
@@ -46,16 +46,16 @@ t %>% filter(time %in% times_wanted) -> t_final
 # t_final$q_start <- factor(t_final$q_start)
 
 # calculate mean fitness per replicates
-t_final %>% group_by(q_start, q_prob_label, time) %>% 
+t_filtered %>% group_by(q_start, q_prob_label, time) %>% 
   summarise(mean_rep_fitness = mean(mean_fitness),
-            mean_rep_q = mean(mean_q)) -> t_final
+            mean_rep_q = mean(mean_q)) -> t_summary
 
 ##########################################################################
-# Plotting fitness over time and epistasis coefficient over time         #
+# Plotting fitness over time 
 ##########################################################################
 
 # plot fitness over time for different q mutation rate and delta q
-p_fitness1 <- t_final %>% filter(q_prob_label == "0.0001") %>%
+p_fitness1 <- t_summary %>% filter(q_prob_label == "0.0001") %>%
   ggplot(aes(x = time, y = mean_rep_fitness, group = q_start)) +
   geom_line(aes(color = factor(q_start))) +
   scale_y_continuous(name = "mean fitness",
@@ -69,7 +69,7 @@ p_fitness1 <- t_final %>% filter(q_prob_label == "0.0001") %>%
   draw_text(x = 0, y = 0, hjust = 0, vjust = 0, text = "pr(q) = 0.0001, dq = 0.001", size = 12, fontface = 'bold') +
   scale_color_manual(values = c("#FDE333", "#C6E149", "#88D867", "#38C980", "#00B691", "#009F99", "#008599", "#00698F", "#324C7F", "#432D68", "#46024E"))
 
-p_fitness2 <- t_final %>% filter(q_prob_label == "0.001") %>%
+p_fitness2 <- t_summary %>% filter(q_prob_label == "0.001") %>%
   ggplot(aes(x = time, y = mean_rep_fitness, group = q_start)) +
   geom_line(aes(color = factor(q_start))) +
   scale_y_continuous(name = "mean fitness",
@@ -83,7 +83,7 @@ p_fitness2 <- t_final %>% filter(q_prob_label == "0.001") %>%
   draw_text(x = 0, y = 0, hjust = 0, vjust = 0, text = "pr(q) = 0.001, dq = 0.001", size = 12, fontface = 'bold') +
   scale_color_manual(values = c("#FDE333", "#C6E149", "#88D867", "#38C980", "#00B691", "#009F99", "#008599", "#00698F", "#324C7F", "#432D68", "#46024E"))
 
-p_fitness3 <- t_final %>% filter(q_prob_label == "0.01") %>%
+p_fitness3 <- t_summary %>% filter(q_prob_label == "0.01") %>%
   ggplot(aes(x = time, y = mean_rep_fitness, group = q_start)) +
   geom_line(aes(color = factor(q_start))) +
   scale_y_continuous(name = "mean fitness",
@@ -112,11 +112,11 @@ save_plot(paste0(root_dir, "/evolving_q_sim/plots/fitness_v_time_", base_name, "
           base_width = 10)
 
 ##########################################################################
-# Plotting fitness over time and epistasis coefficient over time         #
+# Plotting epistasis over time         
 ##########################################################################
 
 # plot epistasis over time for different q mutation rate and delta q
-p_epistasis1 <- t_final %>% filter(q_prob_label == "0.0001") %>%
+p_epistasis1 <- t_summary %>% filter(q_prob_label == "0.0001") %>%
   ggplot(aes(x = time, y = mean_rep_q, group = q_start)) +
   geom_line(aes(color = factor(q_start))) +
   scale_y_continuous(name = "mean epistasis",
@@ -130,7 +130,7 @@ p_epistasis1 <- t_final %>% filter(q_prob_label == "0.0001") %>%
   draw_text(x = 0, y = 2.6, hjust = 0, vjust = 0, text = "pr(q) = 0.0001, dq = 0.001", size = 12, fontface = 'bold') +
   scale_color_manual(values = c("#FDE333", "#C6E149", "#88D867", "#38C980", "#00B691", "#009F99", "#008599", "#00698F", "#324C7F", "#432D68", "#46024E"))
 
-p_epistasis2 <- t_final %>% filter(q_prob_label == "0.001") %>%
+p_epistasis2 <- t_summary %>% filter(q_prob_label == "0.001") %>%
   ggplot(aes(x = time, y = mean_rep_q, group = q_start)) +
   geom_line(aes(color = factor(q_start))) +
   scale_y_continuous(name = "mean epistasis",
@@ -144,7 +144,7 @@ p_epistasis2 <- t_final %>% filter(q_prob_label == "0.001") %>%
   draw_text(x = 0, y = 2.6, hjust = 0, vjust = 0, text = "pr(q) = 0.001, dq = 0.001", size = 12, fontface = 'bold') +
   scale_color_manual(values = c("#FDE333", "#C6E149", "#88D867", "#38C980", "#00B691", "#009F99", "#008599", "#00698F", "#324C7F", "#432D68", "#46024E"))
 
-p_epistasis3 <- t_final %>% filter(q_prob_label == "0.01") %>%
+p_epistasis3 <- t_summary %>% filter(q_prob_label == "0.01") %>%
   ggplot(aes(x = time, y = mean_rep_q, group = q_start)) +
   geom_line(aes(color = factor(q_start))) +
   scale_y_continuous(name = "mean epistasis",
@@ -170,5 +170,43 @@ p_epistasis <- plot_grid(p_epistasis1 + theme(legend.position = "none"),
 # save the plot
 save_plot(paste(root_dir, "/evolving_q_sim/plots/epistasis_v_time_", base_name, ".png", sep = ""), 
           p_epistasis,
+          base_height = 4,
+          base_width = 12)
+
+##########################################################################
+# Plotting epistasis over time (2 trajectories)
+##########################################################################
+
+# filter for all trajectories that start at 1.8, 1.6, or 1.4
+t_filtered %>% filter(q_prob_label == "0.001",
+                      q_start == 1.8 |
+                        q_start == 1.6 |
+                        q_start == 1.4) -> t_subset1
+
+# plot epistasis over time for different q mutation rate and delta q
+t_summary %>% filter(q_prob_label == "0.001",
+                     q_start == 1.8 |
+                       q_start == 1.6 |
+                       q_start == 1.4) -> t_subset2
+
+p_epistasis1 <- ggplot() +
+  geom_line(data = t_subset1, aes(x = time, y = mean_q, group = rep), color = "#7d7d7d", size = 0.3) +
+  geom_line(data = t_subset2, aes(x = time, y = mean_rep_q, group = q_start, color = factor(q_start)), size = 1.2) +
+  scale_y_continuous(name = "epistasis",
+                     limits = c(0, 2.6),
+                     breaks = seq(0, 2.5, 0.5)) +
+  scale_x_continuous(name = "time (millions)",
+                     limits = c(0, 100200000),
+                     breaks = seq(0, 100200000, 25000000),
+                     labels = c("0", "25", "50", "75", "100")) +
+  background_grid(major = "xy", minor = "y") +
+  facet_grid(~q_start) +
+  scale_color_manual(values = c("#00698F", "#324C7F", "#432D68")) +
+  theme(legend.position = "none")
+print(p_epistasis1)
+
+# save the plot
+save_plot(paste(root_dir, "/evolving_q_sim/plots/epistasis_v_time_", base_name, "_subset.png", sep = ""), 
+          p_epistasis1,
           base_height = 4,
           base_width = 12)
