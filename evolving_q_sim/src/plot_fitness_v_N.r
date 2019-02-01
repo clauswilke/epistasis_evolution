@@ -57,12 +57,12 @@ p <- ggplot(an_f, aes(x = Ne, y = w_ave, color = factor(q))) +
   xlab('N') +
   ylab('Mean fitness') +
   scale_x_log10(limits = c(1, 1000), breaks = c(1, 10, 100, 1000), labels = c("1", "10", "100", "1000")) +
-  scale_y_continuous(limits = c(0, 1)) +
+  scale_y_continuous(limits = c(0.3, 1)) +
   theme(axis.title = element_text(size = 14),
         axis.text = element_text(size = 12),
         legend.text = element_text(size = 11),
         legend.title = element_text(size = 12))
 
 # save the plot
-save_plot(paste0(root_dir, "/evolving_q_sim/plots/fitness_v_N_s", s, "_A.png"), 
+save_plot(paste0(root_dir, "/evolving_q_sim/plots/fitness_v_N_s", s, ".png"), 
           p)

@@ -49,14 +49,26 @@ rbind(an_f1, an_f2, an_f3) -> an_f
 
 # plot numerically calculated fitness for different N and q
 p <- ggplot(an_f, aes(x = q,y = w_ave)) +
-  geom_line(aes(color = factor(Ne)), size = 1.2) +
+  geom_line(
+    aes(color = factor(Ne)), 
+    size = 1.2, 
+    lineend = "round", 
+    linejoin = "round"
+  ) +
   scale_color_manual(values = c("#f67280", "#c06c84", "#6c5b7c")) +
   scale_y_continuous(breaks = seq(0, 1, 0.2)) +
-  coord_cartesian(ylim = c(0, 1)) +
+  coord_cartesian(ylim = c(0.3, 1)) +
   xlab('q') +
   ylab('Mean fitness') +
   guides(col = guide_legend(title = "N",reverse = TRUE))
 
 # save the plot
-save_plot(paste0(root_dir, "/evolving_q_sim/plots/fitness_v_q_s", s, ".png"), 
-          p)
+save_plot(
+  paste0(
+    root_dir, 
+    "/evolving_q_sim/plots/fitness_v_q_s", 
+    s,
+    ".png"
+  ), 
+  p
+)
