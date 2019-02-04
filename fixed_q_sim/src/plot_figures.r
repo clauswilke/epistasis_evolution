@@ -218,9 +218,25 @@ name <- data.frame(x = c(1.76, 1.45, 1), y = c(0.34, 0.8, 0.25) , model = c("Ful
 
 # Make a plot of the 3 models
 p_models <- ggplot() +
-  geom_line(data = df3, aes(q, f_ave, color = formula), size = 1.1) +
-  geom_line(data = df2, aes(q, f_ave, color = formula), size = 1.1) +
-  geom_line(data = df1, aes(q, f_ave, color = formula), size = 1.1) +
+  geom_line(
+    data = df3, 
+    aes(q, f_ave, color = formula), 
+    size = 1,
+    linetype = "dotted",
+    color = "#955804",
+    lineend = "butt") +
+  geom_line(
+    data = df2, 
+    aes(q, f_ave, color = formula), 
+    size = 1.09,
+    linetype = "dashed",
+    color = "#3f72af",
+    lineend = "round") +
+  geom_line(
+    data = df1, 
+    aes(q, f_ave, color = formula), 
+    size = 1.1,
+    lineend = "round") +
   geom_text(data = name, aes(x, y, label = model)) +
   xlab('q') +
   ylab('Mean fitness') +
@@ -273,7 +289,7 @@ for (i in 1:25) {
 }
 
 p_qmin <- ggplot(df, aes(x = s, y = qmin, color = factor(Ne))) +
-  geom_line(size = 1.1) + 
+  geom_line(size = 1.1, lineend = "round") + 
   geom_point(data = num_min_q, aes(x = s, y = qmin, color = factor(n))) +
   geom_hline(yintercept = 1) +
   scale_y_continuous(breaks=seq(0,2.5,0.5)) +
