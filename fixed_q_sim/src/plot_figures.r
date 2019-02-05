@@ -22,8 +22,7 @@ w_vs_eps <- function(Ne, L, s, epsstart, epsstop, epssteps = 0.01)
 }
 
 #########################################################################
-### Figure 1:                                                         ###
-### Epistasis vs Fitness                                              ###
+### Epistasis vs Fitness: theoretically derived and simulated fitness ###
 #########################################################################
 # import simulation results
 t_N100 <- read_csv("../processed_results/varying_eps_N100_max3.csv")
@@ -179,8 +178,7 @@ save_plot("../plots/fitness_vs_epistasis.png", p,
           base_width=4)
 
 #########################################################################
-### Figure 2:                                                         ###
-### Theoretical calculations of Q*                                    ###
+### Two regimes: selection driven and drift driven                    ###
 #########################################################################
 # a function that calculates Q* (min of Q)
 f <- function(L, s, q, k){exp(-s*k**q)}
@@ -228,7 +226,7 @@ p_models <- ggplot() +
   geom_line(
     data = df2, 
     aes(q, f_ave, color = formula), 
-    size = 1.09,
+    size = 1,
     linetype = "dashed",
     color = "#3f72af",
     lineend = "round") +
@@ -243,6 +241,15 @@ p_models <- ggplot() +
   draw_text(x = 0, y =0, hjust = 0, vjust = 0, text = "N = 10, s = 0.01", size = 12, fontface = 'bold') +
   theme(plot.title = element_text(hjust = 0), legend.position="none") +
   scale_color_manual(values = c("#000000", "#979797", "#979797"))
+
+save_plot("../plots/two_regimes.png", 
+          p_models, 
+          # each individual subplot should have an aspect ratio of 1.3
+          base_aspect_ratio = 1.2)
+
+#########################################################################
+### Theoretical calculations of Q*                                    ###
+#########################################################################
 
 # predicted Q minimum (Q*)
 qmin <- function(N, L, s){log(L*log(2)/(2*s*N))/log(L/2)}
@@ -300,26 +307,10 @@ p_qmin <- ggplot(df, aes(x = s, y = qmin, color = factor(Ne))) +
   scale_color_manual(values = c("#9AC9D6", "#6E7FB3", "#6D0079")) +
   guides(col = guide_legend(title="N"))
 
-# extract the legend form the first sub-figure
-grobs <- ggplotGrob(p_qmin)$grobs
-legend <- grobs[[which(sapply(grobs, function(x) x$name) == "guide-box")]]
-
-# arrange subfigures
-prow <- plot_grid(p_models, p_qmin + theme(legend.position = "none"),
-                  labels=c("A","B"),
-                  align = 'vh',
-                  hjust = -1,
-                  ncol=2,
-                  nrow=1)
-
-p <- plot_grid(prow, legend, rel_widths = c(2, .3))
-
-save_plot("../plots/minimum_q_vs_selection.png", p,
-          ncol = 2, # we're saving a grid plot of 2 columns
-          nrow = 1, # and 2 rows
+save_plot("../plots/minimum_q_vs_selection.png", 
+          p_qmin, 
           # each individual subplot should have an aspect ratio of 1.3
-          base_height=4,
-          base_width=5)
+          base_aspect_ratio = 1.3)
 
 #########################################################################
 ### Figure 3:                                                         ###
