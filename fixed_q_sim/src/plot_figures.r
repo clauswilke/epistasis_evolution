@@ -313,7 +313,6 @@ save_plot("../plots/minimum_q_vs_selection.png",
           base_aspect_ratio = 1.3)
 
 #########################################################################
-### Figure 3:                                                         ###
 ### Simulations with high mutation rate and no selection model        ###
 #########################################################################
 # evaluate fitness vs Q for the formula that's doesn't consider selection.
