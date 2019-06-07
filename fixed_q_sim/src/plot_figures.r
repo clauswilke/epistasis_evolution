@@ -47,12 +47,12 @@ an_f <- w_vs_eps(pop_size, L, s, -1, 1) %>% mutate(q=1-eps)
 p_N10_s0.01 <- ggplot()+ 
   stat_summary(data = f,
                inherit.aes = FALSE,
-               aes(x = q, y = mean_f_over_time,color=factor(mu_prob)),
+               aes(x = q, y = mean_f_over_time, color=factor(mu_prob)),
                fun.y = mean,
                fun.ymin = function(x) mean(x) - sd(x)/sqrt(length(x)),
                fun.ymax = function(x) mean(x) + sd(x)/sqrt(length(x)),
                geom = "pointrange",
-               size=0.4)+
+               size = 0.4) +
   geom_line(data = an_f, aes(x = q, y = w_ave))+
   draw_text(x = 0, y =0, hjust = 0, vjust = 0, text = "N = 10, s = 0.01", size = 12, fontface = 'bold')+
   scale_y_continuous(breaks=seq(0,1,0.2))+
@@ -154,7 +154,7 @@ p_N100_s0.001 <- ggplot()+
   scale_color_manual(labels= c("0.0001", "0.001", "0.01", "0.1"), values = c("#F3DB7E", "#F5BE6C", "#E4945E", "#C05E4F"))
 
 # extract the legend form the first sub-figure
-grobs <- ggplotGrob(p_N10_s0.01)$grobs
+grobs <- ggplotGrob(p_N100_s0.001)$grobs
 legend <- grobs[[which(sapply(grobs, function(x) x$name) == "guide-box")]]
 
 # arrange subfigures
