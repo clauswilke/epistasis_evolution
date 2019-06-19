@@ -1,27 +1,41 @@
-Code to test and build upon the results of Tenaillon et al., PLOS ONE
-2017.
-<a href="http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0000217" class="uri">http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0000217</a>
-
 Directory structure
 -------------------
 
-    -- complexity_evolution.Rproj
-    -- evolving_q_sim
-       |__plots
-       |__processed_results
-       |__raw_results
-       |__src
-       |__test_plots
-       |__test_run
-    -- fixed_q_sim
-       |__bitstring_model.R
-       |__equilib_test
-       |__mutation_matrix
-       |__plots
-       |__pop_sim.html
-       |__pop_sim.Rmd
-       |__processed_results
-       |__src
-       |__varying_eps_sim
-    -- LICENSE
-    -- README.md
+The following tree demonstrates the files that are contained in this
+repository. This section is meant to give you an overview of the
+information contained here. The following section will explain in detail
+the content of each folder.
+
+    ## .
+    ## ├── LICENSE
+    ## ├── README.Rmd
+    ## ├── README.md
+    ## ├── complexity_evolution.Rproj
+    ## ├── evolving_q_sim
+    ## │   ├── plots
+    ## │   ├── processed_results
+    ## │   ├── raw_results
+    ## │   ├── src
+    ## │   ├── test_plots
+    ## │   └── test_run
+    ## └── fixed_q_sim
+    ##     ├── equilib_test
+    ##     ├── mutation_matrix
+    ##     ├── plots
+    ##     ├── pop_sim.Rmd
+    ##     ├── pop_sim.html
+    ##     ├── processed_results
+    ##     ├── src
+    ##     └── varying_eps_sim
+
+This repo is broken down into two main sub-directories,`evolving_q_sim`
+and `fixed_q_sim`. The sub-directory `evolving_q_sim` contains code to
+simulate populations that can evolve epistasic interactions among
+different genotypes (denoted as `q` throughout), and the sub-directory
+`fixed_q_sim` contains code to simulate populations that cannot evovle
+epistatic interactions. The latter maintains the same `q` throughout the
+time of a simulation.
+
+Each of these sub-directories contain folders `src` and `plots`. Each
+`src` folder contains code to run simulations and to analyze simulatio
+results. Folder `plots` contains figures made for the paper.
