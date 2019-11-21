@@ -10,21 +10,14 @@ the content of each folder.
     ## ├── LICENSE
     ## ├── README.Rmd
     ## ├── README.md
-    ## ├── complexity_evolution.Rproj
+    ## ├── epistasis_evolution.Rproj
     ## ├── evolving_q_sim
     ## │   ├── plots
-    ## │   ├── processed_results
-    ## │   ├── raw_results
-    ## │   ├── src
-    ## │   ├── test_plots
-    ## │   └── test_run
+    ## │   └── src
     ## └── fixed_q_sim
-    ##     ├── equilib_test
     ##     ├── mutation_matrix
-    ##     ├── plots
     ##     ├── pop_sim.Rmd
     ##     ├── pop_sim.html
-    ##     ├── processed_results
     ##     ├── src
     ##     └── varying_eps_sim
 
@@ -32,10 +25,10 @@ This repo is broken down into two main sub-directories,`evolving_q_sim`
 and `fixed_q_sim`. The sub-directory `evolving_q_sim` contains code to
 simulate populations that can evolve epistasic interactions among
 different genotypes (denoted as `q` throughout), and the sub-directory
-`fixed_q_sim` contains code to simulate populations that cannot evovle
+`fixed_q_sim` contains code to simulate populations that cannot evolve
 epistatic interactions. The latter maintains the same `q` throughout the
 time of a simulation.
 
-Each of these sub-directories contain folders `src` and `plots`. Each
-`src` folder contains code to run simulations and to analyze simulatio
-results. Folder `plots` contains figures made for the paper.
+Each of these sub-directories contains a folder `src` that contains code
+to run simulations and to analyze simulatio results. A folder `plots`
+contains figures made for the paper.
