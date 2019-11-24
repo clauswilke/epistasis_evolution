@@ -1,0 +1,94 @@
+```{r global_options, include=FALSE}
+library(knitr)
+library(tidyverse)
+library(cowplot)
+library(colorspace)
+library(here)
+opts_chunk$set(fig.align="center", fig.height=3.71, fig.width=1.618*3.71)
+```
+
+# Critical epistasis value vs selection coefficient
+
+Functions to calculate the approximated qstar and the true qstar (obtained by minimizing the equation for mean fitness).
+
+```{r}
+## calculate predicted fitness
+predict_mean_fitness <- function(N, L, s, q)
+{
+  k <- c(0:L)
+  f <- exp(-s*k^q)	
+  p_k <- (f^(2*N-2)*choose(L, k))/sum(f^(2*N-2)*choose(L, k))
+  sum(f*p_k)
+}
+
+## calculate true qstar
+calc_qstar <- function(N = 100, L = 100, s = 0.001) {
+  f <- function(q) {
+    predict_mean_fitness(N, L, s, q)
+  }
+  
+  out <- optimize(f, c(-4, 4))
+  out$minimum
+}
+
+## calculate approx qstar
+calc_qstar_approx <- function(N = 100, L = 100, s = 0.001) {
+  log((L/(s*(2*N-2)))*log(2))/log(L/2)
+}
+```
+
+Example calculation of true and approximate qstar, for default values.
+```{r}
+calc_qstar()
+calc_qstar_approx()
+```
+
+Plot of approximate qstar (solid lines) and true qstar (points).
+
+```{r}
+L <- 100
+
+df_qstar_approx <- tibble(i = seq(-4.2, -.8, by = .02)) %>%
+  mutate(
+    s = 10^i,
+    `10` = calc_qstar_approx(10, L, s),
+    `100` = calc_qstar_approx(100, L, s),
+    `1000` = calc_qstar_approx(1000, L, s)
+  ) %>%
+  select(-i) %>%
+  pivot_longer(-s, names_to = "N", values_to = "qstar_approx")
+
+df_qstar_true <- tibble(i = seq(-4, -1, by = .2)) %>%
+  mutate(
+    s = 10^i,
+    `10` = map_dbl(s, function(s) calc_qstar(10, L, s)),
+    `100` = map_dbl(s, function(s) calc_qstar(100, L, s)),
+    `1000` = map_dbl(s, function(s) calc_qstar(1000, L, s))
+  ) %>%
+  select(-i) %>%
+  pivot_longer(-s, names_to = "N", values_to = "qstar") %>%
+  filter(qstar > 0.01)
+
+p <- ggplot(df_qstar_approx, aes(s, qstar_approx, color = N)) +
+  geom_hline(yintercept = 1) +
+  geom_line(size = 1, na.rm = TRUE) +
+  geom_point(data = df_qstar_true, aes(y = qstar), na.rm = TRUE) +
+  scale_x_log10(
+    name = "s",
+    limits = c(7.1e-5, .14),
+    breaks = c(0.0001, 0.001, 0.01, 0.1),
+    labels = c("0.0001", "0.001", "0.01", "0.1"),
+    expand = c(0, 0)
+  ) +
+  scale_y_continuous(
+    name = "q*",
+    limits = c(-.125, 2.625),
+    breaks = seq(0, 2.5, by = 0.5),
+    expand = c(0, 0)
+  ) +
+  scale_color_manual(values = darken(c("#b3cde3", "#8c96c6", "#88419d"), .2)) +
+  theme_cowplot()
+p
+
+save_plot(here("fixed_q_sim", "plots", "qstar.pdf"), p)
+```
