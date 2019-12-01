@@ -16,8 +16,11 @@ the content of each folder.
     ## │   └── src
     ## └── fixed_q_sim
     ##     ├── mutation_matrix
+    ##     ├── plots
     ##     ├── pop_sim.Rmd
     ##     ├── pop_sim.html
+    ##     ├── qstar.Rmd
+    ##     ├── qstar.html
     ##     ├── src
     ##     └── varying_eps_sim
 
