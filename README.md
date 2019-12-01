@@ -33,5 +33,5 @@ epistatic interactions. The latter maintains the same `q` throughout the
 time of a simulation.
 
 Each of these sub-directories contains a folder `src` that contains code
-to run simulations and to analyze simulatio results. A folder `plots`
+to run simulations and to analyze simulation results. A folder `plots`
 contains figures made for the paper.
